@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Case Study Frameworks | Digital Marketing Playbooks — Mizanul Islam</title>
+    <meta name="description" content="Authentic digital marketing case study frameworks from basics to advanced — Meta Ads, CAPI, CRO, Google Ads. Educational playbooks by Mizanul Islam. Not fabricated client results.">
+    <meta name="author" content="Mizanul Islam">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cs-hero {
+            padding-top: 140px;
+            padding-bottom: 40px;
+            text-align: center;
+            background: radial-gradient(circle at top center, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+        }
+        .cs-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.2; }
+        .cs-hero p { max-width: 680px; margin: 16px auto 0; color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
+        .honesty-banner {
+            max-width: 800px; margin: 0 auto 40px;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 12px; padding: 18px 22px;
+            font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; text-align: left;
+        }
+        .honesty-banner strong { color: var(--primary); }
+        .cs-section { padding: 20px 0 80px; }
+        .level-label {
+            display: inline-block; font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            padding: 4px 10px; border-radius: 6px; margin-bottom: 10px;
+        }
+        .level-basic { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+        .level-intermediate { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+        .level-advanced { background: rgba(16, 185, 129, 0.15); color: var(--primary); }
+        .cs-grid { display: grid; gap: 24px; }
+        @media (min-width: 800px) { .cs-grid { grid-template-columns: repeat(2, 1fr); } }
+        .cs-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: 16px; padding: 28px; display: flex; flex-direction: column;
+            transition: var(--transition);
+        }
+        .cs-card:hover {
+            border-color: rgba(16, 185, 129, 0.35); transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+        }
+        .cs-card h3 { font-size: 1.2rem; margin: 0 0 10px; color: var(--text-main); }
+        .cs-card .cs-desc { color: var(--text-muted); font-size: 0.92rem; line-height: 1.65; margin: 0 0 16px; flex-grow: 1; }
+        .cs-steps { list-style: none; padding: 0; margin: 0 0 16px; }
+        .cs-steps li {
+            font-size: 0.86rem; color: var(--text-muted);
+            padding: 6px 0 6px 18px; position: relative; line-height: 1.5;
+        }
+        .cs-steps li::before {
+            content: ''; position: absolute; left: 0; top: 12px;
+            width: 6px; height: 6px; border-radius: 50%; background: var(--primary);
+        }
+        .cs-kpis { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid var(--border-color); }
+        .cs-kpi {
+            font-size: 0.75rem; font-weight: 600; color: var(--text-muted);
+            background: rgba(255,255,255,0.04); border: 1px solid var(--border-color);
+            padding: 4px 10px; border-radius: 6px;
+        }
+        .section-divider { text-align: center; margin: 50px 0 30px; }
+        .section-divider h2 { font-size: 1.5rem; margin: 8px 0 0; }
+        .cs-cta {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, var(--bg-card) 60%);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 18px; padding: 40px 28px; text-align: center; margin-top: 50px;
+        }
+        .cs-cta h2 { font-size: 1.5rem; margin: 0 0 12px; }
+        .cs-cta p { color: var(--text-muted); max-width: 480px; margin: 0 auto 22px; line-height: 1.65; }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="site-header" id="siteHeader" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
+            <nav class="main-nav desktop-only" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="index.html#tools" class="nav-link">Tools</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="case-studies.html" class="nav-link active">Case Studies</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="consultation.html" class="btn-nav">Book Strategy Call</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+        <div class="drawer-header">
+            <a href="index.html" class="brand-logo">Mizanul<span> Islam</span></a>
+            <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+        </div>
+        <nav class="drawer-nav" id="drawerNav">
+            <ul>
+                <li><a href="services.html" class="drawer-link">Services</a></li>
+                <li><a href="index.html#tools" class="drawer-link">Tools</a></li>
+                <li><a href="about.html" class="drawer-link">About</a></li>
+                <li><a href="case-studies.html" class="drawer-link">Case Studies</a></li>
+                <li><a href="blog.html" class="drawer-link">Blog</a></li>
+                <li><a href="consultation.html" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main id="main-content" role="main">
+        <section class="cs-hero">
+            <div class="container">
+                <span class="badge">Educational Playbooks</span>
+                <h1>Case Study <span class="highlight">Frameworks</span></h1>
+                <p>Structured approaches from basic tracking to advanced scaling — how I think about paid growth. Not fabricated client win reports.</p>
+            </div>
+        </section>
+
+        <section class="cs-section">
+            <div class="container">
+                <div class="honesty-banner">
+                    <strong>Authenticity note:</strong> I am early in client delivery. These are <strong>method frameworks</strong> and educational walkthroughs — not claimed results from named clients. When real projects complete (with permission), measurable outcomes will be published here. Until then, judge the process, not invented ROAS numbers.
+                </div>
+
+                <div class="section-divider">
+                    <span class="badge">Level 1</span>
+                    <h2>Basics — Foundation Before Spend</h2>
+                </div>
+                <div class="cs-grid">
+                    <article class="cs-card">
+                        <span class="level-label level-basic">Basic</span>
+                        <h3>Pixel + Event Map Before First Ad</h3>
+                        <p class="cs-desc">Most wasted spend starts with broken or incomplete tracking. Map events before you open the ad account.</p>
+                        <ul class="cs-steps">
+                            <li>Install Meta Pixel + base pageview</li>
+                            <li>Define Lead / Purchase / AddToCart events</li>
+                            <li>Test with Meta Events Manager (Test Events)</li>
+                            <li>Confirm thank-you page fires once</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">Event fire rate</span>
+                            <span class="cs-kpi">Duplicate check</span>
+                            <span class="cs-kpi">Test mode pass</span>
+                        </div>
+                    </article>
+                    <article class="cs-card">
+                        <span class="level-label level-basic">Basic</span>
+                        <h3>UTM Hygiene for Every Campaign</h3>
+                        <p class="cs-desc">Without clean UTMs, you cannot tell which ad or channel drove the lead. Standardize naming from day one.</p>
+                        <ul class="cs-steps">
+                            <li>utm_source = platform (facebook, google)</li>
+                            <li>utm_medium = cpc / paid_social</li>
+                            <li>utm_campaign = offer or launch name</li>
+                            <li>Store links in a sheet; never improvise only in Ads Manager</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">Attribution clarity</span>
+                            <span class="cs-kpi">GA4 source/medium</span>
+                        </div>
+                    </article>
+                    <article class="cs-card">
+                        <span class="level-label level-basic">Basic</span>
+                        <h3>Landing Page–Ad Message Match</h3>
+                        <p class="cs-desc">If the ad promises X and the page talks about Y, conversion drops. Align headline, offer, and CTA with the creative.</p>
+                        <ul class="cs-steps">
+                            <li>Copy ad primary text into page H1 intent</li>
+                            <li>One primary CTA above the fold</li>
+                            <li>Mobile load under ~3s on mid-range 4G</li>
+                            <li>Form: only fields needed for the first step</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">Bounce rate</span>
+                            <span class="cs-kpi">CVR</span>
+                            <span class="cs-kpi">Form starts</span>
+                        </div>
+                    </article>
+                    <article class="cs-card">
+                        <span class="level-label level-basic">Basic</span>
+                        <h3>Budget Guardrails for New Accounts</h3>
+                        <p class="cs-desc">New advertisers often overspend before learning. Cap daily budget and define kill rules before launch.</p>
+                        <ul class="cs-steps">
+                            <li>Daily cap you can afford to learn with</li>
+                            <li>Kill rule: 2–3× target CPA, zero conversion → pause</li>
+                            <li>Review every 48–72 hours early on</li>
+                            <li>Do not scale until tracking is trusted</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">CPA vs target</span>
+                            <span class="cs-kpi">Spend efficiency</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-divider">
+                    <span class="badge">Level 2</span>
+                    <h2>Intermediate — Structure &amp; Testing</h2>
+                </div>
+                <div class="cs-grid">
+                    <article class="cs-card">
+                        <span class="level-label level-intermediate">Intermediate</span>
+                        <h3>Meta ABO Creative Test System</h3>
+                        <p class="cs-desc">Isolate variables. Test hooks and angles in ABO with equal budgets, then promote winners.</p>
+                        <ul class="cs-steps">
+                            <li>3–5 creatives, one primary angle each</li>
+                            <li>Same audience / placement rules across ad sets</li>
+                            <li>Enough spend to read signal (not 1-day guesses)</li>
+                            <li>Kill clear losers; keep 1–2 winners for scale</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">CTR / CPC</span>
+                            <span class="cs-kpi">CPA</span>
+                            <span class="cs-kpi">Hook rate</span>
+                        </div>
+                    </article>
+                    <article class="cs-card">
+                        <span class="level-label level-intermediate">Intermediate</span>
+                        <h3>Google Search Intent Structure</h3>
+                        <p class="cs-desc">Separate high-intent from research queries. Negatives protect budget from irrelevant clicks.</p>
+                        <ul class="cs-steps">
+                            <li>Group keywords by intent (buy vs learn)</li>
+                            <li>Match types intentional — not all broad by default</li>
+                            <li>Weekly search term review + negatives</li>
+                            <li>Landing page aligned to the query theme</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">CPA</span>
+                            <span class="cs-kpi">Quality Score</span>
+                            <span class="cs-kpi">Wasted spend %</span>
+                        </div>
+                    </article>
+                    <article class="cs-card">
+                        <span class="level-label level-intermediate">Intermediate</span>
+                        <h3>CRO Five-Point Page Audit</h3>
+                        <p class="cs-desc">Before new creatives, fix the page. Five checks often move conversion without a full redesign.</p>
+                        <ul class="cs-steps">
+                            <li>Headline matches ad promise</li>
+                            <li>One primary CTA</li>
+                            <li>Proof near the fold</li>
+                            <li>Form friction reduced</li>
+                            <li>Mobile speed and layout stability</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">CVR</span>
+                            <span class="cs-kpi">Scroll depth</span>
+                            <span class="cs-kpi">Form complete %</span>
+                        </div>
+                    </article>
+                    <article class="cs-card">
+                        <span class="level-label level-intermediate">Intermediate</span>
+                        <h3>Retargeting Without Overlap Chaos</h3>
+                        <p class="cs-desc">Simple funnel stages beat complex overlapping audiences that compete with each other.</p>
+                        <ul class="cs-steps">
+                            <li>Site visitors 7–30d (exclude converters)</li>
+                            <li>Frequency caps so users are not over-exposed</li>
+                            <li>Creative: reminder + offer clarity</li>
+                            <li>Exclude recent converters from cold/retarget overlap</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">Frequency</span>
+                            <span class="cs-kpi">CPA retarget</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-divider">
+                    <span class="badge">Level 3</span>
+                    <h2>Advanced — Tracking &amp; Scale Systems</h2>
+                </div>
+                <div class="cs-grid">
+                    <article class="cs-card">
+                        <span class="level-label level-advanced">Advanced</span>
+                        <h3>Meta CAPI + Pixel Deduplication</h3>
+                        <p class="cs-desc">Browser pixel alone loses signal (iOS, blockers). Server events + shared event_id recover quality.</p>
+                        <ul class="cs-steps">
+                            <li>Browser pixel + CAPI both send key events</li>
+                            <li>Same event_id on both paths for dedupe</li>
+                            <li>Hash email/phone when available (SHA-256)</li>
+                            <li>Watch Event Match Quality trends in Events Manager</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">EMQ trend</span>
+                            <span class="cs-kpi">Event coverage</span>
+                        </div>
+                    </article>
+                    <article class="cs-card">
+                        <span class="level-label level-advanced">Advanced</span>
+                        <h3>ABO → CBO Scale Path</h3>
+                        <p class="cs-desc">Test in ABO for control. Move proven creatives into CBO and raise budget in steps — not sudden 5× jumps.</p>
+                        <ul class="cs-steps">
+                            <li>Promote winners only after stable read</li>
+                            <li>CBO lets Meta allocate across ad sets</li>
+                            <li>Increase budget ~20–30% every few days when stable</li>
+                            <li>Watch frequency, CPA, and MER — not CTR alone</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">ROAS / MER</span>
+                            <span class="cs-kpi">CPA at scale</span>
+                            <span class="cs-kpi">Frequency</span>
+                        </div>
+                    </article>
+                    <article class="cs-card">
+                        <span class="level-label level-advanced">Advanced</span>
+                        <h3>Server-Side Path (When Needed)</h3>
+                        <p class="cs-desc">Server-side GTM or a lightweight server endpoint improves first-party control vs client-only tags.</p>
+                        <ul class="cs-steps">
+                            <li>Decide if volume/privacy needs justify the setup</li>
+                            <li>Forward purchase/lead from server with consent rules</li>
+                            <li>Keep client pixel where it still adds value</li>
+                            <li>Document the pipeline for handoff</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">Server event rate</span>
+                            <span class="cs-kpi">Consent compliance</span>
+                        </div>
+                    </article>
+                    <article class="cs-card">
+                        <span class="level-label level-advanced">Advanced</span>
+                        <h3>WhatsApp Post-Click Nurture</h3>
+                        <p class="cs-desc">Paid traffic that lands on WA without UTM discipline is hard to measure. Treat WA as a tracked channel.</p>
+                        <ul class="cs-steps">
+                            <li>WA links with UTM (or unique landing → WA)</li>
+                            <li>Approved templates for first response</li>
+                            <li>Tag leads by campaign in CRM / sheet</li>
+                            <li>Respect opt-in and timing — no spam</li>
+                        </ul>
+                        <div class="cs-kpis">
+                            <span class="cs-kpi">Reply rate</span>
+                            <span class="cs-kpi">Lead → booked call</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="cs-cta">
+                    <h2>Want this applied to your account?</h2>
+                    <p>Book a strategy call. We start with audit and foundation — not empty ROAS promises.</p>
+                    <a href="consultation.html" class="btn btn-primary" style="padding: 14px 28px;">Book Strategy Call</a>
+                    <p style="margin-top: 16px; font-size: 0.88rem;">
+                        <a href="pm-index.html" style="color: var(--primary);">← Portfolio</a>
+                        &nbsp;·&nbsp;
+                        <a href="blog.html" style="color: var(--primary);">Blog</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-container">
+            <div class="footer-tagline-heading">
+                <h2>building growth infrastructure.</h2>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>SERVICES</h3>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>TOOLS</h3>
+                    <ul>
+                        <li><a href="index.html#tools">WA Link Generator</a></li>
+                        <li><a href="index.html#tools">UTM Builder</a></li>
+                        <li><a href="index.html#tools">A/B Test Evaluator</a></li>
+                        <li><a href="index.html#tools">Budget Allocator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>COMPANY</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>LEGAL</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-address-section">
+                <p>Behind, Hazrat Shahjalal International Airport, Cybercity, Square,<br>Dhaka, Bangladesh - 1230</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mizanul Islam. All rights reserved.</p>
+                <p class="brand-owner">A brand by <a href="growup.html">Grow Up</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="chat-widget.js"></script>
+</body>
+</html>

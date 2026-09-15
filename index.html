@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self';">
+    
+    <title>Mizanul Islam | Growth Strategist & Marketing Architect</title>
+    <meta name="title" content="Mizanul Islam | Growth Strategist & Marketing Architect">
+    <meta name="description" content="Data-driven growth architecture, conversion rate optimization, and performance marketing strategy consulting for scaling brands.">
+    <meta name="author" content="Mizanul Islam">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Glassmorphic Floating Header -->
+    <header class="site-header" id="siteHeader" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
+            
+            <nav class="main-nav desktop-only" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="index.html#tools" class="nav-link">Tools</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="consultation.html" class="btn-nav">Book Strategy Call</a></li>
+                </ul>
+            </nav>
+
+            <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+        <div class="drawer-header">
+            <a href="index.html" class="brand-logo">Mizanul<span> Islam</span></a>
+            <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+        </div>
+        <nav class="drawer-nav" id="drawerNav">
+            <ul>
+                <li><a href="services.html" class="drawer-link">Services</a></li>
+                <li><a href="index.html#tools" class="drawer-link">Tools</a></li>
+                <li><a href="about.html" class="drawer-link">About</a></li>
+                <li><a href="case-studies.html" class="drawer-link">Case Studies</a></li>
+                <li><a href="blog.html" class="drawer-link">Blog</a></li>
+                <li><a href="consultation.html" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main id="main-content" role="main">
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="badge">Data-Driven Growth Engine</span>
+                    <h1>Scale Your Business With <span class="highlight">Proven Growth Architecture</span></h1>
+                    <p>Hi, I am Mizanul Islam. I engineer high-converting marketing systems, sales funnels, and data analytics architectures for scaling brands.</p>
+                    <div class="hero-actions">
+                        <a href="#booking" class="btn btn-primary">Book Free Strategy Call</a>
+                        <a href="#tools" class="btn btn-secondary">Explore Free Tools</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Specialized Growth Services</h2>
+                    <p>End-to-end engineering for sustainable brand expansion</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="card-icon" aria-hidden="true">&#128640;</div>
+                        <h3>Performance Marketing</h3>
+                        <p>Meta &amp; Google Ads architecture with maximum ROAS optimization and strict CPA targets.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="card-icon" aria-hidden="true">&#128200;</div>
+                        <h3>Conversion Rate Optimization</h3>
+                        <p>User behavior analysis, heatmaps, and A/B testing to maximize website funnel conversions.</p>
+                    </article>
+                    <article class="service-card">
+                        <div class="card-icon" aria-hidden="true">&#129504;</div>
+                        <h3>Growth Strategy &amp; Funnels</h3>
+                        <p>Comprehensive customer acquisition, retention loops, and enterprise sales funnel architecture.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Marketing Tools Section -->
+        <section id="tools" class="tools-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Interactive Marketing Utilities</h2>
+                    <p>Free, client-side tools to analyze and optimize your growth engines</p>
+                </div>
+                <div class="tools-grid">
+                    <!-- WhatsApp Link Generator -->
+                    <div class="tool-card">
+                        <h3>WhatsApp Link Builder</h3>
+                        <p>Generate instant direct WhatsApp chat links with customized pre-filled messages.</p>
+                        <div class="tool-inputs">
+                            <input type="tel" id="waPhone" placeholder="Phone (e.g. 8801700000000)" class="tool-field">
+                            <textarea id="waMessage" placeholder="Pre-filled message..." class="tool-field" rows="2"></textarea>
+                            <button id="btnGenerateWA" class="btn btn-primary btn-block" type="button">Generate &amp; Copy Link</button>
+                        </div>
+                    </div>
+
+                    <!-- UTM Generator -->
+                    <div class="tool-card">
+                        <h3>UTM Link Generator</h3>
+                        <p>Create clean, trackable campaign links for analytics platforms.</p>
+                        <div class="tool-inputs">
+                            <input type="url" id="utmUrl" placeholder="Target URL (https://...)" class="tool-field">
+                            <input type="text" id="utmSource" placeholder="Source (e.g. facebook)" class="tool-field">
+                            <input type="text" id="utmMedium" placeholder="Medium (e.g. cpc)" class="tool-field">
+                            <input type="text" id="utmCampaign" placeholder="Campaign (e.g. summer_sale)" class="tool-field">
+                            <button id="btnGenerateUTM" class="btn btn-primary btn-block" type="button">Generate UTM Link</button>
+                        </div>
+                    </div>
+                    
+                    <!-- A/B Test Evaluator -->
+                    <div class="tool-card" id="abEvaluatorCard">
+                        <h3>A/B Test Significance Evaluator</h3>
+                        <p>Calculate statistical significance, conversion rate lift, and confidence interval between two variants.</p>
+                        
+                        <div class="tool-inputs">
+                            <div class="variant-group">
+                                <span class="variant-label">Variant A (Control)</span>
+                                <input type="number" id="abVisitorsA" placeholder="Visitors A (e.g. 5000)" class="tool-field" min="1">
+                                <input type="number" id="abConvA" placeholder="Conversions A (e.g. 250)" class="tool-field" min="0">
+                            </div>
+
+                            <div class="variant-group">
+                                <span class="variant-label">Variant B (Variation)</span>
+                                <input type="number" id="abVisitorsB" placeholder="Visitors B (e.g. 5000)" class="tool-field" min="1">
+                                <input type="number" id="abConvB" placeholder="Conversions B (e.g. 320)" class="tool-field" min="0">
+                            </div>
+
+                            <button id="btnCalcAB" class="btn btn-primary btn-block" type="button">Evaluate Significance</button>
+                        </div>
+
+                        <div id="abResult" class="calc-result" aria-live="polite"></div>
+                    </div>
+
+                    <!-- Ad ROI Calculator -->
+                    <div class="tool-card">
+                        <h3>Ad Budget ROI Calculator</h3>
+                        <p>Calculate your expected Return on Ad Spend (ROAS) and revenue instantly.</p>
+                        <div class="tool-inputs">
+                            <input type="number" id="roiBudget" placeholder="Ad Budget ($)" class="tool-field" min="0">
+                            <input type="number" id="roiCpc" placeholder="Avg. Cost Per Click ($)" class="tool-field" min="0.01" step="0.01">
+                            <input type="number" id="roiConvRate" placeholder="Conv. Rate (%)" class="tool-field" min="0" max="100" step="0.1">
+                            <input type="number" id="roiAov" placeholder="Avg. Order Value ($)" class="tool-field" min="0">
+                            <button id="btnCalcROI" class="btn btn-primary btn-block" type="button">Calculate ROI</button>
+                        </div>
+                        <div id="roiResult" class="calc-result" aria-live="polite"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secure Booking Form -->
+        <section id="booking" class="booking-section">
+            <div class="container">
+                <div class="booking-wrapper">
+                    <div class="booking-info">
+                        <h2>Book 1-on-1 Growth Consultation</h2>
+                        <p>Fill out the form to schedule a dedicated strategy session to analyze your current marketing bottlenecks and opportunities.</p>
+                        <ul class="benefit-list">
+                            <li><span aria-hidden="true">&#10003;</span> 45-Minute Dedicated Strategy Audit</li>
+                            <li><span aria-hidden="true">&#10003;</span> Funnel Bottleneck Identification</li>
+                            <li><span aria-hidden="true">&#10003;</span> Actionable Scalability Roadmap</li>
+                        </ul>
+                    </div>
+                    
+                    <form id="consultationForm" class="booking-form" novalidate>
+                        <input type="hidden" id="csrfToken" name="_csrf" value="">
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required autocomplete="name" placeholder="John Doe">
+                            <span class="error-msg" id="err-fullName"></span>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required autocomplete="email" placeholder="john@example.com">
+                                <span class="error-msg" id="err-email"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+8801700000000">
+                                <span class="error-msg" id="err-phone"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="businessWebsite">Website / Page Link</label>
+                                <input type="url" id="businessWebsite" name="businessWebsite" autocomplete="url" placeholder="https://yourbusiness.com">
+                                <span class="error-msg" id="err-businessWebsite"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="monthlyBudget">Monthly Ad Budget *</label>
+                                <select id="monthlyBudget" name="monthlyBudget" required>
+                                    <option value="" disabled selected>Select Budget Range</option>
+                                    <option value="below_500">Below $100</option>
+                                    <option value="500_2000">$100 - $500</option>
+                                    <option value="2000_5000">$500 - $1,000</option>
+                                    <option value="above_5000">$1,000+</option>
+                                </select>
+                                <span class="error-msg" id="err-monthlyBudget"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="preferredDate">Preferred Date *</label>
+                                <input type="date" id="preferredDate" name="preferredDate" required>
+                                <span class="error-msg" id="err-preferredDate"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="preferredTime">Preferred Time Slot *</label>
+                                <select id="preferredTime" name="preferredTime" required>
+                                    <option value="" disabled selected>Select Time Slot</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="04:00 PM">04:00 PM</option>
+                                    <option value="08:00 PM">08:00 PM</option>
+                                </select>
+                                <span class="error-msg" id="err-preferredTime"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Briefly Describe Your Growth Target</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Share your primary challenge or objective..."></textarea>
+                        </div>
+                        <button type="submit" id="btnSubmit" class="btn btn-primary btn-block">
+                            <span class="btn-text">Submit Consultation Request</span>
+                            <span class="btn-spinner hidden" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-container">
+            <div class="footer-tagline-heading">
+                <h2>building growth infrastructure.</h2>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>SERVICES</h3>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>TOOLS</h3>
+                    <ul>
+                        <li><a href="#tools">WA Link Generator</a></li>
+                        <li><a href="#tools">UTM Builder</a></li>
+                        <li><a href="#tools">A/B Test Evaluator</a></li>
+                        <li><a href="#tools">Budget Allocator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>COMPANY</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>LEGAL</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-address-section">
+                <p>Behind, Hazrat Shahjalal International Airport, Cybercity, Square,<br>Dhaka, Bangladesh - 1230</p>
+            </div>
+
+            <div class="footer-social-wrapper">
+                <a href="https://youtube.com/@mizanulislam.digital?si=9VNnHbl-19vAww41" class="social-circle" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/mizanulislam.digital?igsh=Ymcxa3d5enhxajlk" class="social-circle" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/mizanulislam-digital" class="social-circle" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="mailto:mail.mizanulislam@gmail.com" class="social-circle" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l1.324 1.07 2.5 2.025 2.5-2.025 1.324-1.07 4.566 5.642h-16.78l4.566-5.642zm11.201 1.453l4.623-3.746v9.458l-4.623-5.712z"/></svg>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mizanul Islam. All rights reserved.</p>
+                <p class="brand-owner">A brand by <a href="growup.html">Grow Up</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chat-widget.js"></script>
+</body>
+</html>

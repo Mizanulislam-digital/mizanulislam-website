@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
+    
+    <title>Growth Blog &amp; Marketing Insights | Mizanul Islam</title>
+    <meta name="title" content="Growth Blog &amp; Marketing Insights | Mizanul Islam">
+    <meta name="description" content="Practical guides on performance marketing, Meta CAPI, WhatsApp automation, CRO, and growth systems by Mizanul Islam.">
+    <meta name="author" content="Mizanul Islam">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-hero {
+            padding-top: 140px;
+            padding-bottom: 40px;
+            text-align: center;
+            background: radial-gradient(circle at top center, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+        }
+        .blog-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .blog-hero p {
+            max-width: 640px;
+            margin: 16px auto 0;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .blog-section {
+            padding: 20px 0 90px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .blog-card:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        }
+        .blog-card.featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, var(--bg-card) 60%);
+            border-color: rgba(16, 185, 129, 0.25);
+        }
+        @media (min-width: 768px) {
+            .blog-card.featured {
+                display: grid;
+                grid-template-columns: 1fr 1.2fr;
+                gap: 30px;
+                align-items: center;
+            }
+        }
+
+        .blog-card .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(16, 185, 129, 0.12);
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .blog-card h2, .blog-card h3 {
+            color: var(--text-main);
+            margin: 0 0 10px;
+            font-size: 1.25rem;
+            line-height: 1.35;
+        }
+        .blog-card.featured h2 {
+            font-size: clamp(1.4rem, 3vw, 1.9rem);
+        }
+        .blog-card .meta {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .blog-card .excerpt {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin: 0 0 16px;
+            flex-grow: 1;
+        }
+        .blog-card .read-more {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .blog-card .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Article Modal */
+        .article-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            overflow-y: auto;
+            padding: 40px 16px;
+        }
+        .article-modal.open {
+            display: block;
+        }
+        .article-modal-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px 32px;
+            position: relative;
+        }
+        .article-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.8rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .article-modal-close:hover {
+            color: var(--text-main);
+        }
+        .article-modal-inner .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(16, 185, 129, 0.12);
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+        }
+        .article-modal-inner h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--text-main);
+            margin: 0 0 12px;
+            line-height: 1.3;
+        }
+        .article-modal-inner .meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .article-body {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .article-body h3 {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            margin: 28px 0 12px;
+        }
+        .article-body p {
+            margin: 0 0 16px;
+        }
+        .article-body ul, .article-body ol {
+            margin: 0 0 16px;
+            padding-left: 22px;
+        }
+        .article-body li {
+            margin-bottom: 8px;
+        }
+        .article-body strong {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="site-header" id="siteHeader" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
+            
+            <nav class="main-nav desktop-only" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="index.html#tools" class="nav-link">Tools</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="consultation.html" class="btn-nav">Book Strategy Call</a></li>
+                </ul>
+            </nav>
+
+            <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+        <div class="drawer-header">
+            <a href="index.html" class="brand-logo">Mizanul<span> Islam</span></a>
+            <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+        </div>
+        <nav class="drawer-nav" id="drawerNav">
+            <ul>
+                <li><a href="services.html" class="drawer-link">Services</a></li>
+                <li><a href="index.html#tools" class="drawer-link">Tools</a></li>
+                <li><a href="about.html" class="drawer-link">About</a></li>
+                <li><a href="case-studies.html" class="drawer-link">Case Studies</a></li>
+                <li><a href="blog.html" class="drawer-link">Blog</a></li>
+                <li><a href="consultation.html" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main id="main-content" role="main">
+        <section class="blog-hero">
+            <div class="container">
+                <span class="badge">Growth Insights</span>
+                <h1>Marketing Systems &amp; <span class="highlight">Growth Playbooks</span></h1>
+                <p>Practical guides on Meta Ads, CAPI tracking, WhatsApp automation, CRO, and building scalable growth infrastructure.</p>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <div class="container">
+                <!-- Blog cards are rendered here by JavaScript from the posts array below -->
+                <div class="blog-grid" id="blogGrid">
+                    <!-- Posts load automatically -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Article Modal (full post view) -->
+    <div class="article-modal" id="articleModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="article-modal-inner">
+            <button class="article-modal-close" id="modalClose" aria-label="Close article">&times;</button>
+            <span class="tag" id="modalTag"></span>
+            <h1 id="modalTitle"></h1>
+            <div class="meta" id="modalMeta"></div>
+            <div class="article-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-container">
+            <div class="footer-tagline-heading">
+                <h2>building growth infrastructure.</h2>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>SERVICES</h3>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>TOOLS</h3>
+                    <ul>
+                        <li><a href="index.html#tools">WA Link Generator</a></li>
+                        <li><a href="index.html#tools">UTM Builder</a></li>
+                        <li><a href="index.html#tools">A/B Test Evaluator</a></li>
+                        <li><a href="index.html#tools">Budget Allocator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>COMPANY</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>LEGAL</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-address-section">
+                <p>Behind, Hazrat Shahjalal International Airport, Cybercity, Square,<br>Dhaka, Bangladesh - 1230</p>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mizanul Islam. All rights reserved.</p>
+                <p class="brand-owner">A brand by <a href="growup.html">Grow Up</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    /*
+    ============================================================
+    📝 কিভাবে নতুন ব্লগ যোগ করবেন (খুব সহজ)
+    ============================================================
+    ১. নিচের posts অ্যারেতে নতুন একটা অবজেক্ট কপি-পেস্ট করুন
+    ২. id, title, tag, date, readTime, excerpt, content পূরণ করুন
+    ৩. featured: true দিলে সেটা বড় করে উপরে দেখাবে (শুধু ১টা রাখুন)
+    ৪. ফাইল সেভ করুন — ব্লগ অটো দেখাবে
+
+    content-এ HTML লিখতে পারবেন: <p>, <h3>, <ul>, <li>, <strong>
+    ============================================================
+    */
+
+    const posts = [
+        {
+            id: 'post-1',
+            featured: true,
+            title: 'Building High-Throughput WhatsApp Automation with Cloud API',
+            tag: 'WhatsApp API',
+            date: 'Sep 2026',
+            readTime: '8 min',
+            excerpt: 'How to design non-blocking WhatsApp automation pipelines that survive rate limits, webhook timeouts, and high traffic without losing events.',
+            content: `
+                <p>Scaling WhatsApp automation for thousands of concurrent users requires a non-blocking, event-driven backend. Simple synchronous HTTP calls to Meta's Cloud API will hit rate limits and drop webhooks under traffic spikes.</p>
+                
+                <h3>1. Use a Queue (Redis / Bull)</h3>
+                <p>When Meta sends a webhook, return <strong>HTTP 200 within 3 seconds</strong>. Push the payload into a queue and process it in a worker — never do heavy work inside the webhook handler.</p>
+                
+                <h3>2. Respect Rate Limits</h3>
+                <p>Cloud API has messaging and conversation limits. Implement retry with exponential backoff for HTTP 429 responses.</p>
+                
+                <h3>3. First-Party Event Logging</h3>
+                <p>Log every sent, delivered, read, and failed event to your own database. This becomes your source of truth for campaigns and support.</p>
+                
+                <p>Start small: one template, one queue, one worker. Then scale the workers horizontally as volume grows.</p>
+            `
+        },
+        {
+            id: 'post-2',
+            featured: false,
+            title: 'Meta CAPI Setup: Stop Losing iOS Conversions',
+            tag: 'Tracking',
+            date: 'Aug 2026',
+            readTime: '6 min',
+            excerpt: 'Server-side Conversions API (CAPI) recovers signals lost to iOS privacy and ad blockers — and improves Event Match Quality.',
+            content: `
+                <p>Browser pixels alone are no longer enough. iOS ATT and ad blockers block a large share of client-side events. Meta CAPI sends events from your server so Facebook still gets purchase and lead data.</p>
+                
+                <h3>What to send</h3>
+                <ul>
+                    <li>Purchase / Lead / CompleteRegistration events</li>
+                    <li>Hashed email, phone, and external_id when available</li>
+                    <li>Event ID for deduplication with the browser pixel</li>
+                </ul>
+                
+                <h3>Quick win</h3>
+                <p>Use a server-side GTM (sGTM) or a simple Node/PHP endpoint that receives your thank-you page hit and forwards a CAPI event. Aim for Event Match Quality 6.0+.</p>
+            `
+        },
+        {
+            id: 'post-3',
+            featured: false,
+            title: 'A Simple CRO Checklist for Landing Pages',
+            tag: 'CRO',
+            date: 'Aug 2026',
+            readTime: '5 min',
+            excerpt: 'Five checks that often lift conversion rate without a full redesign — clarity, speed, proof, friction, and mobile.',
+            content: `
+                <p>Before running complex A/B tests, fix the basics. Most landing pages lose conversions on clarity and friction, not on fancy design.</p>
+                
+                <h3>Checklist</h3>
+                <ol>
+                    <li><strong>Headline match:</strong> Does the page say the same thing as the ad?</li>
+                    <li><strong>One primary CTA:</strong> One clear action above the fold.</li>
+                    <li><strong>Social proof:</strong> Reviews, logos, or results near the CTA.</li>
+                    <li><strong>Form friction:</strong> Only ask for fields you need right now.</li>
+                    <li><strong>Mobile speed:</strong> Under 3 seconds on 4G; no layout shifts.</li>
+                </ol>
+                
+                <p>Use Microsoft Clarity or Hotjar for 1–2 weeks, then fix the top drop-off points before testing new creatives.</p>
+            `
+        },
+        {
+            id: 'post-4',
+            featured: false,
+            title: 'How I Structure Meta Ads for Scalable ROAS',
+            tag: 'Media Buying',
+            date: 'Jul 2026',
+            readTime: '7 min',
+            excerpt: 'A practical ABO → CBO framework for testing creatives, finding winners, and scaling without burning budget.',
+            content: `
+                <p>Random campaign structures waste budget. A clear testing → scaling pipeline keeps learning and spend under control.</p>
+                
+                <h3>Phase 1 — Test (ABO)</h3>
+                <p>Small budgets per ad set. 3–5 creatives, one audience each. Kill losers after enough spend (e.g. 2–3x target CPA with no conversion).</p>
+                
+                <h3>Phase 2 — Scale (CBO)</h3>
+                <p>Move winners into a CBO campaign. Let Meta allocate budget. Duplicate and raise budget gradually (e.g. 20–30% every few days) instead of sudden big jumps.</p>
+                
+                <h3>Creative > Audience</h3>
+                <p>In most accounts, creative angle and hook matter more than micro-targeting. Refresh creatives weekly; keep audiences broad once you have signal.</p>
+            `
+        }
+        /*
+        ============================================================
+        ➕ নতুন পোস্ট এখানে যোগ করুন (উপরের ফরম্যাট কপি করুন)
+        ============================================================
+        ,
+        {
+            id: 'post-5',
+            featured: false,
+            title: 'আপনার ব্লগের শিরোনাম',
+            tag: 'Category',
+            date: 'Sep 2026',
+            readTime: '5 min',
+            excerpt: 'সংক্ষিপ্ত বর্ণনা — কার্ডে দেখাবে।',
+            content: `
+                <p>এখানে পুরো আর্টিকেল লিখুন।</p>
+                <h3>সাবহেডিং</h3>
+                <p>আরো প্যারাগ্রাফ...</p>
+            `
+        }
+        ============================================================
+        */
+    ];
+
+    // ========== Render cards ==========
+    function renderBlog() {
+        const grid = document.getElementById('blogGrid');
+        if (!grid) return;
+
+        // Featured first, then rest
+        const sorted = [...posts].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+
+        grid.innerHTML = sorted.map(post => `
+            <article class="blog-card ${post.featured ? 'featured' : ''}" data-id="${post.id}" role="button" tabindex="0">
+                <div>
+                    <span class="tag">${escapeHtml(post.tag)}</span>
+                    ${post.featured ? `<h2>${escapeHtml(post.title)}</h2>` : `<h3>${escapeHtml(post.title)}</h3>`}
+                    <div class="meta">${escapeHtml(post.date)} · ${escapeHtml(post.readTime)} read</div>
+                    <p class="excerpt">${escapeHtml(post.excerpt)}</p>
+                    <span class="read-more">Read article →</span>
+                </div>
+            </article>
+        `).join('');
+
+        grid.querySelectorAll('.blog-card').forEach(card => {
+            card.addEventListener('click', () => openArticle(card.dataset.id));
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openArticle(card.dataset.id);
+                }
+            });
+        });
+    }
+
+    function escapeHtml(str) {
+        const d = document.createElement('div');
+        d.textContent = str || '';
+        return d.innerHTML;
+    }
+
+    function openArticle(id) {
+        const post = posts.find(p => p.id === id);
+        if (!post) return;
+
+        document.getElementById('modalTag').textContent = post.tag;
+        document.getElementById('modalTitle').textContent = post.title;
+        document.getElementById('modalMeta').textContent = post.date + ' · ' + post.readTime + ' read';
+        document.getElementById('modalBody').innerHTML = post.content;
+        document.getElementById('articleModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeArticle() {
+        document.getElementById('articleModal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('modalClose').addEventListener('click', closeArticle);
+    document.getElementById('articleModal').addEventListener('click', function(e) {
+        if (e.target === this) closeArticle();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeArticle();
+    });
+
+    renderBlog();
+    </script>
+    <script src="chat-widget.js"></script>
+</body>
+</html>

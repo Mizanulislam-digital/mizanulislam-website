@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
+    
+    <title>Book a 1-on-1 Growth Consultation | Mizanul Islam</title>
+    <meta name="title" content="Book a 1-on-1 Growth Consultation | Mizanul Islam">
+    <meta name="description" content="Schedule a 1-on-1 performance marketing & technical consultation with Mizanul Islam. Audit your ad accounts, CAPI tracking, and scaling funnels.">
+    <meta name="author" content="Mizanul Islam">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .consultation-hero {
+            padding-top: 140px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+        .consultation-hero p {
+            max-width: 650px;
+            margin: 15px auto 0 auto;
+            color: var(--text-muted);
+        }
+        .consultation-section {
+            padding-bottom: 80px;
+        }
+        .consultation-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        @media (min-width: 992px) {
+            .consultation-hero {
+                padding-top: 160px;
+            }
+            .consultation-grid {
+                grid-template-columns: 1fr 1.2fr;
+                align-items: start;
+            }
+        }
+        .info-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+        }
+        .info-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+        }
+        .step-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .step-number {
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary);
+            color: #000000;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .step-details h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+        .step-details p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+        .guarantee-box {
+            background-color: rgba(16, 185, 129, 0.05);
+            border: 1px solid var(--primary);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .guarantee-box h4 {
+            margin: 0 0 8px 0;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+        .guarantee-box p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .booking-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+        }
+        .booking-card h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .session-type-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .session-option {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        .session-option:hover, .session-option.active {
+            border-color: var(--primary);
+            background-color: rgba(16, 185, 129, 0.05);
+        }
+        .session-option h5 {
+            margin: 0 0 5px 0;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+        .session-option p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .radio-hidden {
+            display: none;
+        }
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .time-slot-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .time-slot-btn:hover, .time-slot-btn.active {
+            background-color: var(--primary);
+            color: #000000;
+            border-color: var(--primary);
+            font-weight: 600;
+        }
+        .summary-box {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--border-color);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+        .summary-row.total {
+            margin-bottom: 0;
+            padding-top: 8px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-main);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="site-header" id="siteHeader" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
+            
+            <nav class="main-nav desktop-only" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="index.html#tools" class="nav-link">Tools</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="consultation.html" class="btn-nav active">Book Strategy Call</a></li>
+                </ul>
+            </nav>
+
+            <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+        <div class="drawer-header">
+            <a href="index.html" class="brand-logo">Mizanul<span> Islam</span></a>
+            <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+        </div>
+        <nav class="drawer-nav" id="drawerNav">
+            <ul>
+                <li><a href="services.html" class="drawer-link">Services</a></li>
+                <li><a href="index.html#tools" class="drawer-link">Tools</a></li>
+                <li><a href="about.html" class="drawer-link">About</a></li>
+                <li><a href="case-studies.html" class="drawer-link">Case Studies</a></li>
+                <li><a href="blog.html" class="drawer-link">Blog</a></li>
+                <li><a href="consultation.html" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main id="main-content" role="main">
+        <section class="consultation-hero">
+            <div class="container">
+                <span class="badge">1-on-1 Growth Consultation</span>
+                <h1>Scale Your Business With <span class="highlight">Data-Driven</span> Media Buying</h1>
+                <p>Audit your Meta/Google ads setup, fix tracking discrepancies, and construct high-converting acquisition funnels directly with Mizanul Islam.</p>
+            </div>
+        </section>
+
+        <section class="consultation-section">
+            <div class="container">
+                <div class="consultation-grid">
+                    
+                    <div class="info-card">
+                        <h3>What We Solve In The Session</h3>
+                        
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-details">
+                                    <h4>Ad Account &amp; ROAS Audit</h4>
+                                    <p>Deep-dive review into your Meta, Google, TikTok, or LinkedIn ad campaigns to find hidden budget burn and quick wins.</p>
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-details">
+                                    <h4>Tracking &amp; CAPI Diagnostics</h4>
+                                    <p>Identify iOS 14+ tracking issues, verify Server-Side Google Tag Manager setup, and eliminate data loss.</p>
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-details">
+                                    <h4>Offer &amp; Creative Framework</h4>
+                                    <p>Structure high-converting angle hooks, UGC creative scripts, and post-click landing page optimization strategies.</p>
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-details">
+                                    <h4>Custom 90-Day Scaling Roadmap</h4>
+                                    <p>Leave with a clear action plan for scaling ad spend responsibly without diminishing marginal return.</p>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="guarantee-box">
+                            <h4>&#10003; Guaranteed Actionable Value</h4>
+                            <p>If you do not get actionable insights within the first 15 minutes of our strategy call, your full session fee is refunded immediately.</p>
+                        </div>
+                    </div>
+
+                    <div class="booking-card">
+                        <h3>Reserve Your Strategy Call</h3>
+                        
+                        <form id="consultationForm" class="booking-form" novalidate>
+                            
+                            <div class="form-group">
+                                <label>Select Session Type *</label>
+                                <div class="session-type-grid">
+                                    <div class="session-option active" data-price="99" data-duration="45 Mins">
+                                        <input type="radio" name="sessionType" value="Growth Strategy Session" class="radio-hidden" checked>
+                                        <h5>Strategy Call</h5>
+                                        <p>45 Mins • $99</p>
+                                    </div>
+                                    <div class="session-option" data-price="199" data-duration="90 Mins">
+                                        <input type="radio" name="sessionType" value="Full System & CAPI Audit" class="radio-hidden">
+                                        <h5>Full System Audit</h5>
+                                        <p>90 Mins • $199</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="clientName">Full Name *</label>
+                                <input type="text" id="clientName" name="clientName" required autocomplete="name" placeholder="John Doe">
+                                <span class="error-msg" id="err-clientName"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="clientEmail">Business Email *</label>
+                                <input type="email" id="clientEmail" name="clientEmail" required autocomplete="email" placeholder="john@company.com">
+                                <span class="error-msg" id="err-clientEmail"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="websiteUrl">Website / Store URL *</label>
+                                <input type="url" id="websiteUrl" name="websiteUrl" required placeholder="https://yourbrand.com">
+                                <span class="error-msg" id="err-websiteUrl"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="preferredDate">Preferred Date *</label>
+                                <input type="date" id="preferredDate" name="preferredDate" required>
+                                <span class="error-msg" id="err-preferredDate"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Select Time Slot (UTC / GMT+6) *</label>
+                                <div class="time-slots" id="timeSlotsGroup">
+                                    <button type="button" class="time-slot-btn active" data-time="10:00 AM">10:00 AM</button>
+                                    <button type="button" class="time-slot-btn" data-time="02:00 PM">02:00 PM</button>
+                                    <button type="button" class="time-slot-btn" data-time="06:00 PM">06:00 PM</button>
+                                    <button type="button" class="time-slot-btn" data-time="08:00 PM">08:00 PM</button>
+                                    <button type="button" class="time-slot-btn" data-time="10:00 PM">10:00 PM</button>
+                                    <button type="button" class="time-slot-btn" data-time="11:30 PM">11:30 PM</button>
+                                </div>
+                                <input type="hidden" id="selectedTime" name="selectedTime" value="10:00 AM">
+                                <span class="error-msg" id="err-selectedTime"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="businessChallenge">Primary Challenge or Goal *</label>
+                                <textarea id="businessChallenge" name="businessChallenge" rows="3" required placeholder="Describe your current monthly ad spend, main bottlenecks, or CAPI tracking issues..."></textarea>
+                                <span class="error-msg" id="err-businessChallenge"></span>
+                            </div>
+
+                            <div class="summary-box">
+                                <div class="summary-row">
+                                    <span>Selected Plan:</span>
+                                    <span id="summaryPlan">Strategy Call (45 Mins)</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Platform Consultation:</span>
+                                    <span>Google / Meta / Omnichannel</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total Investment:</span>
+                                    <span id="summaryPrice" class="highlight">$99 USD</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="btnBookCall" class="btn btn-primary btn-block">
+                                <span class="btn-text">Confirm &amp; Proceed to Booking</span>
+                                <span class="btn-spinner hidden" aria-hidden="true"></span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-container">
+            <div class="footer-tagline-heading">
+                <h2>building growth infrastructure.</h2>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>SERVICES</h3>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>TOOLS</h3>
+                    <ul>
+                        <li><a href="index.html#tools">WA Link Generator</a></li>
+                        <li><a href="index.html#tools">UTM Builder</a></li>
+                        <li><a href="index.html#tools">A/B Test Evaluator</a></li>
+                        <li><a href="index.html#tools">Budget Allocator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>COMPANY</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>LEGAL</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-address-section">
+                <p>Behind, Hazrat Shahjalal International Airport, Cybercity, Square,<br>Dhaka, Bangladesh - 1230</p>
+            </div>
+
+            <div class="footer-social-wrapper">
+                <a href="https://youtube.com/@mizanulislam.digital?si=9VNnHbl-19vAww41" class="social-circle" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/mizanulislam.digital?igsh=Ymcxa3d5enhxajlk" class="social-circle" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/mizanulislam-digital" class="social-circle" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="mailto:mail.mizanulislam@gmail.com" class="social-circle" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l1.324 1.07 2.5 2.025 2.5-2.025 1.324-1.07 4.566 5.642h-16.78l4.566-5.642zm11.201 1.453l4.623-3.746v9.458l-4.623-5.712z"/></svg>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mizanul Islam. All rights reserved.</p>
+                <p class="brand-owner">A brand by <a href="growup.html">Grow Up</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.getElementById('preferredDate');
+            if (dateInput) {
+                const tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                dateInput.min = tomorrow.toISOString().split('T')[0];
+            }
+
+            const sessionOptions = document.querySelectorAll('.session-option');
+            const summaryPlan = document.getElementById('summaryPlan');
+            const summaryPrice = document.getElementById('summaryPrice');
+
+            sessionOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    sessionOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const radio = this.querySelector('input[type="radio"]');
+                    if (radio) radio.checked = true;
+
+                    const price = this.getAttribute('data-price');
+                    const duration = this.getAttribute('data-duration');
+                    const title = this.querySelector('h5').textContent;
+
+                    summaryPlan.textContent = title + ' (' + duration + ')';
+                    summaryPrice.textContent = '$' + price + ' USD';
+                });
+            });
+
+            const timeSlotBtns = document.querySelectorAll('.time-slot-btn');
+            const selectedTimeInput = document.getElementById('selectedTime');
+
+            timeSlotBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    timeSlotBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    if (selectedTimeInput) {
+                        selectedTimeInput.value = this.getAttribute('data-time');
+                    }
+                });
+            });
+
+            const form = document.getElementById('consultationForm');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    let isValid = true;
+
+                    const fields = ['clientName', 'clientEmail', 'websiteUrl', 'preferredDate', 'businessChallenge'];
+                    fields.forEach(field => {
+                        const input = document.getElementById(field);
+                        const err = document.getElementById('err-' + field);
+                        if (input && err) {
+                            err.textContent = '';
+                            if (!input.value.trim()) {
+                                err.textContent = 'This field is required.';
+                                isValid = false;
+                            }
+                        }
+                    });
+
+                    if (isValid) {
+                        const btn = document.getElementById('btnBookCall');
+                        const btnText = btn.querySelector('.btn-text');
+                        const spinner = btn.querySelector('.btn-spinner');
+
+                        btnText.textContent = 'Processing Booking...';
+                        spinner.classList.remove('hidden');
+
+                        setTimeout(() => {
+                            if (typeof showToast === 'function') {
+                                showToast('Strategy Call Request Received! Confirmation sent to email.');
+                            }
+                            form.reset();
+                            btnText.textContent = 'Confirm & Proceed to Booking';
+                            spinner.classList.add('hidden');
+                        }, 1500);
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="chat-widget.js"></script>
+</body>
+</html>

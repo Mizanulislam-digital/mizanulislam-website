@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="index, follow">
+    
+    <title>Portfolio | Mizanul Islam — Performance Marketing Specialist</title>
+    <meta name="title" content="Portfolio | Mizanul Islam — Performance Marketing Specialist">
+    <meta name="description" content="Performance marketer specializing in Meta Ads, Google Ads, CAPI tracking, and conversion systems. Portfolio of Mizanul Islam — Grow Up.">
+    <meta name="author" content="Mizanul Islam">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .pm-hero {
+            padding-top: 130px;
+            padding-bottom: 60px;
+            background: radial-gradient(ellipse at 30% 0%, rgba(16, 185, 129, 0.12) 0%, transparent 55%);
+        }
+        .pm-hero-grid {
+            display: grid;
+            gap: 40px;
+            align-items: center;
+        }
+        @media (min-width: 900px) {
+            .pm-hero-grid {
+                grid-template-columns: 280px 1fr;
+                gap: 60px;
+            }
+        }
+        .pm-photo-wrap {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 900px) {
+            .pm-photo-wrap { margin: 0; width: 260px; height: 260px; }
+        }
+        .pm-photo-ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), #059669, #34d399);
+            opacity: 0.9;
+        }
+        .pm-photo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-main);
+            background: var(--bg-card);
+            display: block;
+        }
+        .pm-photo-placeholder {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid var(--bg-main);
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 20px;
+        }
+        .pm-photo-placeholder span { font-size: 2.5rem; opacity: 0.5; }
+        .pm-badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 16px;
+            justify-content: center;
+        }
+        @media (min-width: 900px) { .pm-badge-row { justify-content: flex-start; } }
+        .pm-chip {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            padding: 5px 12px;
+            border-radius: 999px;
+        }
+        .pm-hero h1 {
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin: 0 0 12px;
+            text-align: center;
+        }
+        @media (min-width: 900px) { .pm-hero h1 { text-align: left; } }
+        .pm-hero .role {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        @media (min-width: 900px) { .pm-hero .role { text-align: left; } }
+        .pm-hero .lead {
+            color: var(--text-muted);
+            font-size: 1.02rem;
+            line-height: 1.7;
+            max-width: 520px;
+            margin: 0 auto 24px;
+            text-align: center;
+        }
+        @media (min-width: 900px) { .pm-hero .lead { margin-left: 0; text-align: left; } }
+        .pm-hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+        @media (min-width: 900px) { .pm-hero-actions { justify-content: flex-start; } }
+        .pm-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 50px;
+        }
+        @media (min-width: 700px) { .pm-stats { grid-template-columns: repeat(4, 1fr); } }
+        .pm-stat {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 22px 16px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .pm-stat:hover {
+            border-color: rgba(16, 185, 129, 0.35);
+            transform: translateY(-2px);
+        }
+        .pm-stat .num {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .pm-stat .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+        .pm-section { padding: 70px 0; }
+        .pm-section-title { text-align: center; margin-bottom: 40px; }
+        .pm-section-title .badge { margin-bottom: 12px; }
+        .pm-section-title h2 {
+            font-size: clamp(1.6rem, 3vw, 2.1rem);
+            margin: 0 0 10px;
+        }
+        .pm-section-title p {
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto;
+            font-size: 0.98rem;
+            line-height: 1.65;
+        }
+        .pm-about-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, var(--bg-card) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 36px 28px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .pm-about-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1.02rem;
+            margin: 0 0 16px;
+        }
+        .pm-about-card p:last-child { margin-bottom: 0; }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 18px;
+        }
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 22px 20px;
+            transition: var(--transition);
+        }
+        .skill-card:hover {
+            border-color: rgba(16, 185, 129, 0.35);
+            transform: translateY(-3px);
+        }
+        .skill-card h3 {
+            font-size: 1.05rem;
+            margin: 0 0 8px;
+            color: var(--text-main);
+        }
+        .skill-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin: 0;
+        }
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+        .case-grid { display: grid; gap: 24px; }
+        @media (min-width: 800px) { .case-grid { grid-template-columns: repeat(2, 1fr); } }
+        .case-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+        .case-card:hover {
+            border-color: rgba(16, 185, 129, 0.35);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+        }
+        .case-card .case-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .case-card h3 {
+            font-size: 1.2rem;
+            margin: 0 0 10px;
+            color: var(--text-main);
+        }
+        .case-card .case-desc {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin: 0 0 18px;
+            flex-grow: 1;
+        }
+        .case-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+        .case-metric { flex: 1; min-width: 90px; }
+        .case-metric .m-num {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .case-metric .m-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .process-steps {
+            display: grid;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        @media (min-width: 700px) { .process-steps { grid-template-columns: repeat(4, 1fr); } }
+        .process-step { text-align: center; padding: 20px 12px; }
+        .process-num {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #000;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            font-size: 1.1rem;
+        }
+        .process-step h3 { font-size: 1rem; margin: 0 0 8px; }
+        .process-step p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0;
+        }
+        .tools-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .tool-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .pm-cta-band {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, var(--bg-card) 50%);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 20px;
+            padding: 48px 28px;
+            text-align: center;
+            margin: 20px 0 80px;
+        }
+        .pm-cta-band h2 {
+            font-size: clamp(1.4rem, 3vw, 1.9rem);
+            margin: 0 0 12px;
+        }
+        .pm-cta-band p {
+            color: var(--text-muted);
+            max-width: 480px;
+            margin: 0 auto 24px;
+            line-height: 1.65;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        .back-link:hover { color: var(--primary); }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="site-header" id="siteHeader" role="banner">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
+            <nav class="main-nav desktop-only" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="index.html#tools" class="nav-link">Tools</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="consultation.html" class="btn-nav">Book Strategy Call</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+        <div class="drawer-header">
+            <a href="index.html" class="brand-logo">Mizanul<span> Islam</span></a>
+            <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+        </div>
+        <nav class="drawer-nav" id="drawerNav">
+            <ul>
+                <li><a href="services.html" class="drawer-link">Services</a></li>
+                <li><a href="index.html#tools" class="drawer-link">Tools</a></li>
+                <li><a href="about.html" class="drawer-link">About</a></li>
+                <li><a href="case-studies.html" class="drawer-link">Case Studies</a></li>
+                <li><a href="blog.html" class="drawer-link">Blog</a></li>
+                <li><a href="consultation.html" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main id="main-content" role="main">
+
+        <section class="pm-hero">
+            <div class="container">
+                <a href="index.html" class="back-link">← Back to main site</a>
+
+                <div class="pm-hero-grid">
+                    <!-- ছবি: profile.jpg একই ফোল্ডারে রাখো → অটো লোড -->
+                    <div class="pm-photo-wrap">
+                        <div class="pm-photo-ring" aria-hidden="true"></div>
+                        <img src="mizanul-islam-digital-growth-strategist.webp" alt="Mizanul Islam" class="pm-photo" width="260" height="260">
+                        
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="pm-badge-row">
+                            <span class="pm-chip">Performance Marketing</span>
+                            <span class="pm-chip">Meta &amp; Google Ads</span>
+                            <span class="pm-chip">CAPI / Tracking</span>
+                        </div>
+                        <h1>Mizanul Islam</h1>
+                        <p class="role">Performance Marketer &amp; Growth Systems Builder</p>
+                        <p class="lead">
+                            I help brands turn paid traffic into measurable revenue — with clean tracking,
+                            high-converting creatives, and scalable media buying systems.
+                        </p>
+                        <div class="pm-hero-actions">
+                            <a href="consultation.html" class="btn btn-primary">Book Strategy Call</a>
+                            <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pm-stats">
+                    <div class="pm-stat">
+                        <div class="num">Meta + Google</div>
+                        <div class="label">Core Platforms</div>
+                    </div>
+                    <div class="pm-stat">
+                        <div class="num">CAPI / sGTM</div>
+                        <div class="label">Tracking Stack</div>
+                    </div>
+                    <div class="pm-stat">
+                        <div class="num">ROAS Focus</div>
+                        <div class="label">Not Vanity Metrics</div>
+                    </div>
+                    <div class="pm-stat">
+                        <div class="num">Full Funnel</div>
+                        <div class="label">Ads → Conversion</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pm-section" style="padding-top: 20px;">
+            <div class="container">
+                <div class="pm-section-title">
+                    <span class="badge">About</span>
+                    <h2>Who I Work With</h2>
+                </div>
+                <div class="pm-about-card">
+                    <p>
+                        I’m a performance-focused digital marketer based in Dhaka, specializing in paid acquisition
+                        and the technical systems that make it reliable. My work sits at the intersection of
+                        <strong style="color: var(--text-main);">media buying</strong>,
+                        <strong style="color: var(--text-main);">conversion tracking</strong>, and
+                        <strong style="color: var(--text-main);">funnel clarity</strong>.
+                    </p>
+                    <p>
+                        Most campaigns fail not because of “bad creatives alone,” but because of broken attribution,
+                        weak offers, or no testing framework. I fix the foundation first — then scale what works.
+                    </p>
+                    <p>
+                        Operating under <a href="growup.html" style="color: var(--primary);">Grow Up</a> —
+                        a performance-first digital marketing practice built for sustainable growth.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pm-section" style="background: rgba(255,255,255,0.015);">
+            <div class="container">
+                <div class="pm-section-title">
+                    <span class="badge">Expertise</span>
+                    <h2>What I Deliver</h2>
+                    <p>Specialized skills that move the needle on paid growth and measurement.</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">M</div>
+                        <h3>Meta Ads Buying</h3>
+                        <p>Campaign structure, creative testing, audience strategy, and scaling with controlled ROAS.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">G</div>
+                        <h3>Google Ads</h3>
+                        <p>Search, Performance Max, and Shopping setups focused on intent and efficient CPA.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">C</div>
+                        <h3>CAPI &amp; Tracking</h3>
+                        <p>Meta Conversions API, server-side GTM, Event Match Quality, and iOS signal recovery.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">F</div>
+                        <h3>Funnel &amp; CRO</h3>
+                        <p>Landing page clarity, offer framing, and friction reduction for higher conversion rates.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">W</div>
+                        <h3>WhatsApp Automation</h3>
+                        <p>Cloud API flows, UTM-tracked links, and post-click messaging for lead nurture.</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">A</div>
+                        <h3>Analytics &amp; Reporting</h3>
+                        <p>GA4, Looker-ready reporting, MER/ROAS views that match business reality.</p>
+                    </div>
+                </div>
+                <div class="tools-strip" style="margin-top: 36px;">
+                    <span class="tool-pill">Meta Ads Manager</span>
+                    <span class="tool-pill">Google Ads</span>
+                    <span class="tool-pill">GA4</span>
+                    <span class="tool-pill">GTM / sGTM</span>
+                    <span class="tool-pill">Meta CAPI</span>
+                    <span class="tool-pill">Looker Studio</span>
+                    <span class="tool-pill">WhatsApp Cloud API</span>
+                    <span class="tool-pill">Clarity / Hotjar</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="pm-section">
+            <div class="container">
+                <div class="pm-section-title">
+                    <span class="badge">Selected Work</span>
+                    <h2>Case Study Frameworks</h2>
+                    <p>Structured approaches I use for client work. Real client metrics will be added as projects complete.</p>
+                </div>
+                <div class="case-grid">
+                    <article class="case-card">
+                        <div class="case-tag">Meta Ads · eCommerce</div>
+                        <h3>Creative Testing → Scale System</h3>
+                        <p class="case-desc">
+                            ABO test structure for hooks and angles, kill losers fast, promote winners into CBO,
+                            and scale budget in controlled steps while watching frequency and MER.
+                        </p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <div class="m-num">Test → Scale</div>
+                                <div class="m-label">Framework</div>
+                            </div>
+                            <div class="case-metric">
+                                <div class="m-num">ROAS / MER</div>
+                                <div class="m-label">Primary KPIs</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="case-card">
+                        <div class="case-tag">Tracking · CAPI</div>
+                        <h3>Server-Side Event Recovery</h3>
+                        <p class="case-desc">
+                            Implement Meta CAPI + browser pixel with event_id deduplication.
+                            Improve Event Match Quality and reduce lost conversions from iOS and ad blockers.
+                        </p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <div class="m-num">CAPI + Pixel</div>
+                                <div class="m-label">Dual Setup</div>
+                            </div>
+                            <div class="case-metric">
+                                <div class="m-num">EMQ ↑</div>
+                                <div class="m-label">Match Quality</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="case-card">
+                        <div class="case-tag">Google Ads · Lead Gen</div>
+                        <h3>Intent Capture Structure</h3>
+                        <p class="case-desc">
+                            Keyword architecture, negative sculpting, and conversion-focused landing alignment
+                            so search spend goes to high-intent queries, not noise.
+                        </p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <div class="m-num">CPA Focus</div>
+                                <div class="m-label">Primary KPI</div>
+                            </div>
+                            <div class="case-metric">
+                                <div class="m-num">Search + PMax</div>
+                                <div class="m-label">Channels</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="case-card">
+                        <div class="case-tag">CRO · Landing</div>
+                        <h3>Offer &amp; Page Clarity Audit</h3>
+                        <p class="case-desc">
+                            Headline–ad match, single primary CTA, proof near the fold, form friction cut,
+                            and mobile speed — the five checks that often lift conversion before new creatives.
+                        </p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <div class="m-num">CVR Lift</div>
+                                <div class="m-label">Goal</div>
+                            </div>
+                            <div class="case-metric">
+                                <div class="m-num">5-Point</div>
+                                <div class="m-label">Checklist</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="pm-section" style="background: rgba(255,255,255,0.015);">
+            <div class="container">
+                <div class="pm-section-title">
+                    <span class="badge">Process</span>
+                    <h2>How Engagement Works</h2>
+                    <p>A clear path from first call to measurable outcomes.</p>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="process-num">1</div>
+                        <h3>Audit</h3>
+                        <p>Review ads, tracking, funnel, and offer. Find leaks and quick wins.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-num">2</div>
+                        <h3>Foundation</h3>
+                        <p>Fix CAPI/pixel, structure campaigns, align landing pages.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-num">3</div>
+                        <h3>Test</h3>
+                        <p>Run controlled creative and audience tests. Kill losers fast.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-num">4</div>
+                        <h3>Scale</h3>
+                        <p>Scale winners with budget rules. Report on ROAS, CPA, MER.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pm-section" style="padding-top: 40px; padding-bottom: 40px;">
+            <div class="container">
+                <div class="pm-cta-band">
+                    <h2>Ready to tighten tracking and scale what works?</h2>
+                    <p>Book a strategy call. We’ll review your current setup and map the highest-leverage next steps.</p>
+                    <a href="consultation.html" class="btn btn-primary" style="padding: 14px 28px;">Book Strategy Call</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-container">
+            <div class="footer-tagline-heading">
+                <h2>building growth infrastructure.</h2>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>SERVICES</h3>
+                    <ul>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>TOOLS</h3>
+                    <ul>
+                        <li><a href="index.html#tools">WA Link Generator</a></li>
+                        <li><a href="index.html#tools">UTM Builder</a></li>
+                        <li><a href="index.html#tools">A/B Test Evaluator</a></li>
+                        <li><a href="index.html#tools">Budget Allocator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>COMPANY</h3>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>LEGAL</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-address-section">
+                <p>Behind, Hazrat Shahjalal International Airport, Cybercity, Square,<br>Dhaka, Bangladesh - 1230</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mizanul Islam. All rights reserved.</p>
+                <p class="brand-owner">A brand by <a href="growup.html">Grow Up</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chat-widget.js"></script>
+    <script>
+        (function() {
+            var img = new Image();
+            img.onload = function() {
+                var wrap = document.querySelector('.pm-photo-wrap');
+                var ph = document.getElementById('photoPlaceholder');
+                if (wrap && ph) {
+                    ph.remove();
+                    var el = document.createElement('img');
+                    el.src = 'profile.jpg';
+                    el.alt = 'Mizanul Islam';
+                    el.className = 'pm-photo';
+                    el.width = 260;
+                    el.height = 260;
+                    wrap.appendChild(el);
+                }
+            };
+            img.src = 'profile.jpg';
+        })();
+    </script>
+</body>
+</html>

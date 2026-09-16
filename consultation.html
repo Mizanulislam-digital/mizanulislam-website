@@ -289,7 +289,7 @@
                     <div class="booking-card">
                         <h3>Reserve Your Strategy Call</h3>
                         
-                        <form id="consultationForm" class="booking-form" novalidate>
+                        <form id="consultationForm" class="booking-form" novalidate onsubmit="return false;">
                             
                             <div class="form-group">
                                 <label>Select Session Type *</label>
@@ -366,7 +366,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" id="btnBookCall" class="btn btn-primary btn-block">
+                            <button type="button" id="btnBookCall" class="btn btn-primary btn-block">
                                 <span class="btn-text">Confirm &amp; Proceed to Booking</span>
                                 <span class="btn-spinner hidden" aria-hidden="true"></span>
                             </button>
@@ -449,128 +449,89 @@
 
     <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var dateInput = document.getElementById('preferredDate');
-            if (dateInput) {
-                var tomorrow = new Date();
-                tomorrow.setDate(tomorrow.getDate() + 1);
-                dateInput.min = tomorrow.toISOString().split('T')[0];
-            }
+document.addEventListener('DOMContentLoaded', function () {
+  var dateInput = document.getElementById('preferredDate');
+  if (dateInput) {
+    var t = new Date();
+    t.setDate(t.getDate() + 1);
+    dateInput.min = t.toISOString().split('T')[0];
+  }
 
-            var sessionOptions = document.querySelectorAll('.session-option');
-            var summaryPlan = document.getElementById('summaryPlan');
-            var summaryPrice = document.getElementById('summaryPrice');
+  document.querySelectorAll('.session-option').forEach(function (opt) {
+    opt.addEventListener('click', function () {
+      document.querySelectorAll('.session-option').forEach(function (o) { o.classList.remove('active'); });
+      opt.classList.add('active');
+      var r = opt.querySelector('input[type="radio"]');
+      if (r) r.checked = true;
+      var plan = document.getElementById('summaryPlan');
+      var price = document.getElementById('summaryPrice');
+      var h = opt.querySelector('h5');
+      if (plan) plan.textContent = (h ? h.textContent : '') + ' (' + opt.getAttribute('data-duration') + ')';
+      if (price) price.textContent = '$' + opt.getAttribute('data-price') + ' USD';
+    });
+  });
 
-            sessionOptions.forEach(function (option) {
-                option.addEventListener('click', function () {
-                    sessionOptions.forEach(function (opt) { opt.classList.remove('active'); });
-                    option.classList.add('active');
-                    var radio = option.querySelector('input[type="radio"]');
-                    if (radio) radio.checked = true;
-                    var price = option.getAttribute('data-price');
-                    var duration = option.getAttribute('data-duration');
-                    var titleEl = option.querySelector('h5');
-                    var title = titleEl ? titleEl.textContent : '';
-                    if (summaryPlan) summaryPlan.textContent = title + ' (' + duration + ')';
-                    if (summaryPrice) summaryPrice.textContent = '$' + price + ' USD';
-                });
-            });
+  document.querySelectorAll('.time-slot-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.time-slot-btn').forEach(function (x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      var st = document.getElementById('selectedTime');
+      if (st) st.value = b.getAttribute('data-time');
+    });
+  });
 
-            var timeSlotBtns = document.querySelectorAll('.time-slot-btn');
-            var selectedTimeInput = document.getElementById('selectedTime');
-            timeSlotBtns.forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    timeSlotBtns.forEach(function (b) { b.classList.remove('active'); });
-                    btn.classList.add('active');
-                    if (selectedTimeInput) selectedTimeInput.value = btn.getAttribute('data-time');
-                });
-            });
-        });
+  var form = document.getElementById('consultationForm');
+  var btn = document.getElementById('btnBookCall');
+  if (!form || !btn) return;
 
-        (function () {
-            var form = document.getElementById('consultationForm');
-            if (!form) return;
+  btn.onclick = function () {
+    var ok = true;
+    ['clientName', 'clientEmail', 'websiteUrl', 'preferredDate', 'businessChallenge'].forEach(function (id) {
+      var el = document.getElementById(id);
+      var err = document.getElementById('err-' + id);
+      if (!el || !err) return;
+      err.textContent = '';
+      if (!el.value.trim()) { err.textContent = 'This field is required.'; ok = false; }
+    });
+    if (!ok) return;
 
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
+    var btnText = btn.querySelector('.btn-text');
+    var spinner = btn.querySelector('.btn-spinner');
+    if (btnText) btnText.textContent = 'Sending...';
+    if (spinner) spinner.classList.remove('hidden');
+    btn.disabled = true;
 
-                var isValid = true;
-                var fields = ['clientName', 'clientEmail', 'websiteUrl', 'preferredDate', 'businessChallenge'];
-                fields.forEach(function (field) {
-                    var input = document.getElementById(field);
-                    var err = document.getElementById('err-' + field);
-                    if (input && err) {
-                        err.textContent = '';
-                        if (!input.value.trim()) {
-                            err.textContent = 'This field is required.';
-                            isValid = false;
-                        }
-                    }
-                });
+    var session = form.querySelector('input[name="sessionType"]:checked');
+    var timeEl = document.getElementById('selectedTime');
 
-                var emailInput = document.getElementById('clientEmail');
-                if (emailInput && emailInput.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
-                    var errE = document.getElementById('err-clientEmail');
-                    if (errE) errE.textContent = 'Enter a valid email address.';
-                    isValid = false;
-                }
-
-                if (!isValid) return false;
-
-                var btn = document.getElementById('btnBookCall');
-                var btnText = btn ? btn.querySelector('.btn-text') : null;
-                var spinner = btn ? btn.querySelector('.btn-spinner') : null;
-                if (btnText) btnText.textContent = 'Sending request...';
-                if (spinner) spinner.classList.remove('hidden');
-                if (btn) btn.disabled = true;
-
-                var sessionEl = form.querySelector('input[name="sessionType"]:checked');
-                var timeEl = document.getElementById('selectedTime');
-
-                var payload = {
-                    name: document.getElementById('clientName').value.trim(),
-                    email: document.getElementById('clientEmail').value.trim(),
-                    website: document.getElementById('websiteUrl').value.trim(),
-                    session: sessionEl ? sessionEl.value : '',
-                    preferred_date: document.getElementById('preferredDate').value,
-                    preferred_time: timeEl ? timeEl.value : '',
-                    challenge: document.getElementById('businessChallenge').value.trim()
-                };
-
-                fetch('/api/consultation', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                })
-                    .then(function (res) { return res.json(); })
-                    .then(function (data) {
-                        if (data.success) {
-                            if (typeof showToast === 'function') {
-                                showToast('Request sent. I will reply by email shortly.');
-                            }
-                            form.reset();
-                        } else {
-                            if (typeof showToast === 'function') {
-                                showToast('Could not send. Please email mail.mizanulislam@gmail.com');
-                            }
-                        }
-                    })
-                    .catch(function () {
-                        if (typeof showToast === 'function') {
-                            showToast('Network error. Please try again or email directly.');
-                        }
-                    })
-                    .finally(function () {
-                        if (btnText) btnText.textContent = 'Confirm & Proceed to Booking';
-                        if (spinner) spinner.classList.add('hidden');
-                        if (btn) btn.disabled = false;
-                    });
-
-                return false;
-            });
-        })();
-    </script>
+    fetch('/api/consultation', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: document.getElementById('clientName').value.trim(),
+        email: document.getElementById('clientEmail').value.trim(),
+        website: document.getElementById('websiteUrl').value.trim(),
+        session: session ? session.value : '',
+        preferred_date: document.getElementById('preferredDate').value,
+        preferred_time: timeEl ? timeEl.value : '',
+        challenge: document.getElementById('businessChallenge').value.trim()
+      })
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      alert(data.success ? 'Request sent. I will reply by email shortly.' : 'Could not send. Email mail.mizanulislam@gmail.com');
+      if (data.success) form.reset();
+    })
+    .catch(function () { alert('Network error. Please try again.'); })
+    .finally(function () {
+      if (btnText) btnText.textContent = 'Confirm & Proceed to Booking';
+      if (spinner) spinner.classList.add('hidden');
+      btn.disabled = false;
+    });
+  };
+});
+          </script>
+        
     <script src="chat-widget.js"></script>
 </body>
 </html>

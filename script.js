@@ -70,6 +70,20 @@
         return re.test(String(phone).trim());
     }
 
+    /**
+     * Validates URL Field
+     * @param {string} url
+     * @returns {boolean}
+     */
+    function validateUrl(url) {
+        try {
+            const u = new URL(String(url).trim());
+            return u.protocol === 'http:' || u.protocol === 'https:';
+        } catch (_) {
+            return false;
+        }
+    }
+
     /* ==========================================================================
        2. MOBILE DRAWER & HEADER SCROLL CONTROLLER
        ========================================================================== */
@@ -88,7 +102,7 @@
             } else {
                 header?.classList.remove('scrolled');
             }
-        });
+        }, { passive: true });
 
         // Open Mobile Drawer
         function openDrawer() {
@@ -116,6 +130,13 @@
 
         drawerLinks.forEach(link => {
             link.addEventListener('click', closeDrawer);
+        });
+
+        // Escape key closes drawer
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileDrawer?.classList.contains('active')) {
+                closeDrawer();
+            }
         });
     }
 
@@ -293,66 +314,206 @@
     }
 
     /* ==========================================================================
-       4. SECURE FORM VALIDATION CONTROLLER
+       4. CONSULTATION FORM CONTROLLER (Self-Contained)
        ========================================================================== */
     function setupConsultationForm() {
         const form = document.getElementById('consultationForm');
         if (!form) return;
-        if (document.getElementById('clientName')) return;
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
+        const btn = document.getElementById('btnBookCall');
+        const btnText = btn ? btn.querySelector('.btn-text') : null;
+        const spinner = btn ? btn.querySelector('.btn-spinner') : null;
+        const dateInput = document.getElementById('preferredDate');
+        const timeInput = document.getElementById('selectedTime');
+        const summaryPlan = document.getElementById('summaryPlan');
+        const summaryPrice = document.getElementById('summaryPrice');
 
-            let isValid = true;
-            const fields = ['fullName', 'email', 'phone', 'monthlyBudget', 'preferredDate', 'preferredTime'];
+        /* ---------- 1. Minimum date = tomorrow ---------- */
+        if (dateInput) {
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const yyyy = tomorrow.getFullYear();
+            const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+            const dd = String(tomorrow.getDate()).padStart(2, '0');
+            dateInput.min = `${yyyy}-${mm}-${dd}`;
+        }
 
-            fields.forEach(fieldId => {
-                const input = document.getElementById(fieldId);
-                const errSpan = document.getElementById(`err-${fieldId}`);
-                if (!input || !errSpan) return;
+        /* ---------- 2. Session type selector ---------- */
+        const sessionOptions = form.querySelectorAll('.session-option');
+        sessionOptions.forEach(function (opt) {
+            opt.addEventListener('click', function () {
+                sessionOptions.forEach(o => o.classList.remove('active'));
+                opt.classList.add('active');
 
-                input.classList.remove('invalid');
-                errSpan.textContent = '';
+                const radio = opt.querySelector('input[type="radio"]');
+                if (radio) radio.checked = true;
 
-                if (!input.value.trim()) {
-                    input.classList.add('invalid');
-                    errSpan.textContent = 'This field is required.';
-                    isValid = false;
+                const title = opt.querySelector('h5');
+                const duration = opt.getAttribute('data-duration') || '';
+                const price = opt.getAttribute('data-price') || '0';
+
+                if (summaryPlan && title) {
+                    summaryPlan.textContent = `${title.textContent} (${duration})`;
+                }
+                if (summaryPrice) {
+                    summaryPrice.textContent = `$${price} USD`;
                 }
             });
+        });
 
-            const emailInput = /** @type {HTMLInputElement} */ (document.getElementById('email'));
-            if (emailInput && emailInput.value && !validateEmail(emailInput.value)) {
-                emailInput.classList.add('invalid');
-                document.getElementById('err-email').textContent = 'Enter a valid email address.';
-                isValid = false;
+        /* ---------- 3. Time slot selector ---------- */
+        const timeButtons = form.querySelectorAll('.time-slot-btn');
+        timeButtons.forEach(function (b) {
+            b.addEventListener('click', function () {
+                timeButtons.forEach(x => x.classList.remove('active'));
+                b.classList.add('active');
+                if (timeInput) timeInput.value = b.getAttribute('data-time') || '';
+                clearError('selectedTime');
+            });
+        });
+
+        /* ---------- 4. Validation helpers ---------- */
+        function setError(fieldId, message) {
+            const input = document.getElementById(fieldId);
+            const err = document.getElementById('err-' + fieldId);
+            if (input) input.classList.add('invalid');
+            if (err) err.textContent = message;
+        }
+
+        function clearError(fieldId) {
+            const input = document.getElementById(fieldId);
+            const err = document.getElementById('err-' + fieldId);
+            if (input) input.classList.remove('invalid');
+            if (err) err.textContent = '';
+        }
+
+        /* ---------- 5. Live error clearing ---------- */
+        ['clientName', 'clientEmail', 'websiteUrl', 'preferredDate', 'businessChallenge'].forEach(function (id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', function () { clearError(id); });
+                el.addEventListener('change', function () { clearError(id); });
             }
+        });
 
-            const phoneInput = /** @type {HTMLInputElement} */ (document.getElementById('phone'));
-            if (phoneInput && phoneInput.value && !validatePhone(phoneInput.value)) {
-                phoneInput.classList.add('invalid');
-                document.getElementById('err-phone').textContent = 'Enter a valid phone number.';
-                isValid = false;
-            }
+        /* ---------- 6. Submit handler ---------- */
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
 
-            if (isValid) {
-                const btnSubmit = document.getElementById('btnSubmit');
-                const btnText = btnSubmit?.querySelector('.btn-text');
-                const spinner = btnSubmit?.querySelector('.btn-spinner');
+            let valid = true;
 
-                if (btnText && spinner) {
-                    btnText.textContent = 'Submitting Request...';
-                    spinner.classList.remove('hidden');
+            const name = (document.getElementById('clientName')?.value || '').trim();
+            const email = (document.getElementById('clientEmail')?.value || '').trim();
+            const website = (document.getElementById('websiteUrl')?.value || '').trim();
+            const date = (document.getElementById('preferredDate')?.value || '').trim();
+            const challenge = (document.getElementById('businessChallenge')?.value || '').trim();
+            const time = timeInput ? timeInput.value : '';
+            const sessionRadio = form.querySelector('input[name="sessionType"]:checked');
+            const session = sessionRadio ? sessionRadio.value : '';
+
+            // Name
+            if (!name) { setError('clientName', 'Full name is required.'); valid = false; }
+            else if (name.length < 2) { setError('clientName', 'Name is too short.'); valid = false; }
+            else clearError('clientName');
+
+            // Email
+            if (!email) { setError('clientEmail', 'Email is required.'); valid = false; }
+            else if (!validateEmail(email)) { setError('clientEmail', 'Enter a valid email address.'); valid = false; }
+            else clearError('clientEmail');
+
+            // Website
+            if (!website) { setError('websiteUrl', 'Website URL is required.'); valid = false; }
+            else if (!validateUrl(website)) { setError('websiteUrl', 'Enter a valid URL (e.g., https://yourbrand.com).'); valid = false; }
+            else clearError('websiteUrl');
+
+            // Date
+            if (!date) {
+                setError('preferredDate', 'Preferred date is required.');
+                valid = false;
+            } else {
+                const picked = new Date(date + 'T00:00:00');
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (picked <= today) {
+                    setError('preferredDate', 'Please pick a future date.');
+                    valid = false;
+                } else {
+                    clearError('preferredDate');
                 }
+            }
 
-                setTimeout(() => {
-                    showToast('Consultation Strategy Request Submitted Successfully!');
+            // Time
+            if (!time) { setError('selectedTime', 'Please select a time slot.'); valid = false; }
+            else clearError('selectedTime');
+
+            // Challenge
+            if (!challenge) { setError('businessChallenge', 'Please describe your goal.'); valid = false; }
+            else if (challenge.length < 10) { setError('businessChallenge', 'Please write at least 10 characters.'); valid = false; }
+            else clearError('businessChallenge');
+
+            if (!valid) {
+                showToast('Please fix the highlighted fields.');
+                const firstInvalid = form.querySelector('.invalid');
+                if (firstInvalid && typeof firstInvalid.scrollIntoView === 'function') {
+                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstInvalid.focus({ preventScroll: true });
+                }
+                return;
+            }
+
+            /* ---------- 7. UI loading state ---------- */
+            if (btn) btn.disabled = true;
+            if (btnText) btnText.textContent = 'Sending...';
+            if (spinner) spinner.classList.remove('hidden');
+
+            try {
+                const payload = {
+                    name: name,
+                    email: email,
+                    website: website,
+                    session: session,
+                    preferred_date: date,
+                    preferred_time: time,
+                    challenge: challenge
+                };
+
+                const res = await fetch('/api/consultation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await res.json().catch(() => ({ success: false }));
+
+                if (res.ok && data && data.success) {
+                    showToast('✅ Request sent! I will reply by email shortly.');
                     form.reset();
-                    if (btnText && spinner) {
-                        btnText.textContent = 'Submit Consultation Request';
-                        spinner.classList.add('hidden');
+                    if (timeInput) timeInput.value = '10:00 AM';
+                    if (summaryPlan) summaryPlan.textContent = 'Strategy Call (45 Mins)';
+                    if (summaryPrice) summaryPrice.textContent = '$99 USD';
+
+                    sessionOptions.forEach((o, i) => o.classList.toggle('active', i === 0));
+                    timeButtons.forEach((b, i) => b.classList.toggle('active', i === 0));
+
+                    // Reset date min for next submission
+                    if (dateInput) {
+                        const tomorrow = new Date();
+                        tomorrow.setDate(tomorrow.getDate() + 1);
+                        const yyyy = tomorrow.getFullYear();
+                        const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+                        const dd = String(tomorrow.getDate()).padStart(2, '0');
+                        dateInput.min = `${yyyy}-${mm}-${dd}`;
                     }
-                }, 1500);
+                } else {
+                    showToast('❌ Could not send. Email mail.mizanulislam@gmail.com');
+                }
+            } catch (err) {
+                console.error('[Consultation] Submit error:', err);
+                showToast('⚠️ Network error. Please try again.');
+            } finally {
+                if (btn) btn.disabled = false;
+                if (btnText) btnText.textContent = 'Confirm & Proceed to Booking';
+                if (spinner) spinner.classList.add('hidden');
             }
         });
     }

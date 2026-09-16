@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
-    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://api.resend.com;">
+
     <title>Book a 1-on-1 Growth Consultation | Mizanul Islam</title>
     <meta name="title" content="Book a 1-on-1 Growth Consultation | Mizanul Islam">
     <meta name="description" content="Schedule a 1-on-1 performance marketing & technical consultation with Mizanul Islam. Audit your ad accounts, CAPI tracking, and scaling funnels.">
@@ -289,7 +289,7 @@
                     <div class="booking-card">
                         <h3>Reserve Your Strategy Call</h3>
                         
-                        <form id="consultationForm" class="booking-form" novalidate onsubmit="return false;">
+                        <form id="consultationForm" class="booking-form" novalidate>
                             
                             <div class="form-group">
                                 <label>Select Session Type *</label>
@@ -366,7 +366,7 @@
                                 </div>
                             </div>
 
-                                <button type="button" id="btnBookCall" class="btn btn-primary btn-block" onclick="handleConsultationSubmit()">
+                            <button type="submit" id="btnBookCall" class="btn btn-primary btn-block">
                                 <span class="btn-text">Confirm &amp; Proceed to Booking</span>
                                 <span class="btn-spinner hidden" aria-hidden="true"></span>
                             </button>
@@ -448,101 +448,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-function handleConsultationSubmit() {
-  var form = document.getElementById('consultationForm');
-  if (!form) return;
-
-  var ok = true;
-  var ids = ['clientName', 'clientEmail', 'websiteUrl', 'preferredDate', 'businessChallenge'];
-  for (var i = 0; i < ids.length; i++) {
-    var el = document.getElementById(ids[i]);
-    var err = document.getElementById('err-' + ids[i]);
-    if (err) err.textContent = '';
-    if (!el || !el.value.trim()) {
-      if (err) err.textContent = 'This field is required.';
-      ok = false;
-    }
-  }
-  if (!ok) {
-    alert('Please fill all required fields.');
-    return;
-  }
-
-  var btn = document.getElementById('btnBookCall');
-  var btnText = btn ? btn.querySelector('.btn-text') : null;
-  var spinner = btn ? btn.querySelector('.btn-spinner') : null;
-  if (btnText) btnText.textContent = 'Sending...';
-  if (spinner) spinner.classList.remove('hidden');
-  if (btn) btn.disabled = true;
-
-  var session = form.querySelector('input[name="sessionType"]:checked');
-  var timeEl = document.getElementById('selectedTime');
-
-  fetch('/api/consultation', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name: document.getElementById('clientName').value.trim(),
-      email: document.getElementById('clientEmail').value.trim(),
-      website: document.getElementById('websiteUrl').value.trim(),
-      session: session ? session.value : '',
-      preferred_date: document.getElementById('preferredDate').value,
-      preferred_time: timeEl ? timeEl.value : '',
-      challenge: document.getElementById('businessChallenge').value.trim()
-    })
-  })
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      if (data && data.success) {
-        alert('Request sent. I will reply by email shortly.');
-        form.reset();
-      } else {
-        alert('Could not send. Please email mail.mizanulislam@gmail.com');
-      }
-    })
-    .catch(function () {
-      alert('Network error. Please try again.');
-    })
-    .finally(function () {
-      if (btnText) btnText.textContent = 'Confirm & Proceed to Booking';
-      if (spinner) spinner.classList.add('hidden');
-      if (btn) btn.disabled = false;
-    });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  var dateInput = document.getElementById('preferredDate');
-  if (dateInput) {
-    var t = new Date();
-    t.setDate(t.getDate() + 1);
-    dateInput.min = t.toISOString().split('T')[0];
-  }
-  document.querySelectorAll('.session-option').forEach(function (opt) {
-    opt.addEventListener('click', function () {
-      document.querySelectorAll('.session-option').forEach(function (o) { o.classList.remove('active'); });
-      opt.classList.add('active');
-      var r = opt.querySelector('input[type="radio"]');
-      if (r) r.checked = true;
-      var plan = document.getElementById('summaryPlan');
-      var price = document.getElementById('summaryPrice');
-      var h = opt.querySelector('h5');
-      if (plan) plan.textContent = (h ? h.textContent : '') + ' (' + opt.getAttribute('data-duration') + ')';
-      if (price) price.textContent = '$' + opt.getAttribute('data-price') + ' USD';
-    });
-  });
-  document.querySelectorAll('.time-slot-btn').forEach(function (b) {
-    b.addEventListener('click', function () {
-      document.querySelectorAll('.time-slot-btn').forEach(function (x) { x.classList.remove('active'); });
-      b.classList.add('active');
-      var st = document.getElementById('selectedTime');
-      if (st) st.value = b.getAttribute('data-time');
-    });
-  });
-});
-    </script>
-
-        
     <script src="chat-widget.js"></script>
 </body>
-</html>
+                </html>

@@ -493,12 +493,12 @@
 
             const form = document.getElementById('consultationForm');
             if (form) {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', async function (e) {
                     e.preventDefault();
                     let isValid = true;
 
                     const fields = ['clientName', 'clientEmail', 'websiteUrl', 'preferredDate', 'businessChallenge'];
-                    fields.forEach(field => {
+                    fields.forEach(function (field) {
                         const input = document.getElementById(field);
                         const err = document.getElementById('err-' + field);
                         if (input && err) {
@@ -510,26 +510,65 @@
                         }
                     });
 
-                    if (isValid) {
-                        const btn = document.getElementById('btnBookCall');
-                        const btnText = btn.querySelector('.btn-text');
-                        const spinner = btn.querySelector('.btn-spinner');
+                    const emailInput = document.getElementById('clientEmail');
+                    if (emailInput && emailInput.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+                        const err = document.getElementById('err-clientEmail');
+                        if (err) err.textContent = 'Enter a valid email address.';
+                        isValid = false;
+                    }
 
-                        btnText.textContent = 'Processing Booking...';
-                        spinner.classList.remove('hidden');
+                    if (!isValid) return;
 
-                        setTimeout(() => {
+                    const btn = document.getElementById('btnBookCall');
+                    const btnText = btn ? btn.querySelector('.btn-text') : null;
+                    const spinner = btn ? btn.querySelector('.btn-spinner') : null;
+
+                    if (btnText) btnText.textContent = 'Sending request...';
+                    if (spinner) spinner.classList.remove('hidden');
+                    if (btn) btn.disabled = true;
+
+                    const sessionEl = form.querySelector('input[name="sessionType"]:checked');
+                    const timeEl = document.getElementById('selectedTime');
+
+                    const payload = {
+                        name: document.getElementById('clientName').value.trim(),
+                        email: document.getElementById('clientEmail').value.trim(),
+                        website: document.getElementById('websiteUrl').value.trim(),
+                        session: sessionEl ? sessionEl.value : '',
+                        preferred_date: document.getElementById('preferredDate').value,
+                        preferred_time: timeEl ? timeEl.value : '',
+                        challenge: document.getElementById('businessChallenge').value.trim()
+                    };
+
+                    try {
+                        const res = await fetch('/api/consultation', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        const data = await res.json();
+
+                        if (data.success) {
                             if (typeof showToast === 'function') {
-                                showToast('Strategy Call Request Received! Confirmation sent to email.');
+                                showToast('Request sent. I will reply by email shortly.');
                             }
                             form.reset();
-                            btnText.textContent = 'Confirm & Proceed to Booking';
-                            spinner.classList.add('hidden');
-                        }, 1500);
+                        } else {
+                            if (typeof showToast === 'function') {
+                                showToast('Could not send. Please email mail.mizanulislam@gmail.com');
+                            }
+                        }
+                    } catch (err) {
+                        if (typeof showToast === 'function') {
+                            showToast('Network error. Please try again or email directly.');
+                        }
                     }
+
+                    if (btnText) btnText.textContent = 'Confirm & Proceed to Booking';
+                    if (spinner) spinner.classList.add('hidden');
+                    if (btn) btn.disabled = false;
                 });
             }
-        });
     </script>
     <script src="chat-widget.js"></script>
 </body>

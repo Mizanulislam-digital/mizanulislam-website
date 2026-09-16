@@ -366,7 +366,7 @@
                                 </div>
                             </div>
 
-                            <button type="button" id="btnBookCall" class="btn btn-primary btn-block">
+                                <button type="button" id="btnBookCall" class="btn btn-primary btn-block" onclick="handleConsultationSubmit()">
                                 <span class="btn-text">Confirm &amp; Proceed to Booking</span>
                                 <span class="btn-spinner hidden" aria-hidden="true"></span>
                             </button>
@@ -449,6 +449,68 @@
 
     <script src="script.js"></script>
     <script>
+function handleConsultationSubmit() {
+  var form = document.getElementById('consultationForm');
+  if (!form) return;
+
+  var ok = true;
+  var ids = ['clientName', 'clientEmail', 'websiteUrl', 'preferredDate', 'businessChallenge'];
+  for (var i = 0; i < ids.length; i++) {
+    var el = document.getElementById(ids[i]);
+    var err = document.getElementById('err-' + ids[i]);
+    if (err) err.textContent = '';
+    if (!el || !el.value.trim()) {
+      if (err) err.textContent = 'This field is required.';
+      ok = false;
+    }
+  }
+  if (!ok) {
+    alert('Please fill all required fields.');
+    return;
+  }
+
+  var btn = document.getElementById('btnBookCall');
+  var btnText = btn ? btn.querySelector('.btn-text') : null;
+  var spinner = btn ? btn.querySelector('.btn-spinner') : null;
+  if (btnText) btnText.textContent = 'Sending...';
+  if (spinner) spinner.classList.remove('hidden');
+  if (btn) btn.disabled = true;
+
+  var session = form.querySelector('input[name="sessionType"]:checked');
+  var timeEl = document.getElementById('selectedTime');
+
+  fetch('/api/consultation', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: document.getElementById('clientName').value.trim(),
+      email: document.getElementById('clientEmail').value.trim(),
+      website: document.getElementById('websiteUrl').value.trim(),
+      session: session ? session.value : '',
+      preferred_date: document.getElementById('preferredDate').value,
+      preferred_time: timeEl ? timeEl.value : '',
+      challenge: document.getElementById('businessChallenge').value.trim()
+    })
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data && data.success) {
+        alert('Request sent. I will reply by email shortly.');
+        form.reset();
+      } else {
+        alert('Could not send. Please email mail.mizanulislam@gmail.com');
+      }
+    })
+    .catch(function () {
+      alert('Network error. Please try again.');
+    })
+    .finally(function () {
+      if (btnText) btnText.textContent = 'Confirm & Proceed to Booking';
+      if (spinner) spinner.classList.add('hidden');
+      if (btn) btn.disabled = false;
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   var dateInput = document.getElementById('preferredDate');
   if (dateInput) {
@@ -456,7 +518,6 @@ document.addEventListener('DOMContentLoaded', function () {
     t.setDate(t.getDate() + 1);
     dateInput.min = t.toISOString().split('T')[0];
   }
-
   document.querySelectorAll('.session-option').forEach(function (opt) {
     opt.addEventListener('click', function () {
       document.querySelectorAll('.session-option').forEach(function (o) { o.classList.remove('active'); });
@@ -470,7 +531,6 @@ document.addEventListener('DOMContentLoaded', function () {
       if (price) price.textContent = '$' + opt.getAttribute('data-price') + ' USD';
     });
   });
-
   document.querySelectorAll('.time-slot-btn').forEach(function (b) {
     b.addEventListener('click', function () {
       document.querySelectorAll('.time-slot-btn').forEach(function (x) { x.classList.remove('active'); });
@@ -479,58 +539,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (st) st.value = b.getAttribute('data-time');
     });
   });
-
-  var form = document.getElementById('consultationForm');
-  var btn = document.getElementById('btnBookCall');
-  if (!form || !btn) return;
-
-  btn.onclick = function () {
-    var ok = true;
-    ['clientName', 'clientEmail', 'websiteUrl', 'preferredDate', 'businessChallenge'].forEach(function (id) {
-      var el = document.getElementById(id);
-      var err = document.getElementById('err-' + id);
-      if (!el || !err) return;
-      err.textContent = '';
-      if (!el.value.trim()) { err.textContent = 'This field is required.'; ok = false; }
-    });
-    if (!ok) return;
-
-    var btnText = btn.querySelector('.btn-text');
-    var spinner = btn.querySelector('.btn-spinner');
-    if (btnText) btnText.textContent = 'Sending...';
-    if (spinner) spinner.classList.remove('hidden');
-    btn.disabled = true;
-
-    var session = form.querySelector('input[name="sessionType"]:checked');
-    var timeEl = document.getElementById('selectedTime');
-
-    fetch('/api/consultation', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: document.getElementById('clientName').value.trim(),
-        email: document.getElementById('clientEmail').value.trim(),
-        website: document.getElementById('websiteUrl').value.trim(),
-        session: session ? session.value : '',
-        preferred_date: document.getElementById('preferredDate').value,
-        preferred_time: timeEl ? timeEl.value : '',
-        challenge: document.getElementById('businessChallenge').value.trim()
-      })
-    })
-    .then(function (r) { return r.json(); })
-    .then(function (data) {
-      alert(data.success ? 'Request sent. I will reply by email shortly.' : 'Could not send. Email mail.mizanulislam@gmail.com');
-      if (data.success) form.reset();
-    })
-    .catch(function () { alert('Network error. Please try again.'); })
-    .finally(function () {
-      if (btnText) btnText.textContent = 'Confirm & Proceed to Booking';
-      if (spinner) spinner.classList.add('hidden');
-      btn.disabled = false;
-    });
-  };
 });
-          </script>
+    </script>
+
         
     <script src="chat-widget.js"></script>
 </body>

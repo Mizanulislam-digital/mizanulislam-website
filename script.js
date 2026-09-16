@@ -298,6 +298,7 @@
     function setupConsultationForm() {
         const form = document.getElementById('consultationForm');
         if (!form) return;
+        if (document.getElementById('clientName')) return;
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();

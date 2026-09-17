@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self';">
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -92,6 +93,84 @@
             margin: 0;
         }
     </style>
+    
+    <!-- Organization Schema — Grow Up (Business Entity) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://www.mizanulislam.com/#organization",
+      "name": "Grow Up",
+      "alternateName": "Grow Up Digital",
+      "legalName": "Grow Up",
+      "url": "https://www.mizanulislam.com/growup.html",
+      "logo": "https://www.mizanulislam.com/favicon-96x96.png",
+      "image": "https://www.mizanulislam.com/favicon-96x96.png",
+      "description": "Performance marketing consultancy founded by Mizanul Islam, specializing in paid media, CAPI tracking, and scalable growth systems for worldwide brands.",
+      
+      "founder": {
+        "@type": "Person",
+        "@id": "https://www.mizanulislam.com/#person",
+        "name": "Mizanul Islam",
+        "url": "https://www.mizanulislam.com"
+      },
+      
+      "foundingDate": "2024",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Dhaka, Bangladesh"
+      },
+      
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dhaka",
+        "addressRegion": "Dhaka",
+        "addressCountry": "BD"
+      },
+      
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "Canada" },
+        { "@type": "Country", "name": "Australia" },
+        { "@type": "Country", "name": "United Arab Emirates" },
+        { "@type": "Country", "name": "Saudi Arabia" },
+        { "@type": "Country", "name": "Singapore" },
+        { "@type": "Country", "name": "Germany" },
+        { "@type": "Country", "name": "Netherlands" },
+        { "@type": "Country", "name": "Ireland" },
+        { "@type": "Country", "name": "Bangladesh" }
+      ],
+      
+      "knowsAbout": [
+        "Performance Marketing",
+        "Meta Ads",
+        "Google Ads",
+        "Meta CAPI Tracking",
+        "Server-Side Google Tag Manager",
+        "Conversion Rate Optimization",
+        "Marketing Automation",
+        "WhatsApp Cloud API",
+        "Growth Analytics"
+      ],
+      
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "mail.mizanulislam@gmail.com",
+        "contactType": "customer support",
+        "availableLanguage": ["English", "Bengali"],
+        "areaServed": ["US", "GB", "CA", "AU", "AE", "SA", "SG", "DE", "NL", "IE", "BD"]
+      },
+      
+      "sameAs": [
+        "https://www.linkedin.com/in/mizanulislam-digital",
+        "https://youtube.com/@mizanulislam.digital",
+        "https://www.instagram.com/mizanulislam.digital",
+        "https://github.com/Mizanulislam-digital"
+      ]
+    }
+    </script>
+    
 </head>
 <body>
 

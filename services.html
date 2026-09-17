@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self';">
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -18,6 +18,105 @@
     <meta name="author" content="Mizanul Islam">
 
     <link rel="stylesheet" href="style.css">
+
+
+<!-- Service Schema — Grow Up's Service Catalog -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://www.mizanulislam.com/services.html#service",
+  "serviceType": "Performance Marketing & Growth Consulting",
+  "name": "Performance Marketing Services by Grow Up",
+  "description": "Full-stack performance marketing services including Meta Ads management, CAPI tracking setup, conversion rate optimization, and growth analytics for scaling brands worldwide.",
+  "url": "https://www.mizanulislam.com/services.html",
+  
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://www.mizanulislam.com/#organization",
+    "name": "Grow Up",
+    "url": "https://www.mizanulislam.com/growup.html",
+    "logo": "https://www.mizanulislam.com/favicon-96x96.png"
+  },
+  
+  "areaServed": [
+    { "@type": "Country", "name": "United States" },
+    { "@type": "Country", "name": "United Kingdom" },
+    { "@type": "Country", "name": "Canada" },
+    { "@type": "Country", "name": "Australia" },
+    { "@type": "Country", "name": "United Arab Emirates" },
+    { "@type": "Country", "name": "Saudi Arabia" },
+    { "@type": "Country", "name": "Singapore" },
+    { "@type": "Country", "name": "Germany" },
+    { "@type": "Country", "name": "Netherlands" },
+    { "@type": "Country", "name": "Ireland" },
+    { "@type": "Country", "name": "Bangladesh" }
+  ],
+  
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Growth Services Catalog",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Meta & Multi-Channel Media Buying",
+          "description": "Data-driven ad management focusing on ROAS, CAC, and MER metrics. Systematic CBO/ABO allocation, dynamic ad testing, and audience scaling frameworks.",
+          "serviceType": "Paid Media Buying"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Server-Side Tracking & Meta CAPI",
+          "description": "Eliminate iOS ad-blocker tracking loss. Custom server-side Google Tag Manager (sGTM) containers and Cloudflare Workers to improve conversion signal quality.",
+          "serviceType": "Tracking & Attribution"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Conversion Rate Optimization (CRO)",
+          "description": "Data-informed sales funnel transformation using heatmaps, session recordings, and A/B testing to remove purchase friction and increase conversion rates.",
+          "serviceType": "CRO"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Direct Response Copywriting",
+          "description": "Persuasive ad copy and sales pages designed to hook attention, stop the scroll, and maximize immediate purchase conversions.",
+          "serviceType": "Copywriting"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "WhatsApp Marketing & Automation",
+          "description": "Automate customer retention and abandoned cart recovery with high-converting WhatsApp Cloud API sequences and automated nurture campaigns.",
+          "serviceType": "Marketing Automation"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Growth Analytics & MER Auditing",
+          "description": "Comprehensive growth auditing to analyze Marketing Efficiency Ratio (MER), Customer Acquisition Cost (CAC), and Lifetime Value (LTV) for maximum profitability.",
+          "serviceType": "Analytics & Auditing"
+        }
+      }
+    ]
+  }
+}
+</script>
+
+
     <style>
         :root {
             --glow-primary: rgba(16, 185, 129, 0.12);

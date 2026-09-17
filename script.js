@@ -1,39 +1,16 @@
 /**
- * Main Application Interactive Controller & UI Engine (Zero Warnings)
+ * Main Application Interactive Controller & UI Engine
  * Target Entity: Mizanul Islam (mizanulislam.com)
- * Architecture: Enterprise Modular Event Controller & Security Hardened
+ * Handles: Navigation, Tools, Consultation Form (Consultation Page), Home Consultation Form
  */
 
 (function () {
     'use strict';
 
     /* ==========================================================================
-       1. SECURITY, TOAST & UI UTILITIES
+       1. UTILITIES
        ========================================================================== */
 
-    /**
-     * Escapes input string for XSS Prevention
-     * @param {string} str
-     * @returns {string}
-     */
-    function sanitizeInputString(str) {
-        if (typeof str !== 'string') return '';
-        return str.replace(/[&<>"']/g, function (m) {
-            const map = {
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                '"': '&quot;',
-                "'": '&#039;'
-            };
-            return map[m] || m;
-        });
-    }
-
-    /**
-     * Triggers dynamic Toast notification
-     * @param {string} message 
-     */
     function showToast(message) {
         const container = document.getElementById('toastContainer');
         if (!container) return;
@@ -50,31 +27,16 @@
         }, 3000);
     }
 
-    /**
-     * Validates User Email Field
-     * @param {string} email
-     * @returns {boolean}
-     */
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase().trim());
     }
 
-    /**
-     * Validates User Phone Field
-     * @param {string} phone
-     * @returns {boolean}
-     */
     function validatePhone(phone) {
         const re = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
         return re.test(String(phone).trim());
     }
 
-    /**
-     * Validates URL Field
-     * @param {string} url
-     * @returns {boolean}
-     */
     function validateUrl(url) {
         try {
             const u = new URL(String(url).trim());
@@ -84,8 +46,17 @@
         }
     }
 
+    function tomorrowISO() {
+        const t = new Date();
+        t.setDate(t.getDate() + 1);
+        const yyyy = t.getFullYear();
+        const mm = String(t.getMonth() + 1).padStart(2, '0');
+        const dd = String(t.getDate()).padStart(2, '0');
+        return `${yyyy}-${mm}-${dd}`;
+    }
+
     /* ==========================================================================
-       2. MOBILE DRAWER & HEADER SCROLL CONTROLLER
+       2. NAVIGATION CONTROLLER
        ========================================================================== */
     function setupNavigationController() {
         const header = document.getElementById('siteHeader');
@@ -95,7 +66,6 @@
         const drawerClose = document.getElementById('drawerClose');
         const drawerLinks = document.querySelectorAll('.drawer-link');
 
-        // Sticky Header Effect
         window.addEventListener('scroll', () => {
             if (window.scrollY > 30) {
                 header?.classList.add('scrolled');
@@ -104,7 +74,6 @@
             }
         }, { passive: true });
 
-        // Open Mobile Drawer
         function openDrawer() {
             mobileDrawer?.classList.add('active');
             drawerBackdrop?.classList.add('active');
@@ -114,7 +83,6 @@
             drawerBackdrop?.setAttribute('aria-hidden', 'false');
         }
 
-        // Close Mobile Drawer
         function closeDrawer() {
             mobileDrawer?.classList.remove('active');
             drawerBackdrop?.classList.remove('active');
@@ -132,7 +100,6 @@
             link.addEventListener('click', closeDrawer);
         });
 
-        // Escape key closes drawer
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && mobileDrawer?.classList.contains('active')) {
                 closeDrawer();
@@ -141,20 +108,16 @@
     }
 
     /* ==========================================================================
-       3. INTERACTIVE MARKETING UTILITIES (SYNCHRONIZED WITH HTML)
+       3. MARKETING TOOLS
        ========================================================================== */
 
-    /**
-     * Tool 1: WhatsApp Link Builder Controller
-     */
     function setupWhatsAppGenerator() {
         const btn = document.getElementById('btnGenerateWA');
         if (!btn) return;
 
         btn.addEventListener('click', function () {
-            const phoneInput = /** @type {HTMLInputElement} */ (document.getElementById('waPhone'));
-            const msgInput = /** @type {HTMLTextAreaElement} */ (document.getElementById('waMessage'));
-
+            const phoneInput = document.getElementById('waPhone');
+            const msgInput = document.getElementById('waMessage');
             if (!phoneInput) return;
 
             const cleanPhone = phoneInput.value.trim().replace(/[^0-9]/g, '');
@@ -176,18 +139,15 @@
         });
     }
 
-    /**
-     * Tool 2: UTM Campaign Link Builder Controller
-     */
     function setupUtmGenerator() {
         const btn = document.getElementById('btnGenerateUTM');
         if (!btn) return;
 
         btn.addEventListener('click', function () {
-            const urlInput = /** @type {HTMLInputElement} */ (document.getElementById('utmUrl'));
-            const sourceInput = /** @type {HTMLInputElement} */ (document.getElementById('utmSource'));
-            const mediumInput = /** @type {HTMLInputElement} */ (document.getElementById('utmMedium'));
-            const campaignInput = /** @type {HTMLInputElement} */ (document.getElementById('utmCampaign'));
+            const urlInput = document.getElementById('utmUrl');
+            const sourceInput = document.getElementById('utmSource');
+            const mediumInput = document.getElementById('utmMedium');
+            const campaignInput = document.getElementById('utmCampaign');
 
             if (!urlInput || !sourceInput) return;
 
@@ -224,9 +184,6 @@
         });
     }
 
-    /**
-     * Tool 3: A/B Test Significance Evaluator (Z-Score & Normal CDF)
-     */
     function setupAbEvaluator() {
         const btn = document.getElementById('btnCalcAB');
         if (!btn) return;
@@ -239,10 +196,10 @@
         }
 
         btn.addEventListener('click', function () {
-            const vA = parseFloat((/** @type {HTMLInputElement} */ (document.getElementById('abVisitorsA'))).value);
-            const cA = parseFloat((/** @type {HTMLInputElement} */ (document.getElementById('abConvA'))).value);
-            const vB = parseFloat((/** @type {HTMLInputElement} */ (document.getElementById('abVisitorsB'))).value);
-            const cB = parseFloat((/** @type {HTMLInputElement} */ (document.getElementById('abConvB'))).value);
+            const vA = parseFloat(document.getElementById('abVisitorsA').value);
+            const cA = parseFloat(document.getElementById('abConvA').value);
+            const vB = parseFloat(document.getElementById('abVisitorsB').value);
+            const cB = parseFloat(document.getElementById('abConvB').value);
             const resDiv = document.getElementById('abResult');
 
             if (!resDiv || isNaN(vA) || isNaN(cA) || isNaN(vB) || isNaN(cB) || vA <= 0 || vB <= 0) {
@@ -280,18 +237,15 @@
         });
     }
 
-    /**
-     * Tool 4: Ad Budget ROI/ROAS Calculator
-     */
     function setupRoiCalculator() {
         const btn = document.getElementById('btnCalcROI');
         if (!btn) return;
 
         btn.addEventListener('click', function () {
-            const budget = parseFloat((/** @type {HTMLInputElement} */ (document.getElementById('roiBudget'))).value);
-            const cpc = parseFloat((/** @type {HTMLInputElement} */ (document.getElementById('roiCpc'))).value);
-            const convRate = parseFloat((/** @type {HTMLInputElement} */ (document.getElementById('roiConvRate'))).value);
-            const aov = parseFloat((/** @type {HTMLInputElement} */ (document.getElementById('roiAov'))).value);
+            const budget = parseFloat(document.getElementById('roiBudget').value);
+            const cpc = parseFloat(document.getElementById('roiCpc').value);
+            const convRate = parseFloat(document.getElementById('roiConvRate').value);
+            const aov = parseFloat(document.getElementById('roiAov').value);
             const resDiv = document.getElementById('roiResult');
 
             if (!resDiv || isNaN(budget) || isNaN(cpc) || isNaN(convRate) || isNaN(aov) || cpc <= 0) {
@@ -314,7 +268,7 @@
     }
 
     /* ==========================================================================
-       4. CONSULTATION FORM CONTROLLER (Self-Contained)
+       4. CONSULTATION PAGE FORM (clientName, clientEmail, websiteUrl, etc.)
        ========================================================================== */
     function setupConsultationForm() {
         const form = document.getElementById('consultationForm');
@@ -328,17 +282,9 @@
         const summaryPlan = document.getElementById('summaryPlan');
         const summaryPrice = document.getElementById('summaryPrice');
 
-        /* ---------- 1. Minimum date = tomorrow ---------- */
-        if (dateInput) {
-            const tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            const yyyy = tomorrow.getFullYear();
-            const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
-            const dd = String(tomorrow.getDate()).padStart(2, '0');
-            dateInput.min = `${yyyy}-${mm}-${dd}`;
-        }
+        if (dateInput) dateInput.min = tomorrowISO();
 
-        /* ---------- 2. Session type selector ---------- */
+        // Session type
         const sessionOptions = form.querySelectorAll('.session-option');
         sessionOptions.forEach(function (opt) {
             opt.addEventListener('click', function () {
@@ -352,16 +298,12 @@
                 const duration = opt.getAttribute('data-duration') || '';
                 const price = opt.getAttribute('data-price') || '0';
 
-                if (summaryPlan && title) {
-                    summaryPlan.textContent = `${title.textContent} (${duration})`;
-                }
-                if (summaryPrice) {
-                    summaryPrice.textContent = `$${price} USD`;
-                }
+                if (summaryPlan && title) summaryPlan.textContent = `${title.textContent} (${duration})`;
+                if (summaryPrice) summaryPrice.textContent = `$${price} USD`;
             });
         });
 
-        /* ---------- 3. Time slot selector ---------- */
+        // Time slot
         const timeButtons = form.querySelectorAll('.time-slot-btn');
         timeButtons.forEach(function (b) {
             b.addEventListener('click', function () {
@@ -372,7 +314,6 @@
             });
         });
 
-        /* ---------- 4. Validation helpers ---------- */
         function setError(fieldId, message) {
             const input = document.getElementById(fieldId);
             const err = document.getElementById('err-' + fieldId);
@@ -387,7 +328,6 @@
             if (err) err.textContent = '';
         }
 
-        /* ---------- 5. Live error clearing ---------- */
         ['clientName', 'clientEmail', 'websiteUrl', 'preferredDate', 'businessChallenge'].forEach(function (id) {
             const el = document.getElementById(id);
             if (el) {
@@ -396,12 +336,10 @@
             }
         });
 
-        /* ---------- 6. Submit handler ---------- */
         form.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             let valid = true;
-
             const name = (document.getElementById('clientName')?.value || '').trim();
             const email = (document.getElementById('clientEmail')?.value || '').trim();
             const website = (document.getElementById('websiteUrl')?.value || '').trim();
@@ -411,76 +349,50 @@
             const sessionRadio = form.querySelector('input[name="sessionType"]:checked');
             const session = sessionRadio ? sessionRadio.value : '';
 
-            // Name
-            if (!name) { setError('clientName', 'Full name is required.'); valid = false; }
-            else if (name.length < 2) { setError('clientName', 'Name is too short.'); valid = false; }
-            else clearError('clientName');
-
-            // Email
+            if (!name || name.length < 2) { setError('clientName', 'Full name is required.'); valid = false; } else clearError('clientName');
             if (!email) { setError('clientEmail', 'Email is required.'); valid = false; }
             else if (!validateEmail(email)) { setError('clientEmail', 'Enter a valid email address.'); valid = false; }
             else clearError('clientEmail');
 
-            // Website
             if (!website) { setError('websiteUrl', 'Website URL is required.'); valid = false; }
-            else if (!validateUrl(website)) { setError('websiteUrl', 'Enter a valid URL (e.g., https://yourbrand.com).'); valid = false; }
+            else if (!validateUrl(website)) { setError('websiteUrl', 'Enter a valid URL.'); valid = false; }
             else clearError('websiteUrl');
 
-            // Date
-            if (!date) {
-                setError('preferredDate', 'Preferred date is required.');
-                valid = false;
-            } else {
+            if (!date) { setError('preferredDate', 'Preferred date is required.'); valid = false; }
+            else {
                 const picked = new Date(date + 'T00:00:00');
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                if (picked <= today) {
-                    setError('preferredDate', 'Please pick a future date.');
-                    valid = false;
-                } else {
-                    clearError('preferredDate');
-                }
+                const today = new Date(); today.setHours(0, 0, 0, 0);
+                if (picked <= today) { setError('preferredDate', 'Please pick a future date.'); valid = false; }
+                else clearError('preferredDate');
             }
 
-            // Time
             if (!time) { setError('selectedTime', 'Please select a time slot.'); valid = false; }
             else clearError('selectedTime');
 
-            // Challenge
-            if (!challenge) { setError('businessChallenge', 'Please describe your goal.'); valid = false; }
-            else if (challenge.length < 10) { setError('businessChallenge', 'Please write at least 10 characters.'); valid = false; }
+            if (!challenge || challenge.length < 10) { setError('businessChallenge', 'Please write at least 10 characters.'); valid = false; }
             else clearError('businessChallenge');
 
             if (!valid) {
                 showToast('Please fix the highlighted fields.');
                 const firstInvalid = form.querySelector('.invalid');
-                if (firstInvalid && typeof firstInvalid.scrollIntoView === 'function') {
-                    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    firstInvalid.focus({ preventScroll: true });
-                }
+                if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 return;
             }
 
-            /* ---------- 7. UI loading state ---------- */
             if (btn) btn.disabled = true;
             if (btnText) btnText.textContent = 'Sending...';
             if (spinner) spinner.classList.remove('hidden');
 
             try {
-                const payload = {
-                    name: name,
-                    email: email,
-                    website: website,
-                    session: session,
-                    preferred_date: date,
-                    preferred_time: time,
-                    challenge: challenge
-                };
-
                 const res = await fetch('/api/consultation', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify({
+                        name, email, website, session,
+                        preferred_date: date,
+                        preferred_time: time,
+                        challenge
+                    })
                 });
 
                 const data = await res.json().catch(() => ({ success: false }));
@@ -491,19 +403,8 @@
                     if (timeInput) timeInput.value = '10:00 AM';
                     if (summaryPlan) summaryPlan.textContent = 'Strategy Call (45 Mins)';
                     if (summaryPrice) summaryPrice.textContent = '$99 USD';
-
                     sessionOptions.forEach((o, i) => o.classList.toggle('active', i === 0));
                     timeButtons.forEach((b, i) => b.classList.toggle('active', i === 0));
-
-                    // Reset date min for next submission
-                    if (dateInput) {
-                        const tomorrow = new Date();
-                        tomorrow.setDate(tomorrow.getDate() + 1);
-                        const yyyy = tomorrow.getFullYear();
-                        const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
-                        const dd = String(tomorrow.getDate()).padStart(2, '0');
-                        dateInput.min = `${yyyy}-${mm}-${dd}`;
-                    }
                 } else {
                     showToast('❌ Could not send. Email mail.mizanulislam@gmail.com');
                 }
@@ -519,7 +420,135 @@
     }
 
     /* ==========================================================================
-       5. INITIALIZATION HOOK
+       5. HOME PAGE FORM (fullName, email, phone, businessWebsite, monthlyBudget, preferredTime)
+       ========================================================================== */
+    function setupHomeConsultationForm() {
+        const form = document.getElementById('homeConsultationForm');
+        if (!form) return;
+
+        const btn = document.getElementById('btnSubmit');
+        const btnText = btn ? btn.querySelector('.btn-text') : null;
+        const spinner = btn ? btn.querySelector('.btn-spinner') : null;
+        const dateInput = document.getElementById('preferredDate');
+
+        if (dateInput) dateInput.min = tomorrowISO();
+
+        function setError(fieldId, message) {
+            const input = document.getElementById(fieldId);
+            const err = document.getElementById('err-' + fieldId);
+            if (input) input.classList.add('invalid');
+            if (err) err.textContent = message;
+        }
+
+        function clearError(fieldId) {
+            const input = document.getElementById(fieldId);
+            const err = document.getElementById('err-' + fieldId);
+            if (input) input.classList.remove('invalid');
+            if (err) err.textContent = '';
+        }
+
+        ['fullName', 'email', 'phone', 'businessWebsite', 'monthlyBudget', 'preferredDate', 'preferredTime'].forEach(function (id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('input', function () { clearError(id); });
+                el.addEventListener('change', function () { clearError(id); });
+            }
+        });
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            let valid = true;
+            const fullName = (document.getElementById('fullName')?.value || '').trim();
+            const email = (document.getElementById('email')?.value || '').trim();
+            const phone = (document.getElementById('phone')?.value || '').trim();
+            const businessWebsite = (document.getElementById('businessWebsite')?.value || '').trim();
+            const monthlyBudget = (document.getElementById('monthlyBudget')?.value || '').trim();
+            const preferredDate = (document.getElementById('preferredDate')?.value || '').trim();
+            const preferredTime = (document.getElementById('preferredTime')?.value || '').trim();
+            const notes = (document.getElementById('notes')?.value || '').trim();
+
+            if (!fullName || fullName.length < 2) { setError('fullName', 'Full name is required.'); valid = false; }
+            else clearError('fullName');
+
+            if (!email) { setError('email', 'Email is required.'); valid = false; }
+            else if (!validateEmail(email)) { setError('email', 'Enter a valid email address.'); valid = false; }
+            else clearError('email');
+
+            if (!phone) { setError('phone', 'Phone number is required.'); valid = false; }
+            else if (!validatePhone(phone)) { setError('phone', 'Enter a valid phone number.'); valid = false; }
+            else clearError('phone');
+
+            if (businessWebsite && !validateUrl(businessWebsite)) {
+                setError('businessWebsite', 'Enter a valid URL.');
+                valid = false;
+            } else clearError('businessWebsite');
+
+            if (!monthlyBudget) { setError('monthlyBudget', 'Please select a budget range.'); valid = false; }
+            else clearError('monthlyBudget');
+
+            if (!preferredDate) { setError('preferredDate', 'Preferred date is required.'); valid = false; }
+            else {
+                const picked = new Date(preferredDate + 'T00:00:00');
+                const today = new Date(); today.setHours(0, 0, 0, 0);
+                if (picked <= today) { setError('preferredDate', 'Please pick a future date.'); valid = false; }
+                else clearError('preferredDate');
+            }
+
+            if (!preferredTime) { setError('preferredTime', 'Please select a time slot.'); valid = false; }
+            else clearError('preferredTime');
+
+            if (!valid) {
+                showToast('Please fix the highlighted fields.');
+                const firstInvalid = form.querySelector('.invalid');
+                if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            if (btn) btn.disabled = true;
+            if (btnText) btnText.textContent = 'Sending...';
+            if (spinner) spinner.classList.remove('hidden');
+
+            try {
+                const res = await fetch('/api/consultation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: fullName,
+                        email: email,
+                        phone: phone,
+                        website: businessWebsite || 'N/A',
+                        session: 'Home Page Consultation',
+                        preferred_date: preferredDate,
+                        preferred_time: preferredTime,
+                        challenge: notes || 'N/A',
+                        monthly_budget: monthlyBudget,
+                        source: 'Home Page'
+                    })
+                });
+
+                const data = await res.json().catch(() => ({ success: false }));
+
+                if (res.ok && data && data.success) {
+                    showToast('✅ Request sent! I will reply by email shortly.');
+                    form.reset();
+                    if (dateInput) dateInput.min = tomorrowISO();
+                } else {
+                    showToast('❌ Could not send. Email mail.mizanulislam@gmail.com');
+                }
+            } catch (err) {
+                console.error('[Home Consultation] Submit error:', err);
+                showToast('⚠️ Network error. Please try again.');
+            } finally {
+                if (btn) btn.disabled = false;
+                if (btnText) btnText.textContent = 'Submit Consultation Request';
+                if (spinner) spinner.classList.add('hidden');
+            }
+        });
+    }
+
+    /* ==========================================================================
+       6. INIT
        ========================================================================== */
     function init() {
         setupNavigationController();
@@ -527,7 +556,8 @@
         setupUtmGenerator();
         setupAbEvaluator();
         setupRoiCalculator();
-        setupConsultationForm();
+        setupConsultationForm();      // consultation.html-এর form
+        setupHomeConsultationForm();  // index.html-এর form
         console.log('[Mizan DevStudio Pro]: Core Architecture Engine Loaded Successfully.');
     }
 

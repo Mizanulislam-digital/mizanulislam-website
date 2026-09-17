@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; connect-src 'self';">
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -18,6 +18,89 @@
     <meta name="author" content="Mizanul Islam">
 
     <link rel="stylesheet" href="style.css">
+    
+    <!-- AboutPage + Person Schema — Entity Relationship -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": "https://www.mizanulislam.com/about.html#aboutpage",
+      "url": "https://www.mizanulislam.com/about.html",
+      "name": "About Mizanul Islam & Grow Up",
+      "description": "Learn about Mizanul Islam, the founder of Grow Up — a performance marketing consultancy engineering scalable growth systems for worldwide brands.",
+      
+      "mainEntity": {
+        "@type": "Person",
+        "@id": "https://www.mizanulislam.com/#person",
+        "name": "Mizanul Islam",
+        "alternateName": "Mizan",
+        "jobTitle": "Performance Marketing Strategist & Growth Systems Builder",
+        "description": "Performance marketing strategist specializing in Meta Ads, CAPI tracking, and scalable growth systems for worldwide brands.",
+        "url": "https://www.mizanulislam.com",
+        "image": "https://www.mizanulislam.com/mizanul-islam-digital-growth-strategist.webp",
+        "email": "mail.mizanulislam@gmail.com",
+        
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dhaka",
+          "addressRegion": "Dhaka",
+          "addressCountry": "BD"
+        },
+        
+        "knowsLanguage": [
+          { "@type": "Language", "name": "English" },
+          { "@type": "Language", "name": "Bengali" }
+        ],
+        
+        "knowsAbout": [
+          "Performance Marketing",
+          "Digital Marketing Strategy",
+          "Growth Marketing",
+          "Meta Ads",
+          "Google Ads",
+          "Paid Media Buying",
+          "Meta Conversions API",
+          "CAPI Tracking",
+          "Server-Side Google Tag Manager",
+          "Conversion Rate Optimization",
+          "Marketing Automation",
+          "WhatsApp Cloud API",
+          "Growth Analytics",
+          "Marketing Efficiency Ratio",
+          "Funnel Architecture"
+        ],
+        
+        "sameAs": [
+          "https://www.linkedin.com/in/mizanulislam-digital",
+          "https://youtube.com/@mizanulislam.digital",
+          "https://www.instagram.com/mizanulislam.digital",
+          "https://github.com/Mizanulislam-digital"
+        ],
+        
+        "founder": {
+          "@type": "Organization",
+          "@id": "https://www.mizanulislam.com/#organization",
+          "name": "Grow Up",
+          "url": "https://www.mizanulislam.com/growup.html"
+        }
+      },
+      
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.mizanulislam.com/#website",
+        "url": "https://www.mizanulislam.com",
+        "name": "Mizanul Islam"
+      },
+      
+      "about": {
+        "@type": "Organization",
+        "@id": "https://www.mizanulislam.com/#organization",
+        "name": "Grow Up",
+        "url": "https://www.mizanulislam.com/growup.html"
+      }
+    }
+    </script>
+
     <style>
         :root {
             --glow-primary: rgba(16, 185, 129, 0.15);

@@ -1,2 +1,5 @@
-/pm    /pm-index.html    200
-/pm/   /pm-index.html    200
+# Cloudflare Pages Redirects
+# Portfolio URL redirects (301 = permanent)
+
+/pm-index.html    /pm    301
+/pm-index         /pm    301

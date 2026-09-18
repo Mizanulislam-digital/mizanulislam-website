@@ -1,5 +1,21 @@
 # Cloudflare Pages Redirects
-# Portfolio URL redirects (301 = permanent)
+# All .html URLs → Clean URLs (301 = permanent)
 
-/pm-index.html    /pm    301
-/pm-index         /pm    301
+# Main pages
+/about.html           /about           301
+/services.html        /services        301
+/consultation.html    /consultation    301
+/contact.html         /contact         301
+/blog.html            /blog            301
+/case-studies.html    /case-studies    301
+/growup.html          /growup          301
+
+# Legal pages
+/terms.html           /terms           301
+/privacy-policy.html  /privacy-policy  301
+/disclaimer.html      /disclaimer      301
+/refund-policy.html   /refund-policy   301
+
+# Portfolio migration
+/pm-index.html        /pm              301
+/pm-index             /pm              301

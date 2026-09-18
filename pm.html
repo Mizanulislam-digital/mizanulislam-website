@@ -803,25 +803,6 @@
 
     <script src="script.js"></script>
     <script src="chat-widget.js"></script>
-    <script>
-        (function() {
-            var img = new Image();
-            img.onload = function() {
-                var wrap = document.querySelector('.pm-photo-wrap');
-                var ph = document.getElementById('photoPlaceholder');
-                if (wrap && ph) {
-                    ph.remove();
-                    var el = document.createElement('img');
-                    el.src = 'profile.jpg';
-                    el.alt = 'Mizanul Islam';
-                    el.className = 'pm-photo';
-                    el.width = 260;
-                    el.height = 260;
-                    wrap.appendChild(el);
-                }
-            };
-            img.src = 'profile.jpg';
-        })();
-    </script>
+    
 </body>
 </html>

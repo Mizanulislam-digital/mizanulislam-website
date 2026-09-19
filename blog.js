@@ -13,8 +13,68 @@
 
     const posts = [
         {
-            id: 'post-1',
+            id: 'post-5',
             featured: true,
+            title: 'Why I Built This Website from Scratch (Instead of Using WordPress)',
+            tag: 'Learning Journal',
+            date: 'Sep 2026',
+            readTime: '7 min',
+            excerpt: 'Building this site from scratch taught me more about technical SEO, schema markup, and growth infrastructure than any course could. Here is what I learned.',
+            content: `
+                <p>When I decided to start learning digital marketing seriously, I had a choice: spin up a WordPress site in an hour, or build everything from scratch. I chose scratch — and it turned out to be the best decision of my learning journey.</p>
+                
+                <h3>What "From Scratch" Actually Means</h3>
+                <p>I coded the HTML, CSS, and JavaScript by hand. I deployed on Cloudflare Pages. I set up 9 types of Schema markup, clean URLs, 301 redirects, and a serverless API endpoint for form handling.</p>
+                
+                <h3>Why This Mattered for Learning</h3>
+                <ul>
+                    <li><strong>Schema Markup:</strong> I learned how Google actually reads entity relationships — Person ↔ Organization ↔ Service.</li>
+                    <li><strong>Technical SEO:</strong> Clean URLs, canonical tags, sitemaps — I did all of it manually.</li>
+                    <li><strong>Tracking:</strong> Setting up first-party conversion paths taught me what "clean data" means.</li>
+                    <li><strong>Serverless:</strong> I built a Cloudflare Function that handles form submissions via Resend API.</li>
+                </ul>
+                
+                <h3>What I Would Do Differently</h3>
+                <p>Next time, I'd add analytics from day one. I'd also test mobile first instead of retrofitting responsiveness. But the core lesson stands: building teaches faster than consuming.</p>
+                
+                <p>If you're learning marketing, try building something small — a landing page, a tracker, anything. You'll learn more in a week than in a month of tutorials.</p>
+            `
+        },
+        {
+            id: 'post-6',
+            featured: false,
+            title: 'What I Learned from Stanford\\'s Code in Place (Python for Marketers)',
+            tag: 'Learning Journal',
+            date: 'Aug 2026',
+            readTime: '6 min',
+            excerpt: 'Code in Place is a free Stanford program that teaches Python fundamentals. Here is why every marketer should consider learning to code.',
+            content: `
+                <p>I recently completed Stanford University's <strong>Code in Place</strong> program — a free, live-taught introduction to Python. It's designed for beginners, and it changed how I think about marketing technology.</p>
+                
+                <h3>Why Marketers Should Learn Python</h3>
+                <p>Modern marketing runs on APIs, webhooks, and server-side tracking. You don't need to be a developer, but understanding how code works makes you dramatically more effective.</p>
+                
+                <ul>
+                    <li>Read and modify tracking scripts (not just copy-paste)</li>
+                    <li>Understand CAPI payloads and event parameters</li>
+                    <li>Debug server-side GTM issues faster</li>
+                    <li>Automate repetitive reporting tasks</li>
+                </ul>
+                
+                <h3>What Code in Place Taught Me</h3>
+                <p>The program covers variables, loops, functions, and basic data structures over 6 weeks. Section leaders guide small groups through weekly problems.</p>
+                
+                <p>More importantly, it taught me <strong>how to think in code</strong> — breaking problems into small, testable steps. That mindset applies directly to marketing: test, measure, iterate.</p>
+                
+                <h3>Should You Do It?</h3>
+                <p>If you're a marketer who wants to stand out, yes. Code in Place runs once a year and is competitive to get into. But even free alternatives (CS50, freeCodeCamp) give you a similar foundation.</p>
+                
+                <p>The goal isn't to become a developer — it's to become a marketer who can work with developers and understand tracking at the code level.</p>
+            `
+        },
+        {
+            id: 'post-1',
+            featured: false,
             title: 'Building High-Throughput WhatsApp Automation with Cloud API',
             tag: 'WhatsApp API',
             date: 'Sep 2026',
@@ -107,7 +167,7 @@
         ============================================================
         ,
         {
-            id: 'post-5',
+            id: 'post-7',
             featured: false,
             title: 'আপনার ব্লগের শিরোনাম',
             tag: 'Category',

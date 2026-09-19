@@ -397,14 +397,14 @@
                 const data = await res.json().catch(() => ({ success: false }));
 
                 if (res.ok && data && data.success) {
-                    showToast('✅ Request sent! I will reply by email shortly.');
-                    form.reset();
-                    if (timeInput) timeInput.value = '10:00 AM';
-                    if (summaryPlan) summaryPlan.textContent = 'Strategy Call (45 Mins)';
-                    if (summaryPrice) summaryPrice.textContent = '$99 USD';
-                    sessionOptions.forEach((o, i) => o.classList.toggle('active', i === 0));
-                    timeButtons.forEach((b, i) => b.classList.toggle('active', i === 0));
-                } else {
+    showToast('✅ Request sent! I will reply by email shortly.');
+    form.reset();
+    if (timeInput) timeInput.value = '10:00 AM';
+    if (summaryPlan) summaryPlan.textContent = 'Free Discovery (15 Mins)';   // ✅ FIXED
+    if (summaryPrice) summaryPrice.textContent = 'Free';                     // ✅ FIXED
+    sessionOptions.forEach((o, i) => o.classList.toggle('active', i === 0));
+    timeButtons.forEach((b, i) => b.classList.toggle('active', i === 0));
+} else {
                     showToast('❌ Could not send. Email mail.mizanulislam@gmail.com');
                 }
             } catch (err) {

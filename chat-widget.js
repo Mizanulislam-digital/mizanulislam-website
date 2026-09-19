@@ -365,7 +365,7 @@
                 { keys: ["google ads", "google ad", "ppc", "pmax", "গুগল"], reply: R.google },
                 { keys: ["capi", "tracking", "pixel", "gtm", "ট্র্যাকিং", "পিক্সেল"], reply: R.capi },
                 { keys: ["cro", "landing", "conversion", "funnel", "ল্যান্ডিং", "কনভার্সন"], reply: R.cro },
-                { keys: ["whatsapp", "wa ", "হোয়াটসঅ্যাপ", "হোয়াটসঅ্যাপ"], reply: R.whatsapp },
+                { keys: ["whatsapp", "wa.me ", "হোয়াটসঅ্যাপ", "হোয়াটসঅ্যাপ"], reply: R.whatsapp },
                 { keys: ["about", "mizanul", "grow up", "কে আপনি", "এবাউট"], reply: R.about },
                 { keys: ["contact", "email", "phone", "যোগাযোগ"], reply: R.contact },
                 { keys: ["seo"], reply: R.seo },

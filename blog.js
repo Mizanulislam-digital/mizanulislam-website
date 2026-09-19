@@ -43,7 +43,7 @@
         {
             id: 'post-6',
             featured: false,
-            title: 'What I Learned from Stanford\\'s Code in Place (Python for Marketers)',
+            title: 'What I Learned from Stanford\'s Code in Place (Python for Marketers)',
             tag: 'Learning Journal',
             date: 'Aug 2026',
             readTime: '6 min',

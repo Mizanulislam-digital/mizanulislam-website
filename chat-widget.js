@@ -19,11 +19,11 @@
     var i18n = {
         en: {
             title: "Mizanul Islam",
-            subtitle: "Performance Marketing Specialist",
-            welcome: "Hello! 👋 I am Mizanul Islam's AI Assistant. How can I help you grow your business today?",
-            chip1: "Services Overview",
-            chip2: "Pricing & Packages",
-            chip3: "Book Consultation",
+            subtitle: "Meta Ads Practitioner",
+            welcome: "Hello! 👋 I'm Mizanul's AI Assistant. Ask me about Meta Ads, CAPI tracking, or booking a call.",
+            chip1: "Services",
+            chip2: "Pricing",
+            chip3: "Book a Call",
             placeholder: "Type your question...",
             send: "Send",
             thinking: "Generating answer...",
@@ -33,15 +33,15 @@
         },
         bn: {
             title: "মিজানুল ইসলাম",
-            subtitle: "পারফরম্যান্স মার্কেটিং স্পেশালিস্ট",
-            welcome: "হ্যালো! 👋 আমি মিজানুল ইসলামের AI অ্যাসিস্ট্যান্ট। আজ কীভাবে আপনার বিজনেসে সাহায্য করতে পারি?",
+            subtitle: "মেটা অ্যাডস প্র্যাকটিশনার",
+            welcome: "হ্যালো! 👋 আমি মিজানুল ইসলামের AI অ্যাসিস্ট্যান্ট। Meta Ads, CAPI tracking বা কল বুকিং নিয়ে জিজ্ঞেস করুন।",
             chip1: "সার্ভিসসমূহ",
             chip2: "প্রাইসিং",
             chip3: "কল বুক করুন",
             placeholder: "প্রশ্নটি লিখুন...",
             send: "পাঠান",
             thinking: "উত্তর তৈরি হচ্ছে...",
-            networkError: "নেটওয়ার্ক সংযোগে সমস্যা হয়েছে।",
+            networkError: "নেটওয়ার্ক সংযোগে সমস্যা হয়েছে।",
             toggleBtn: "EN",
             directWA: "হোয়াটসঅ্যাপে মেসেজ দিন"
         }
@@ -322,35 +322,35 @@
 
             var replies = {
                 en: {
-                    greeting: "Hello! 👋 I'm Mizanul's assistant. I can help with Meta/Google Ads, CAPI tracking, CRO, or booking a strategy call. What do you need?",
-                    services: "Main services:\n• Meta Ads buying & creative testing\n• Google Ads (Search / PMax)\n• Meta CAPI & server-side tracking\n• Funnel / landing page CRO\n• WhatsApp automation\n\nWant details on any one of these?",
-                    pricing: "Pricing depends on scope:\n• Strategy Call: from $99 (45 min)\n• Full System / CAPI Audit: from $199\n• Monthly retainers: custom after audit\n\nBook a call → consultation.html",
-                    consultation: "Book a 1-on-1 strategy call:\n→ consultation.html\n\nOr message on WhatsApp for a quick chat.",
+                    greeting: "Hello! 👋 I'm Mizanul's assistant. I can help with Meta Ads, CAPI tracking, CRO, or booking a call. What do you need?",
+                    services: "Services:\n• Meta Ads buying & creative testing\n• Google Ads (Search / PMax)\n• Meta CAPI & server-side tracking\n• Funnel / landing page CRO\n• WhatsApp automation\n\nWant details on any one of these?",
+                    pricing: "Pricing depends on scope:\n• Free discovery call: 15 min\n• Strategy Call: $49 (intro, 45 min)\n• Full System / CAPI Audit: $149 (intro)\n• Monthly retainers: custom after audit\n\nBook a call → /consultation",
+                    consultation: "Book a 1-on-1 strategy call:\n→ /consultation\n\nOr message on WhatsApp for a quick chat.",
                     meta: "Meta Ads: campaign structure, ABO→CBO testing, creative angles, ROAS-focused scaling.\n\nNeed a Meta account audit?",
                     google: "Google Ads: Search, Performance Max, Shopping — intent-focused, CPA goals.\n\nWant help with Search or PMax?",
                     capi: "CAPI + browser pixel with event_id deduplication improves Event Match Quality and recovers iOS losses.\n\nBook a tracking audit on a strategy call.",
                     cro: "CRO: ad–headline match, one primary CTA, proof near fold, less form friction, mobile speed.",
                     whatsapp: "Tap “Chat on WhatsApp” below to message Mizanul directly.",
-                    about: "Mizanul Islam — performance marketer under Grow Up. Paid acquisition, clean tracking, scalable systems. Dhaka.\n\nPortfolio: pm",
-                    contact: "Contact: contact.html · Book: consultation.html · WhatsApp: green button below",
+                    about: "Mizanul Islam — Meta Ads practitioner under Grow Up. Learning and building growth systems. Dhaka.\n\nPortfolio: /pm",
+                    contact: "Contact: /contact · Book: /consultation · WhatsApp: green button below",
                     seo: "Primary focus is performance marketing (Ads + Tracking + CRO), not deep SEO retainers.",
-                    audit: "Audit options: ad account, CAPI/tracking, or funnel. Book at consultation.html",
-                    fallback: "Thanks! For a tailored answer, book a strategy call or chat on WhatsApp.\n\nTry: Services · Pricing · CAPI · Book Call"
+                    audit: "Audit options: ad account, CAPI/tracking, or funnel. Book at /consultation",
+                    fallback: "Thanks! For a tailored answer, book a call or chat on WhatsApp.\n\nTry: Services · Pricing · CAPI · Book Call"
                 },
                 bn: {
-                    greeting: "হ্যালো! 👋 আমি মিজানুলের অ্যাসিস্ট্যান্ট। Meta/Google Ads, CAPI, CRO বা কল বুকিং নিয়ে সাহায্য করতে পারি।",
+                    greeting: "হ্যালো! 👋 আমি মিজানুলের অ্যাসিস্ট্যান্ট। Meta Ads, CAPI, CRO বা কল বুকিং নিয়ে সাহায্য করতে পারি।",
                     services: "মূল সার্ভিস:\n• Meta Ads\n• Google Ads\n• CAPI / Tracking\n• CRO\n• WhatsApp automation\n\nকোনোটার বিস্তারিত চাই?",
-                    pricing: "• স্ট্র্যাটেজি কল: $৯৯ থেকে\n• CAPI অডিট: $১৯৯ থেকে\n• রিটেইনার: কাস্টম\n\nকল বুক: consultation",
-                    consultation: "স্ট্র্যাটেজি কল: consultation.html\nঅথবা WhatsApp-এ মেসেজ দিন।",
+                    pricing: "• ফ্রি ডিসকভারি কল: ১৫ মিনিট\n• স্ট্র্যাটেজি কল: $৪৯ (ইন্ট্রো, ৪৫ মিনিট)\n• CAPI অডিট: $১৪৯ (ইন্ট্রো)\n• রিটেইনার: কাস্টম\n\nকল বুক: /consultation",
+                    consultation: "স্ট্র্যাটেজি কল: /consultation\nঅথবা WhatsApp-এ মেসেজ দিন।",
                     meta: "Meta Ads: স্ট্রাকচার, ABO→CBO টেস্ট, ROAS স্কেলিং।",
                     google: "Google Ads: Search, PMax, Shopping — CPA ফোকাস।",
-                    capi: "CAPI + পিক্সেল দিয়ে Event Match Quality বাড়ে। স্ট্র্যাটেজি কলে অডিট করা যায়।",
+                    capi: "CAPI + পিক্সেল দিয়ে Event Match Quality বাড়ে। স্ট্র্যাটেজি কলে অডিট করা যায়।",
                     cro: "CRO: হেডলাইন ম্যাচ, একটা CTA, প্রুফ, কম ফ্রিকশন, মোবাইল স্পিড।",
                     whatsapp: "নিচের সবুজ বাটনে ক্লিক করে সরাসরি মেসেজ দিন।",
-                    about: "মিজানুল ইসলাম — Grow Up, পারফরম্যান্স মার্কেটার। ঢাকা।\npm.",
-                    contact: "contact.html · consultation.html · WhatsApp বাটন",
+                    about: "মিজানুল ইসলাম — Grow Up, মেটা অ্যাডস প্র্যাকটিশনার। ঢাকা।\n/pm",
+                    contact: "/contact · /consultation · WhatsApp বাটন",
                     seo: "মূল ফোকাস Ads + Tracking + CRO।",
-                    audit: "অডিট: অ্যাড অ্যাকাউন্ট / CAPI / ফানেল। consultation.html",
+                    audit: "অডিট: অ্যাড অ্যাকাউন্ট / CAPI / ফানেল। /consultation",
                     fallback: "ধন্যবাদ। কল বুক করুন বা WhatsApp-এ লিখুন।\nসার্ভিস · প্রাইস · CAPI · কল"
                 }
             };
@@ -365,7 +365,7 @@
                 { keys: ["google ads", "google ad", "ppc", "pmax", "গুগল"], reply: R.google },
                 { keys: ["capi", "tracking", "pixel", "gtm", "ট্র্যাকিং", "পিক্সেল"], reply: R.capi },
                 { keys: ["cro", "landing", "conversion", "funnel", "ল্যান্ডিং", "কনভার্সন"], reply: R.cro },
-                { keys: ["whatsapp", "wa ", "হোয়াটসঅ্যাপ", "হোয়াটসঅ্যাপ"], reply: R.whatsapp },
+                { keys: ["whatsapp", "wa ", "হোয়াটসঅ্যাপ", "হোয়াটসঅ্যাপ"], reply: R.whatsapp },
                 { keys: ["about", "mizanul", "grow up", "কে আপনি", "এবাউট"], reply: R.about },
                 { keys: ["contact", "email", "phone", "যোগাযোগ"], reply: R.contact },
                 { keys: ["seo"], reply: R.seo },
@@ -404,13 +404,13 @@
                     self.renderChips(
                         self.state.currentLang === "bn"
                             ? ["কল বুক করুন", "সার্ভিসসমূহ", "CAPI"]
-                            : ["Book Consultation", "Services Overview", "CAPI"]
+                            : ["Book a Call", "Services", "CAPI"]
                     );
                 } else if (/service|সার্ভিস|meta|google|capi|overview/.test(lower)) {
                     self.renderChips(
                         self.state.currentLang === "bn"
                             ? ["প্রাইসিং", "কল বুক করুন", "CAPI"]
-                            : ["Pricing & Packages", "Book Consultation", "CAPI"]
+                            : ["Pricing", "Book a Call", "CAPI"]
                     );
                 }
                 self.state.isProcessing = false;

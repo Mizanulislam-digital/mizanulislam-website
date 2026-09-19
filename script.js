@@ -1,7 +1,7 @@
 /**
  * Main Application Interactive Controller & UI Engine
  * Target Entity: Mizanul Islam (mizanulislam.com)
- * Handles: Navigation, Tools, Consultation Form (Consultation Page), Home Consultation Form
+ * Handles: Navigation, Tools, Consultation Form, Home Form, Contact Form
  */
 
 (function () {
@@ -268,7 +268,7 @@
     }
 
     /* ==========================================================================
-       4. CONSULTATION PAGE FORM (clientName, clientEmail, websiteUrl, etc.)
+       4. CONSULTATION PAGE FORM
        ========================================================================== */
     function setupConsultationForm() {
         const form = document.getElementById('consultationForm');
@@ -284,7 +284,6 @@
 
         if (dateInput) dateInput.min = tomorrowISO();
 
-        // Session type
         const sessionOptions = form.querySelectorAll('.session-option');
         sessionOptions.forEach(function (opt) {
             opt.addEventListener('click', function () {
@@ -303,7 +302,6 @@
             });
         });
 
-        // Time slot
         const timeButtons = form.querySelectorAll('.time-slot-btn');
         timeButtons.forEach(function (b) {
             b.addEventListener('click', function () {
@@ -391,7 +389,8 @@
                         name, email, website, session,
                         preferred_date: date,
                         preferred_time: time,
-                        challenge
+                        challenge,
+                        source: 'Consultation Page'
                     })
                 });
 
@@ -420,7 +419,7 @@
     }
 
     /* ==========================================================================
-       5. HOME PAGE FORM (fullName, email, phone, businessWebsite, monthlyBudget, preferredTime)
+       5. HOME PAGE FORM
        ========================================================================== */
     function setupHomeConsultationForm() {
         const form = document.getElementById('homeConsultationForm');
@@ -548,7 +547,86 @@
     }
 
     /* ==========================================================================
-       6. INIT
+       6. CONTACT FORM (NEW — যোগ হচ্ছে এই step-এ)
+       ========================================================================== */
+    function setupContactForm() {
+        const form = document.getElementById('contactInquiryForm');
+        if (!form) return;
+
+        const btn = document.getElementById('btnSendInquiry');
+        const btnText = btn ? btn.querySelector('.btn-text') : null;
+        const spinner = btn ? btn.querySelector('.btn-spinner') : null;
+
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const name = (document.getElementById('senderName')?.value || '').trim();
+            const email = (document.getElementById('senderEmail')?.value || '').trim();
+            const subject = (document.getElementById('inquirySubject')?.value || '').trim();
+            const message = (document.getElementById('senderMessage')?.value || '').trim();
+
+            let valid = true;
+
+            if (!name || name.length < 2) {
+                showToast('Please enter your name.');
+                valid = false;
+            }
+            if (!email || !validateEmail(email)) {
+                showToast('Please enter a valid email.');
+                valid = false;
+            }
+            if (!subject) {
+                showToast('Please select an inquiry category.');
+                valid = false;
+            }
+            if (!message || message.length < 10) {
+                showToast('Please write at least 10 characters.');
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            if (btn) btn.disabled = true;
+            if (btnText) btnText.textContent = 'Sending...';
+            if (spinner) spinner.classList.remove('hidden');
+
+            try {
+                const res = await fetch('/api/consultation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        website: 'N/A',
+                        session: 'Contact Form: ' + subject,
+                        preferred_date: 'N/A',
+                        preferred_time: 'N/A',
+                        challenge: message,
+                        source: 'Contact Form'
+                    })
+                });
+
+                const data = await res.json().catch(() => ({ success: false }));
+
+                if (res.ok && data && data.success) {
+                    showToast('✅ Message sent! I will reply within 12 hours.');
+                    form.reset();
+                } else {
+                    showToast('❌ Could not send. Email mail.mizanulislam@gmail.com');
+                }
+            } catch (err) {
+                console.error('[Contact] Submit error:', err);
+                showToast('⚠️ Network error. Please try again.');
+            } finally {
+                if (btn) btn.disabled = false;
+                if (btnText) btnText.textContent = 'Send Message Direct';
+                if (spinner) spinner.classList.add('hidden');
+            }
+        });
+    }
+
+    /* ==========================================================================
+       7. INIT — সব handler এখানে register হয়
        ========================================================================== */
     function init() {
         setupNavigationController();
@@ -556,8 +634,9 @@
         setupUtmGenerator();
         setupAbEvaluator();
         setupRoiCalculator();
-        setupConsultationForm();      // consultation.html-এর form
-        setupHomeConsultationForm();  // index.html-এর form
+        setupConsultationForm();
+        setupHomeConsultationForm();
+        setupContactForm();  // ← নতুন যোগ
         console.log('[Mizan DevStudio Pro]: Core Architecture Engine Loaded Successfully.');
     }
 

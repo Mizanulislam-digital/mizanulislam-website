@@ -411,9 +411,9 @@
                 console.error('[Consultation] Submit error:', err);
                 showToast('⚠️ Network error. Please try again.');
             } finally {
-                if (btn) btn.disabled = false;
-                if (btnText) btnText.textContent = 'Confirm & Proceed to Booking';
-                if (spinner) spinner.classList.add('hidden');
+    if (btn) btn.disabled = false;
+    if (btnText) btnText.textContent = 'Request Discovery Call';   // ✅ FIXED
+    if (spinner) spinner.classList.add('hidden');
             }
         });
     }

@@ -160,6 +160,79 @@
                 <h3>Creative > Audience</h3>
                 <p>In most accounts, creative angle and hook matter more than micro-targeting. Refresh creatives weekly; keep audiences broad once you have signal.</p>
             `
+        },
+        {
+            id: 'post-7',
+            featured: false,
+            title: 'How I Set Up Complete Analytics on a Custom Static Site (GTM + GA4 + Zaraz)',
+            tag: 'Learning Journal',
+            date: 'Sep 2026',
+            readTime: '10 min',
+            excerpt: 'After 2 days of debugging, I finally got server-side tracking working. Here is the complete story — challenges, failed attempts, and the solution that worked.',
+            content: `
+                <p>After migrating my site from Blogspot to Cloudflare Pages, my analytics completely broke. Two days of debugging, dozens of failed attempts, and finally — a working setup. Here is the complete story.</p>
+                
+                <h3>The Starting Point</h3>
+                <p>My site was built from scratch — custom HTML, CSS, and JavaScript deployed on Cloudflare Pages. I wanted production-grade analytics: GA4 tracking, server-side events, and privacy-compliant data collection.</p>
+                
+                <p>I set up Google Tag Manager (GTM), created a GA4 property, and added the container code to my site. Everything looked correct. But no data arrived in GA4.</p>
+                
+                <h3>What I Tried First (And Why It Failed)</h3>
+                <p>My initial approach was pure client-side GTM:</p>
+                <ul>
+                    <li>GTM Container with GA4 Configuration tag</li>
+                    <li>GA4 Event tag for page_view</li>
+                    <li>CSP headers updated to allow Google domains</li>
+                    <li>Cloudflare cache purged multiple times</li>
+                </ul>
+                
+                <p>But GA4 Realtime showed <strong>0 users</strong>, hour after hour. Something fundamental was wrong.</p>
+                
+                <h3>The Real Problems</h3>
+                
+                <h4>Problem 1: CSP Syntax Errors</h4>
+                <p>My Content Security Policy had duplicate domains and a missing semicolon. One tiny syntax error broke the entire CSP — which blocked GTM from loading entirely. I rewrote the CSP with proper directive separation.</p>
+                
+                <h4>Problem 2: Missing Event Tag</h4>
+                <p>GA4 Configuration tag only <em>initializes</em> the GA4 library — it does not send page_view events automatically. I needed a separate GA4 Event tag with an "All Pages" trigger.</p>
+                
+                <h4>Problem 3: Client-Side Blocking</h4>
+                <p>Modern browsers block third-party cookies by default. Mobile browsers are even stricter. Client-side tracking was unreliable.</p>
+                
+                <h3>The Solution: Server-Side Tracking with Zaraz</h3>
+                <p>The breakthrough came when I discovered <strong>Cloudflare Zaraz</strong> — Cloudflare's native server-side tag manager.</p>
+                
+                <p>Zaraz executes analytics at Cloudflare's edge network, before the page even reaches the user's browser. This means:</p>
+                <ul>
+                    <li>No JavaScript execution required on client</li>
+                    <li>Bypasses CSP restrictions automatically</li>
+                    <li>Privacy-compliant first-party tracking</li>
+                    <li>Zero performance impact</li>
+                </ul>
+                
+                <h3>Implementation Steps</h3>
+                <ol>
+                    <li>Set up GTM container with GA4 Configuration + Event tags</li>
+                    <li>Created GA4 property with Web data stream</li>
+                    <li>Updated CSP headers to allow Google domains</li>
+                    <li>Enabled Cloudflare Zaraz and connected GA4</li>
+                    <li>Tested via GA4 Realtime and DebugView</li>
+                </ol>
+                
+                <h3>Key Learnings</h3>
+                <ul>
+                    <li><strong>Server-side beats client-side</strong> for reliable tracking</li>
+                    <li><strong>CSP syntax matters</strong> — one character can break everything</li>
+                    <li><strong>Two tags needed</strong> for GA4 — Configuration + Event</li>
+                    <li><strong>Zaraz simplifies sGTM</strong> without complex infrastructure</li>
+                    <li><strong>Testing on real devices</strong> reveals issues desktop misses</li>
+                </ul>
+                
+                <h3>Should You Use Zaraz or sGTM?</h3>
+                <p>If you are on Cloudflare, Zaraz is significantly easier. It requires no server container, no custom domain for the server, and no Cloudflare Workers code. If you are on another platform, traditional Server-Side GTM still works — it is just more involved.</p>
+                
+                <p>The lesson: don't assume more tools mean better results. Sometimes the simplest solution (Zaraz) is the right one.</p>
+            `
         }
         /*
         ============================================================

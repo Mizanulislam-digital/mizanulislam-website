@@ -228,15 +228,20 @@
          * Track WhatsApp click event in GA4
          */
         trackWhatsAppClick(source) {
-            try {
-                if (typeof window.gtag === 'function') {
-                    window.gtag('event', 'whatsapp_click', {
-                        source: source || 'chat_widget'
-                    });
-                }
-            } catch (err) {
-                console.warn('[WA Track error]', err);
-            }
+    try {
+        if (window.zaraz && typeof window.zaraz.track === 'function') {
+            window.zaraz.track('whatsapp_click', {
+                source: source || 'chat_widget'
+            });
+            console.log('[Zaraz] whatsapp_click', source);
+        } else if (typeof window.gtag === 'function') {
+            window.gtag('event', 'whatsapp_click', {
+                source: source || 'chat_widget'
+            });
+        }
+    } catch (err) {
+        console.warn('[WA Track error]', err);
+    }
         }
 
         redirectToWhatsApp(customMessage) {

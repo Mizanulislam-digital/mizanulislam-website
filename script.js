@@ -27,6 +27,24 @@
         }, 3000);
     }
 
+    /**
+     * Universal GA4 event tracker
+     * Uses window.gtag (Zaraz auto-captures gtag events)
+     * Safe fallback if gtag unavailable
+     */
+    function trackEvent(eventName, params) {
+        try {
+            if (typeof window.gtag === 'function') {
+                window.gtag('event', eventName, params || {});
+                console.log('[Track]', eventName, params);
+            } else {
+                console.log('[Track-skip] gtag not available:', eventName);
+            }
+        } catch (err) {
+            console.warn('[Track error]', err);
+        }
+    }
+
     function validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(String(email).toLowerCase().trim());
@@ -105,6 +123,24 @@
                 closeDrawer();
             }
         });
+
+        /* --------------------------------------------------------------------
+           CTA Click Tracking (event delegation)
+           -------------------------------------------------------------------- */
+        document.addEventListener('click', function (e) {
+            const target = e.target.closest('a, button');
+            if (!target) return;
+
+            const href = target.getAttribute('href') || '';
+            const text = (target.textContent || '').trim().toLowerCase();
+
+            if (href === '/consultation' || text.includes('book') || text.includes('work with me')) {
+                trackEvent('cta_click', {
+                    cta_text: text.slice(0, 50),
+                    cta_location: window.location.pathname
+                });
+            }
+        });
     }
 
     /* ==========================================================================
@@ -130,6 +166,8 @@
 
             const encodedMsg = encodeURIComponent(rawMsg);
             const waUrl = `https://wa.me/${cleanPhone}${encodedMsg ? '?text=' + encodedMsg : ''}`;
+
+            trackEvent('tool_used', { tool_name: 'whatsapp_generator' });
 
             navigator.clipboard.writeText(waUrl).then(() => {
                 showToast('WhatsApp Link Copied to Clipboard!');
@@ -172,6 +210,8 @@
                 if (campaign) parsedUrl.searchParams.set('utm_campaign', campaign);
 
                 const finalUtmUrl = parsedUrl.href;
+
+                trackEvent('tool_used', { tool_name: 'utm_builder' });
 
                 navigator.clipboard.writeText(finalUtmUrl).then(() => {
                     showToast('UTM Link generated & copied to clipboard!');
@@ -229,6 +269,8 @@
                 ? `<span style="color: #10b981;"><strong>Statistically Significant!</strong> (${confidence}% Confidence)</span>`
                 : `<span><strong>Not Statistically Significant</strong> (${confidence}% Confidence - Aim for ≥95%)</span>`;
 
+            trackEvent('tool_used', { tool_name: 'ab_evaluator' });
+
             resDiv.innerHTML = `
                 Variant A CR: <strong>${cr1}%</strong> | Variant B CR: <strong>${cr2}%</strong><br>
                 ${resultLabel}
@@ -258,6 +300,8 @@
             const estimatedRevenue = conversions * aov;
             const roas = (estimatedRevenue / budget).toFixed(2);
             const netProfit = (estimatedRevenue - budget).toFixed(2);
+
+            trackEvent('tool_used', { tool_name: 'roi_calculator' });
 
             resDiv.innerHTML = `
                 Est. Revenue: <strong>$${estimatedRevenue.toFixed(2)}</strong> | ROAS: <strong>${roas}x</strong><br>
@@ -397,23 +441,25 @@
                 const data = await res.json().catch(() => ({ success: false }));
 
                 if (res.ok && data && data.success) {
-    showToast('✅ Request sent! I will reply by email shortly.');
-    form.reset();
-    if (timeInput) timeInput.value = '10:00 AM';
-    if (summaryPlan) summaryPlan.textContent = 'Free Discovery (15 Mins)';   // ✅ FIXED
-    if (summaryPrice) summaryPrice.textContent = 'Free';                     // ✅ FIXED
-    sessionOptions.forEach((o, i) => o.classList.toggle('active', i === 0));
-    timeButtons.forEach((b, i) => b.classList.toggle('active', i === 0));
-} else {
+                    trackEvent('form_submit', { form_type: 'consultation' });
+
+                    showToast('✅ Request sent! I will reply by email shortly.');
+                    form.reset();
+                    if (timeInput) timeInput.value = '10:00 AM';
+                    if (summaryPlan) summaryPlan.textContent = 'Free Discovery (15 Mins)';
+                    if (summaryPrice) summaryPrice.textContent = 'Free';
+                    sessionOptions.forEach((o, i) => o.classList.toggle('active', i === 0));
+                    timeButtons.forEach((b, i) => b.classList.toggle('active', i === 0));
+                } else {
                     showToast('❌ Could not send. Email mail.mizanulislam@gmail.com');
                 }
             } catch (err) {
                 console.error('[Consultation] Submit error:', err);
                 showToast('⚠️ Network error. Please try again.');
             } finally {
-    if (btn) btn.disabled = false;
-    if (btnText) btnText.textContent = 'Request Discovery Call';   // ✅ FIXED
-    if (spinner) spinner.classList.add('hidden');
+                if (btn) btn.disabled = false;
+                if (btnText) btnText.textContent = 'Request Discovery Call';
+                if (spinner) spinner.classList.add('hidden');
             }
         });
     }
@@ -529,6 +575,8 @@
                 const data = await res.json().catch(() => ({ success: false }));
 
                 if (res.ok && data && data.success) {
+                    trackEvent('form_submit', { form_type: 'home' });
+
                     showToast('✅ Request sent! I will reply by email shortly.');
                     form.reset();
                     if (dateInput) dateInput.min = tomorrowISO();
@@ -547,7 +595,7 @@
     }
 
     /* ==========================================================================
-       6. CONTACT FORM (NEW — যোগ হচ্ছে এই step-এ)
+       6. CONTACT FORM
        ========================================================================== */
     function setupContactForm() {
         const form = document.getElementById('contactInquiryForm');
@@ -609,6 +657,8 @@
                 const data = await res.json().catch(() => ({ success: false }));
 
                 if (res.ok && data && data.success) {
+                    trackEvent('form_submit', { form_type: 'contact' });
+
                     showToast('✅ Message sent! I will reply within 12 hours.');
                     form.reset();
                 } else {
@@ -626,7 +676,7 @@
     }
 
     /* ==========================================================================
-       7. INIT — সব handler এখানে register হয়
+       7. INIT
        ========================================================================== */
     function init() {
         setupNavigationController();
@@ -636,7 +686,7 @@
         setupRoiCalculator();
         setupConsultationForm();
         setupHomeConsultationForm();
-        setupContactForm();  // ← নতুন যোগ
+        setupContactForm();
         console.log('[Mizan DevStudio Pro]: Core Architecture Engine Loaded Successfully.');
     }
 

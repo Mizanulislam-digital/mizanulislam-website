@@ -224,7 +224,23 @@
             return div.innerHTML;
         }
 
+        /**
+         * Track WhatsApp click event in GA4
+         */
+        trackWhatsAppClick(source) {
+            try {
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'whatsapp_click', {
+                        source: source || 'chat_widget'
+                    });
+                }
+            } catch (err) {
+                console.warn('[WA Track error]', err);
+            }
+        }
+
         redirectToWhatsApp(customMessage) {
+            this.trackWhatsAppClick('chat_widget');
             var text = customMessage || "Hello Mizanul, I am reaching out from mizanulislam.com regarding your services.";
             var url = "https://wa.me/" + CONFIG.whatsappPhone + "?text=" + encodeURIComponent(text);
             window.open(url, "_blank", "noopener,noreferrer");

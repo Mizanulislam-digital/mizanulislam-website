@@ -33,16 +33,23 @@
      * Safe fallback if gtag unavailable
      */
     function trackEvent(eventName, params) {
-        try {
-            if (typeof window.gtag === 'function') {
-                window.gtag('event', eventName, params || {});
-                console.log('[Track]', eventName, params);
-            } else {
-                console.log('[Track-skip] gtag not available:', eventName);
-            }
-        } catch (err) {
-            console.warn('[Track error]', err);
+    try {
+        // Zaraz (Cloudflare) — primary
+        if (window.zaraz && typeof window.zaraz.track === 'function') {
+            window.zaraz.track(eventName, params || {});
+            console.log('[Zaraz Track]', eventName, params);
+            return;
         }
+        // GA4 gtag — fallback
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, params || {});
+            console.log('[GTag Track]', eventName, params);
+            return;
+        }
+        console.warn('[Track-skip] No tracking API:', eventName);
+    } catch (err) {
+        console.warn('[Track error]', err);
+    }
     }
 
     function validateEmail(email) {

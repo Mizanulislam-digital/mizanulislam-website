@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <!-- Clean & Compatible Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://static.cloudflareinsights.com; frame-src https://www.googletagmanager.com;">
     
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -14,19 +13,17 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://www.mizanulislam.com/growup" />
     
     <title>Grow Up | Growth Systems Practice by Mizanul Islam</title>
     <meta name="title" content="Grow Up | Growth Systems Practice by Mizanul Islam">
-    <meta name="description" content="Grow Up is a growth systems practice founded by Mizanul Islam — a Meta Ads practitioner learning and building CAPI tracking, conversion systems, and marketing infrastructure.">
+    <meta name="description" content="Grow Up is a growth systems practice founded by Mizanul Islam — a Meta Ads practitioner building CAPI tracking, conversion systems, and marketing infrastructure.">
     <meta name="author" content="Mizanul Islam">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.mizanulislam.com/growup">
     <meta property="og:title" content="Grow Up | Growth Systems Practice by Mizanul Islam">
-    <meta property="og:description" content="Grow Up is a growth systems practice founded by Mizanul Islam — learning and building CAPI tracking, conversion systems, and marketing infrastructure.">
+    <meta property="og:description" content="Grow Up is a growth systems practice founded by Mizanul Islam — building CAPI tracking, conversion systems, and marketing infrastructure.">
     <meta property="og:image" content="https://www.mizanulislam.com/og-image.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
@@ -35,7 +32,6 @@
     <meta property="og:site_name" content="Mizanul Islam">
     <meta property="og:locale" content="en_US">
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.mizanulislam.com/growup">
     <meta name="twitter:title" content="Grow Up | Growth Systems Practice">
@@ -80,6 +76,10 @@
             backdrop-filter: blur(12px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
+        html.theme-light .brand-overview-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, #ffffff 100%);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
         .brand-overview-card::before {
             content: '';
             position: absolute;
@@ -120,7 +120,6 @@
         }
     </style>
     
-    <!-- Organization Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -131,7 +130,7 @@
       "url": "https://www.mizanulislam.com/growup",
       "logo": "https://www.mizanulislam.com/favicon-96x96.png",
       "image": "https://www.mizanulislam.com/favicon-96x96.png",
-      "description": "Growth systems practice founded by Mizanul Islam — learning and building Meta Ads, CAPI tracking, and conversion systems.",
+      "description": "Growth systems practice founded by Mizanul Islam — building Meta Ads, CAPI tracking, and conversion systems.",
       
       "founder": {
         "@type": "Person",
@@ -201,21 +200,32 @@
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
     <header class="site-header" id="siteHeader" role="banner">
         <div class="container nav-container">
             <a href="/" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
             
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="/pm" class="nav-link">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
 
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
@@ -233,13 +243,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -248,9 +258,9 @@
         
         <section class="growup-hero">
             <div class="container">
-                <span class="badge">Growth Systems Practice</span>
+                <span class="badge" data-i18n="gu-hero-badge">Growth Systems Practice</span>
                 <h1>Grow Up</h1>
-                <p>A growth systems practice founded by Mizanul Islam — learning and building performance marketing infrastructure.</p>
+                <p data-i18n="gu-hero-desc">A growth systems practice founded by Mizanul Islam — building performance marketing infrastructure.</p>
             </div>
         </section>
 
@@ -258,39 +268,39 @@
             <div class="container">
                 
                 <div class="brand-overview-card">
-                    <span class="badge" style="margin-bottom: 14px;">About Grow Up</span>
-                    <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-main);">Built for Sustainable Learning</h2>
-                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.02rem; margin: 0 0 18px 0;">
+                    <span class="badge" style="margin-bottom: 14px;" data-i18n="gu-about-badge">About Grow Up</span>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-main);" data-i18n="gu-about-title">Built for Sustainable Work</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.02rem; margin: 0 0 18px 0;" data-i18n="gu-about-p1">
                         Grow Up is a growth systems practice founded and operated by <strong>Mizanul Islam</strong>. 
-                        I'm learning and building Meta Ads, CAPI tracking, conversion systems, and marketing infrastructure.
+                        I build Meta Ads, CAPI tracking, conversion systems, and marketing infrastructure for client brands.
                     </p>
-                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.02rem; margin: 0;">
-                        Instead of running disconnected campaigns, I'm learning to build complete acquisition and retention systems that scale with a business — one step at a time.
+                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.02rem; margin: 0;" data-i18n="gu-about-p2">
+                        Instead of running disconnected campaigns, I build complete acquisition and retention systems that scale with a business — one step at a time.
                     </p>
                 </div>
 
                 <div style="text-align: center; margin-bottom: 10px;">
-                    <span class="badge">What I Stand For</span>
-                    <h2 style="font-size: 1.9rem; margin-top: 12px;">My Approach</h2>
+                    <span class="badge" data-i18n="gu-values-badge">What I Stand For</span>
+                    <h2 style="font-size: 1.9rem; margin-top: 12px;" data-i18n="gu-values-title">My Approach</h2>
                 </div>
 
                 <div class="values-grid">
                     <div class="value-card">
-                        <h3>Foundation First</h3>
-                        <p>Tracking, attribution, and offer clarity come before scaling. Without clean data, scaling becomes gambling.</p>
+                        <h3 data-i18n="gu-value-1-title">Foundation First</h3>
+                        <p data-i18n="gu-value-1-desc">Tracking, attribution, and offer clarity come before scaling. Without clean data, scaling becomes gambling.</p>
                     </div>
                     <div class="value-card">
-                        <h3>Systems Over Campaigns</h3>
-                        <p>I'm learning to build repeatable growth systems — not one-off ad campaigns that stop working when the budget stops.</p>
+                        <h3 data-i18n="gu-value-2-title">Systems Over Campaigns</h3>
+                        <p data-i18n="gu-value-2-desc">I build repeatable growth systems — not one-off ad campaigns that stop working when the budget stops.</p>
                     </div>
                     <div class="value-card">
-                        <h3>Learning in Public</h3>
-                        <p>I document what I learn and share progress openly. Long-term trust matters more than short-term wins.</p>
+                        <h3 data-i18n="gu-value-3-title">Honest Reporting</h3>
+                        <p data-i18n="gu-value-3-desc">I share real numbers and real progress — no inflated metrics. Long-term trust matters more than short-term wins.</p>
                     </div>
                 </div>
 
                 <div style="text-align: center; margin-top: 70px;">
-                    <a href="/consultation" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;">
+                    <a href="/consultation" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;" data-i18n="gu-cta">
                         Book Free Discovery Call
                     </a>
                 </div>
@@ -370,6 +380,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
 </html>

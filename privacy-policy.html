@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Clean & Compatible Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://static.cloudflareinsights.com; frame-src https://www.googletagmanager.com;">
     
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -61,6 +60,9 @@
             border-radius: 16px;
             padding: 40px 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        html.theme-light .legal-container {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
         }
         @media (min-width: 768px) {
             .legal-container {
@@ -127,21 +129,32 @@
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
     <header class="site-header" id="siteHeader" role="banner">
         <div class="container nav-container">
             <a href="/" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
             
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="/pm" class="nav-link">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
 
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
@@ -159,13 +172,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -174,9 +187,9 @@
         
         <section class="legal-hero">
             <div class="container">
-                <span class="badge">Data Protection &amp; Compliance</span>
-                <h1>Privacy <span class="highlight">Policy</span></h1>
-                <p>How I collect, use, and protect personal data across this website, tracking setups, and strategy services.</p>
+                <span class="badge" data-i18n="pp-hero-badge">Data Protection &amp; Compliance</span>
+                <h1 data-i18n="pp-hero-title">Privacy <span class="highlight">Policy</span></h1>
+                <p data-i18n="pp-hero-desc">How I collect, use, and protect personal data across this website, tracking setups, and strategy services.</p>
             </div>
         </section>
 
@@ -185,71 +198,71 @@
                 <div class="legal-container">
                     
                     <div class="legal-meta-info">
-                        <div>Effective Date: <strong>August 22, 2026</strong></div>
-                        <div>Operated By: <strong>Mizanul Islam (Grow Up)</strong></div>
+                        <div><span data-i18n="legal-effective">Effective Date:</span> <strong>August 22, 2026</strong></div>
+                        <div><span data-i18n="legal-operated-by">Operated By:</span> <strong>Mizanul Islam (Grow Up)</strong></div>
                     </div>
 
                     <div class="legal-body">
                         
-                        <h2>1. Introduction</h2>
-                        <p>At <strong>Mizanul Islam</strong> and <strong>Grow Up</strong>, I respect your privacy and am committed to protecting personal data. This Privacy Policy explains how I handle information collected when you visit this website, use the free tools (UTM Builder, WhatsApp Link Generator), submit forms, or interact with tracking setups.</p>
+                        <h2 data-i18n="pp-h1">1. Introduction</h2>
+                        <p data-i18n="pp-p1">At <strong>Mizanul Islam</strong> and <strong>Grow Up</strong>, I respect your privacy and am committed to protecting personal data. This Privacy Policy explains how I handle information collected when you visit this website, use the free tools (UTM Builder, WhatsApp Link Generator), submit forms, or interact with tracking setups.</p>
 
-                        <h2>2. Information I Collect</h2>
-                        <p>I collect information to deliver growth systems services, process bookings, and improve functionality:</p>
+                        <h2 data-i18n="pp-h2">2. Information I Collect</h2>
+                        <p data-i18n="pp-p2">I collect information to deliver growth systems services, process bookings, and improve functionality:</p>
                         <ul>
-                            <li><strong>Directly Provided Information:</strong> Full name, professional email address, phone/WhatsApp number, portfolio links, and monthly ad budget scope submitted through contact, job application, or booking forms.</li>
-                            <li><strong>Automated Usage Data:</strong> IP address, browser user-agent, operating system details, referring URLs, and interaction logs captured via standard analytics tools.</li>
-                            <li><strong>First-Party Conversion &amp; Event Data:</strong> Event parameters (e.g., pageviews, form clicks) captured through server-side containers for attribution accuracy.</li>
+                            <li data-i18n="pp-l1"><strong>Directly Provided Information:</strong> Full name, professional email address, phone/WhatsApp number, portfolio links, and monthly ad budget scope submitted through contact, job application, or booking forms.</li>
+                            <li data-i18n="pp-l2"><strong>Automated Usage Data:</strong> IP address, browser user-agent, operating system details, referring URLs, and interaction logs captured via standard analytics tools.</li>
+                            <li data-i18n="pp-l3"><strong>First-Party Conversion &amp; Event Data:</strong> Event parameters (e.g., pageviews, form clicks) captured through server-side containers for attribution accuracy.</li>
                         </ul>
 
                         <div class="legal-highlight-box">
-                            <strong>Notice on Server-Side Tracking &amp; Meta CAPI:</strong> I implement Server-Side Google Tag Manager (sGTM) and Meta Conversions API (CAPI) infrastructure. All customer parameters transmitted to ad networks are hashed using secure SHA-256 protocols before transmission to ensure privacy-compliant, first-party data processing.
+                            <strong data-i18n="pp-notice-title">Notice on Server-Side Tracking &amp; Meta CAPI:</strong> <span data-i18n="pp-notice-desc">I implement Server-Side Google Tag Manager (sGTM) and Meta Conversions API (CAPI) infrastructure. All customer parameters transmitted to ad networks are hashed using secure SHA-256 protocols before transmission to ensure privacy-compliant, first-party data processing.</span>
                         </div>
 
-                        <h2>3. How I Use Your Information</h2>
-                        <p>Your data is used only for operational, analytical, and communication purposes:</p>
+                        <h2 data-i18n="pp-h3">3. How I Use Your Information</h2>
+                        <p data-i18n="pp-p3">Your data is used only for operational, analytical, and communication purposes:</p>
                         <ul>
-                            <li>Processing job applications and career candidate profiles.</li>
-                            <li>Scheduling 1-on-1 strategy consultation calls and sending invoice confirmations.</li>
-                            <li>Delivering automated WhatsApp notifications when opted-in.</li>
-                            <li>Improving website performance, user interface layout, and tool reliability.</li>
-                            <li>Ensuring website security and preventing automated abuse or spam submissions.</li>
+                            <li data-i18n="pp-l4">Processing job applications and career candidate profiles.</li>
+                            <li data-i18n="pp-l5">Scheduling 1-on-1 strategy consultation calls and sending invoice confirmations.</li>
+                            <li data-i18n="pp-l6">Delivering automated WhatsApp notifications when opted-in.</li>
+                            <li data-i18n="pp-l7">Improving website performance, user interface layout, and tool reliability.</li>
+                            <li data-i18n="pp-l8">Ensuring website security and preventing automated abuse or spam submissions.</li>
                         </ul>
 
-                        <h2>4. Data Sharing &amp; Third-Party Services</h2>
-                        <p>I do not sell, rent, or trade your personal data to third-party marketers. Data is shared only with verified service providers under strict confidentiality:</p>
+                        <h2 data-i18n="pp-h4">4. Data Sharing &amp; Third-Party Services</h2>
+                        <p data-i18n="pp-p4">I do not sell, rent, or trade your personal data to third-party marketers. Data is shared only with verified service providers under strict confidentiality:</p>
                         <ul>
-                            <li><strong>Cloud &amp; Analytics Infrastructure:</strong> Cloudflare Pages, Google Analytics 4 (Server-Stream), and similar hosting environments.</li>
-                            <li><strong>Communication APIs:</strong> Meta WhatsApp Cloud API and transactional email services (Resend).</li>
-                            <li><strong>Legal Compliance:</strong> When required by lawful judicial orders or regulatory mandates in accordance with Bangladesh law.</li>
+                            <li data-i18n="pp-l9"><strong>Cloud &amp; Analytics Infrastructure:</strong> Cloudflare Pages, Google Analytics 4 (Server-Stream), and similar hosting environments.</li>
+                            <li data-i18n="pp-l10"><strong>Communication APIs:</strong> Meta WhatsApp Cloud API and transactional email services (Resend).</li>
+                            <li data-i18n="pp-l11"><strong>Legal Compliance:</strong> When required by lawful judicial orders or regulatory mandates in accordance with Bangladesh law.</li>
                         </ul>
 
-                        <h2>5. Cookies &amp; Tracking Technologies</h2>
-                        <p>This website uses essential first-party cookies and local storage items to maintain session states, navigation preferences, and security checks. Users may disable cookies through browser settings, though some interactive tools may operate with limited functionality.</p>
+                        <h2 data-i18n="pp-h5">5. Cookies &amp; Tracking Technologies</h2>
+                        <p data-i18n="pp-p5">This website uses essential first-party cookies and local storage items to maintain session states, navigation preferences, and security checks. Users may disable cookies through browser settings, though some interactive tools may operate with limited functionality.</p>
 
-                        <h2>6. Data Retention &amp; Security</h2>
-                        <p>I enforce reasonable technical safeguards — including SSL encryption, Content Security Policy (CSP) headers, and access controls — to protect data against unauthorized access, loss, or alteration. Form submissions and application details are retained only as long as necessary to fulfill the requested service or recruitment cycle.</p>
+                        <h2 data-i18n="pp-h6">6. Data Retention &amp; Security</h2>
+                        <p data-i18n="pp-p6">I enforce reasonable technical safeguards — including SSL encryption, Content Security Policy (CSP) headers, and access controls — to protect data against unauthorized access, loss, or alteration. Form submissions and application details are retained only as long as necessary to fulfill the requested service or recruitment cycle.</p>
 
-                        <h2>7. Your Privacy Rights</h2>
-                        <p>Depending on your jurisdiction, you have the right to:</p>
+                        <h2 data-i18n="pp-h7">7. Your Privacy Rights</h2>
+                        <p data-i18n="pp-p7">Depending on your jurisdiction, you have the right to:</p>
                         <ul>
-                            <li>Request access to the personal information stored about you.</li>
-                            <li>Request correction or deletion of your submitted contact details.</li>
-                            <li>Opt out of automated marketing messages or WhatsApp broadcast lists at any time.</li>
+                            <li data-i18n="pp-l12">Request access to the personal information stored about you.</li>
+                            <li data-i18n="pp-l13">Request correction or deletion of your submitted contact details.</li>
+                            <li data-i18n="pp-l14">Opt out of automated marketing messages or WhatsApp broadcast lists at any time.</li>
                         </ul>
 
-                        <h2>8. Third-Party Web Links</h2>
-                        <p>This website contains links to external tools, case studies, and partner resources. I am not responsible for the privacy practices or content hosted on external third-party domains.</p>
+                        <h2 data-i18n="pp-h8">8. Third-Party Web Links</h2>
+                        <p data-i18n="pp-p8">This website contains links to external tools, case studies, and partner resources. I am not responsible for the privacy practices or content hosted on external third-party domains.</p>
 
-                        <h2>9. Updates to This Privacy Policy</h2>
-                        <p>I may periodically update this Privacy Policy to reflect changing legal requirements or system upgrades. Revisions will be published on this page with an updated effective date.</p>
+                        <h2 data-i18n="pp-h9">9. Updates to This Privacy Policy</h2>
+                        <p data-i18n="pp-p9">I may periodically update this Privacy Policy to reflect changing legal requirements or system upgrades. Revisions will be published on this page with an updated effective date.</p>
 
-                        <h2>10. Contact</h2>
-                        <p>If you have questions, data access requests, or privacy concerns, please contact me directly:</p>
+                        <h2 data-i18n="pp-h10">10. Contact</h2>
+                        <p data-i18n="pp-p10">If you have questions, data access requests, or privacy concerns, please contact me directly:</p>
                         <ul>
-                            <li><strong>Brand:</strong> Grow Up / Mizanul Islam</li>
-                            <li><strong>Address:</strong> Behind Hazrat Shahjalal International Airport, Cybercity Square, Dhaka, Bangladesh - 1230</li>
-                            <li><strong>Contact Form:</strong> <a href="/contact" style="color: var(--primary);">Contact Page</a></li>
+                            <li><strong data-i18n="pp-brand-label">Brand:</strong> Grow Up / Mizanul Islam</li>
+                            <li><strong data-i18n="pp-address-label">Address:</strong> Behind Hazrat Shahjalal International Airport, Cybercity Square, Dhaka, Bangladesh - 1230</li>
+                            <li><strong data-i18n="pp-contact-label">Contact Form:</strong> <a href="/contact" style="color: var(--primary);" data-i18n="pp-contact-link">Contact Page</a></li>
                         </ul>
 
                     </div>
@@ -316,6 +329,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
-    </html>
+</html>

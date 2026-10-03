@@ -194,7 +194,6 @@
             line-height: 1.6;
         }
         
-        /* CASE STUDY CARD */
         .cs-full-card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -286,6 +285,9 @@
             border-radius: 12px;
             padding: 18px 20px;
         }
+        html.theme-light .cs-block {
+            background: rgba(0, 0, 0, 0.02);
+        }
         .cs-block h4 {
             font-size: 0.82rem;
             font-weight: 700;
@@ -340,8 +342,10 @@
             padding: 4px 10px;
             border-radius: 6px;
         }
+        html.theme-light .cs-tool-tag {
+            background: rgba(0, 0, 0, 0.04);
+        }
         
-        /* FRAMEWORKS SECTION */
         .frameworks-divider {
             text-align: center;
             margin: 70px 0 40px;
@@ -401,6 +405,9 @@
             padding: 3px 9px;
             border-radius: 5px;
         }
+        html.theme-light .fw-tag {
+            background: rgba(0, 0, 0, 0.04);
+        }
         
         .level-label {
             display: inline-block; font-size: 0.7rem; font-weight: 700;
@@ -432,15 +439,25 @@
             <a href="/" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="/pm" class="nav-link">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link active">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link active" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
+
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
@@ -457,13 +474,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -471,367 +488,367 @@
     <main id="main-content" role="main">
         <section class="cs-hero">
             <div class="container">
-                <span class="badge">Real Client & Technical Work</span>
-                <h1>Case <span class="highlight">Studies</span></h1>
-                <p>Real projects I've worked on — from Meta Ads campaigns and landing pages to complete technical infrastructure builds. Process-focused, no fabricated numbers.</p>
+                <span class="badge" data-i18n="cs-hero-badge">Real Client &amp; Technical Work</span>
+                <h1 data-i18n="cs-hero-title">Case <span class="highlight">Studies</span></h1>
+                <p data-i18n="cs-hero-desc">Real projects I've worked on — from Meta Ads campaigns and landing pages to complete technical infrastructure builds. Process-focused, no fabricated numbers.</p>
             </div>
         </section>
 
         <section class="cs-section">
             <div class="container">
-                <div class="honesty-banner">
+                <div class="honesty-banner" data-i18n="cs-honesty">
                     <strong>Authenticity note:</strong> Every case study below is <strong>real work I've done</strong> — either for client brands or my own infrastructure. Where metrics are unavailable, I focus on the process, tools, and setup implemented. Client work is shown with transparency and only where brand names are appropriate to share.
                 </div>
 
-                <!-- ========== SECTION 1: CLIENT WORK ========== -->
+                <!-- SECTION 1: CLIENT WORK -->
                 <div class="section-heading">
-                    <span class="badge">Client Work</span>
-                    <h2>Featured Client Projects</h2>
-                    <p>Real campaign and setup work for brands — focusing on process, tools, and implementation.</p>
+                    <span class="badge" data-i18n="cs-client-badge">Client Work</span>
+                    <h2 data-i18n="cs-client-title">Featured Client Projects</h2>
+                    <p data-i18n="cs-client-desc">Real campaign and setup work for brands — focusing on process, tools, and implementation.</p>
                 </div>
 
-                <!-- CASE STUDY 1: META ADS -->
+                <!-- CASE 1: META ADS -->
                 <article class="cs-full-card" id="meta-ads">
                     <div class="cs-meta">
-                        <span class="cs-category">Paid Social</span>
+                        <span class="cs-category" data-i18n="cs-1-cat">Paid Social</span>
                         <span class="cs-date">2025 · Meta Ads</span>
-                        <span class="cs-client">Client: <strong>Rizq Fashion</strong></span>
+                        <span class="cs-client"><span data-i18n="cs-client-label">Client:</span> <strong>Rizq Fashion</strong></span>
                     </div>
-                    <h2>Meta Ads Campaign Setup — Women's Clothing Brand</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-1-title">Meta Ads Campaign Setup — Women's Clothing Brand</h2>
+                    <p class="cs-summary" data-i18n="cs-1-summary">
                         Set up and managed Meta Ads campaigns for Rizq Fashion, a women's clothing brand. Built the campaign structure from scratch — audience targeting, creative testing framework, and conversion tracking via Meta Pixel.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>The Setup</h4>
+                            <h4 data-i18n="cs-1-b1-title">The Setup</h4>
                             <ul>
-                                <li>Campaign structure for women's fashion products</li>
-                                <li>Audience targeting for female buyers (age/interest based)</li>
-                                <li>Meta Pixel installation for conversion tracking</li>
-                                <li>Creative testing framework (ABO structure)</li>
-                                <li>Product catalogue campaigns for three-piece collections</li>
+                                <li data-i18n="cs-1-b1-1">Campaign structure for women's fashion products</li>
+                                <li data-i18n="cs-1-b1-2">Audience targeting for female buyers (age/interest based)</li>
+                                <li data-i18n="cs-1-b1-3">Meta Pixel installation for conversion tracking</li>
+                                <li data-i18n="cs-1-b1-4">Creative testing framework (ABO structure)</li>
+                                <li data-i18n="cs-1-b1-5">Product catalogue campaigns for three-piece collections</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>What I Managed</h4>
+                            <h4 data-i18n="cs-1-b2-title">What I Managed</h4>
                             <ul>
-                                <li>Daily campaign monitoring and optimization</li>
-                                <li>Ad set performance review</li>
-                                <li>Creative rotation and testing</li>
-                                <li>Budget management across campaigns</li>
-                                <li>Audience refinement based on engagement</li>
+                                <li data-i18n="cs-1-b2-1">Daily campaign monitoring and optimization</li>
+                                <li data-i18n="cs-1-b2-2">Ad set performance review</li>
+                                <li data-i18n="cs-1-b2-3">Creative rotation and testing</li>
+                                <li data-i18n="cs-1-b2-4">Budget management across campaigns</li>
+                                <li data-i18n="cs-1-b2-5">Audience refinement based on engagement</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Tools:</span>
+                        <span class="cs-tools-label" data-i18n="cs-tools-label">Tools:</span>
                         <span class="cs-tool-tag">Meta Ads Manager</span>
                         <span class="cs-tool-tag">Meta Pixel</span>
                         <span class="cs-tool-tag">Meta Business Suite</span>
                     </div>
                 </article>
 
-                <!-- CASE STUDY 2: GOOGLE ADS -->
+                <!-- CASE 2: GOOGLE ADS -->
                 <article class="cs-full-card" id="google-ads">
                     <div class="cs-meta">
-                        <span class="cs-category">Paid Search</span>
+                        <span class="cs-category" data-i18n="cs-2-cat">Paid Search</span>
                         <span class="cs-date">2025 · Google Ads</span>
-                        <span class="cs-client">Client: <strong>Rizq Fashion</strong></span>
+                        <span class="cs-client"><span data-i18n="cs-client-label">Client:</span> <strong>Rizq Fashion</strong></span>
                     </div>
-                    <h2>Google Ads Campaigns — Search & Performance Max</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-2-title">Google Ads Campaigns — Search &amp; Performance Max</h2>
+                    <p class="cs-summary" data-i18n="cs-2-summary">
                         Set up Google Ads campaigns for Rizq Fashion to complement the Meta Ads efforts. Built Search campaigns targeting fashion buyers and Performance Max campaigns for product visibility.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>Campaign Types</h4>
+                            <h4 data-i18n="cs-2-b1-title">Campaign Types</h4>
                             <ul>
-                                <li>Google Search campaigns for high-intent keywords</li>
-                                <li>Performance Max campaigns for product discovery</li>
-                                <li>Negative keyword list to filter irrelevant traffic</li>
-                                <li>Ad extensions for better SERP visibility</li>
+                                <li data-i18n="cs-2-b1-1">Google Search campaigns for high-intent keywords</li>
+                                <li data-i18n="cs-2-b1-2">Performance Max campaigns for product discovery</li>
+                                <li data-i18n="cs-2-b1-3">Negative keyword list to filter irrelevant traffic</li>
+                                <li data-i18n="cs-2-b1-4">Ad extensions for better SERP visibility</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>What I Implemented</h4>
+                            <h4 data-i18n="cs-2-b2-title">What I Implemented</h4>
                             <ul>
-                                <li>Keyword research for women's fashion niche</li>
-                                <li>Search term review and negative keyword optimization</li>
-                                <li>Conversion tracking setup via Google Tag</li>
-                                <li>Ad copy variations for A/B testing</li>
-                                <li>Landing page alignment with ad messaging</li>
+                                <li data-i18n="cs-2-b2-1">Keyword research for women's fashion niche</li>
+                                <li data-i18n="cs-2-b2-2">Search term review and negative keyword optimization</li>
+                                <li data-i18n="cs-2-b2-3">Conversion tracking setup via Google Tag</li>
+                                <li data-i18n="cs-2-b2-4">Ad copy variations for A/B testing</li>
+                                <li data-i18n="cs-2-b2-5">Landing page alignment with ad messaging</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Tools:</span>
+                        <span class="cs-tools-label" data-i18n="cs-tools-label">Tools:</span>
                         <span class="cs-tool-tag">Google Ads</span>
                         <span class="cs-tool-tag">Google Tag Manager</span>
                         <span class="cs-tool-tag">GA4</span>
                     </div>
                 </article>
 
-                <!-- CASE STUDY 3: LANDING PAGE -->
+                <!-- CASE 3: LANDING PAGE -->
                 <article class="cs-full-card" id="landing-page">
                     <div class="cs-meta">
-                        <span class="cs-category">Web Design</span>
+                        <span class="cs-category" data-i18n="cs-3-cat">Web Design</span>
                         <span class="cs-date">2025 · Landing Page</span>
-                        <span class="cs-client">Client: <strong>Rizq Fashion</strong></span>
+                        <span class="cs-client"><span data-i18n="cs-client-label">Client:</span> <strong>Rizq Fashion</strong></span>
                     </div>
-                    <h2>Landing Page Build — Fashion Brand</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-3-title">Landing Page Build — Fashion Brand</h2>
+                    <p class="cs-summary" data-i18n="cs-3-summary">
                         Designed and built a conversion-focused landing page for Rizq Fashion's ad campaigns. The page was structured to match the ad messaging, showcase products clearly, and reduce friction in the buying journey.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>Design Approach</h4>
+                            <h4 data-i18n="cs-3-b1-title">Design Approach</h4>
                             <ul>
-                                <li>Ad-to-page message match (headline alignment)</li>
-                                <li>Product showcase with clear CTAs</li>
-                                <li>Mobile-first responsive layout</li>
-                                <li>Fast loading — optimized images and structure</li>
-                                <li>Friction reduction — clear buying path</li>
+                                <li data-i18n="cs-3-b1-1">Ad-to-page message match (headline alignment)</li>
+                                <li data-i18n="cs-3-b1-2">Product showcase with clear CTAs</li>
+                                <li data-i18n="cs-3-b1-3">Mobile-first responsive layout</li>
+                                <li data-i18n="cs-3-b1-4">Fast loading — optimized images and structure</li>
+                                <li data-i18n="cs-3-b1-5">Friction reduction — clear buying path</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>What I Built</h4>
+                            <h4 data-i18n="cs-3-b2-title">What I Built</h4>
                             <ul>
-                                <li>Hero section with brand-aligned messaging</li>
-                                <li>Product grid with hover effects</li>
-                                <li>Call-to-action buttons positioned for conversions</li>
-                                <li>Trust signals (shipping, returns, quality)</li>
-                                <li>Mobile-optimized layout for social traffic</li>
+                                <li data-i18n="cs-3-b2-1">Hero section with brand-aligned messaging</li>
+                                <li data-i18n="cs-3-b2-2">Product grid with hover effects</li>
+                                <li data-i18n="cs-3-b2-3">Call-to-action buttons positioned for conversions</li>
+                                <li data-i18n="cs-3-b2-4">Trust signals (shipping, returns, quality)</li>
+                                <li data-i18n="cs-3-b2-5">Mobile-optimized layout for social traffic</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Tools:</span>
+                        <span class="cs-tools-label" data-i18n="cs-tools-label">Tools:</span>
                         <span class="cs-tool-tag">HTML/CSS</span>
                         <span class="cs-tool-tag">Responsive Design</span>
                         <span class="cs-tool-tag">Mobile-First</span>
                     </div>
                 </article>
 
-                <!-- CASE STUDY 4: EMAIL MARKETING -->
+                <!-- CASE 4: EMAIL MARKETING -->
                 <article class="cs-full-card" id="email-marketing">
                     <div class="cs-meta">
-                        <span class="cs-category">Email Marketing</span>
+                        <span class="cs-category" data-i18n="cs-4-cat">Email Marketing</span>
                         <span class="cs-date">2025 · Mailchimp</span>
                     </div>
-                    <h2>Email Marketing Setup — Mailchimp Campaigns</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-4-title">Email Marketing Setup — Mailchimp Campaigns</h2>
+                    <p class="cs-summary" data-i18n="cs-4-summary">
                         Set up and managed email marketing campaigns using Mailchimp. Built audience lists, designed email templates, and executed campaign sends for client brands.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>What I Set Up</h4>
+                            <h4 data-i18n="cs-4-b1-title">What I Set Up</h4>
                             <ul>
-                                <li>Mailchimp account setup and configuration</li>
-                                <li>Audience list building and segmentation</li>
-                                <li>Email template design (brand-aligned)</li>
-                                <li>Campaign scheduling and sending</li>
-                                <li>Open rate and click-through tracking</li>
+                                <li data-i18n="cs-4-b1-1">Mailchimp account setup and configuration</li>
+                                <li data-i18n="cs-4-b1-2">Audience list building and segmentation</li>
+                                <li data-i18n="cs-4-b1-3">Email template design (brand-aligned)</li>
+                                <li data-i18n="cs-4-b1-4">Campaign scheduling and sending</li>
+                                <li data-i18n="cs-4-b1-5">Open rate and click-through tracking</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>Campaign Types</h4>
+                            <h4 data-i18n="cs-4-b2-title">Campaign Types</h4>
                             <ul>
-                                <li>Product launch announcements</li>
-                                <li>Promotional campaigns for seasonal sales</li>
-                                <li>Welcome emails for new subscribers</li>
-                                <li>Re-engagement campaigns for inactive users</li>
+                                <li data-i18n="cs-4-b2-1">Product launch announcements</li>
+                                <li data-i18n="cs-4-b2-2">Promotional campaigns for seasonal sales</li>
+                                <li data-i18n="cs-4-b2-3">Welcome emails for new subscribers</li>
+                                <li data-i18n="cs-4-b2-4">Re-engagement campaigns for inactive users</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Tools:</span>
+                        <span class="cs-tools-label" data-i18n="cs-tools-label">Tools:</span>
                         <span class="cs-tool-tag">Mailchimp</span>
                         <span class="cs-tool-tag">Email Templates</span>
                         <span class="cs-tool-tag">List Segmentation</span>
                     </div>
                 </article>
 
-                <!-- CASE STUDY 5: ECOMMERCE SETUP -->
+                <!-- CASE 5: ECOMMERCE SETUP -->
                 <article class="cs-full-card" id="ecommerce">
                     <div class="cs-meta">
-                        <span class="cs-category">E-commerce</span>
+                        <span class="cs-category" data-i18n="cs-5-cat">E-commerce</span>
                         <span class="cs-date">2025 · Shopify / WooCommerce</span>
-                        <span class="cs-client">Client: <strong>Confidential</strong></span>
+                        <span class="cs-client"><span data-i18n="cs-client-label">Client:</span> <strong data-i18n="cs-5-client-name">Confidential</strong></span>
                     </div>
-                    <h2>Shopify / WooCommerce Store Setup — Client Project</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-5-title">Shopify / WooCommerce Store Setup — Client Project</h2>
+                    <p class="cs-summary" data-i18n="cs-5-summary">
                         Set up and configured an e-commerce store for a client brand using Shopify / WooCommerce. Handled product setup, theme configuration, payment integration, and launch preparation.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>What I Set Up</h4>
+                            <h4 data-i18n="cs-5-b1-title">What I Set Up</h4>
                             <ul>
-                                <li>Store installation and basic configuration</li>
-                                <li>Product listing with images and descriptions</li>
-                                <li>Theme customization for brand alignment</li>
-                                <li>Payment gateway integration</li>
-                                <li>Shipping and tax configuration</li>
-                                <li>Order management workflow setup</li>
+                                <li data-i18n="cs-5-b1-1">Store installation and basic configuration</li>
+                                <li data-i18n="cs-5-b1-2">Product listing with images and descriptions</li>
+                                <li data-i18n="cs-5-b1-3">Theme customization for brand alignment</li>
+                                <li data-i18n="cs-5-b1-4">Payment gateway integration</li>
+                                <li data-i18n="cs-5-b1-5">Shipping and tax configuration</li>
+                                <li data-i18n="cs-5-b1-6">Order management workflow setup</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>Launch Support</h4>
+                            <h4 data-i18n="cs-5-b2-title">Launch Support</h4>
                             <ul>
-                                <li>Pre-launch checklist and testing</li>
-                                <li>Product page optimization</li>
-                                <li>Basic SEO setup (titles, meta descriptions)</li>
-                                <li>Mobile responsiveness verification</li>
-                                <li>Checkout flow testing</li>
+                                <li data-i18n="cs-5-b2-1">Pre-launch checklist and testing</li>
+                                <li data-i18n="cs-5-b2-2">Product page optimization</li>
+                                <li data-i18n="cs-5-b2-3">Basic SEO setup (titles, meta descriptions)</li>
+                                <li data-i18n="cs-5-b2-4">Mobile responsiveness verification</li>
+                                <li data-i18n="cs-5-b2-5">Checkout flow testing</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Tools:</span>
+                        <span class="cs-tools-label" data-i18n="cs-tools-label">Tools:</span>
                         <span class="cs-tool-tag">Shopify</span>
                         <span class="cs-tool-tag">WooCommerce</span>
                         <span class="cs-tool-tag">Payment Gateways</span>
                     </div>
                 </article>
 
-                <!-- ========== SECTION 2: TECHNICAL WORK ========== -->
+                <!-- SECTION 2: TECHNICAL WORK -->
                 <div class="section-heading">
-                    <span class="badge">Technical Work</span>
-                    <h2>Infrastructure &amp; Technical Projects</h2>
-                    <p>Self-built technical infrastructure — this website is the live proof of every skill listed below.</p>
+                    <span class="badge" data-i18n="cs-tech-badge">Technical Work</span>
+                    <h2 data-i18n="cs-tech-title">Infrastructure &amp; Technical Projects</h2>
+                    <p data-i18n="cs-tech-desc">Self-built technical infrastructure — this website is the live proof of every skill listed below.</p>
                 </div>
 
-                <!-- CASE STUDY 6: TECHNICAL SEO -->
+                <!-- CASE 6: TECHNICAL SEO -->
                 <article class="cs-full-card" id="technical-seo">
                     <div class="cs-meta">
-                        <span class="cs-category">Technical SEO</span>
+                        <span class="cs-category" data-i18n="cs-6-cat">Technical SEO</span>
                         <span class="cs-date">2026 · This Website</span>
                     </div>
-                    <h2>Technical SEO — 9 Schema Types &amp; Clean Architecture</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-6-title">Technical SEO — 9 Schema Types &amp; Clean Architecture</h2>
+                    <p class="cs-summary" data-i18n="cs-6-summary">
                         Built complete technical SEO foundation for mizanulislam.com — 9 types of Schema markup with cross-referenced entities, clean URL architecture, 301 redirects, sitemap, and robots.txt. Verifiable live on this website.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>Schema Markup Implemented</h4>
+                            <h4 data-i18n="cs-6-b1-title">Schema Markup Implemented</h4>
                             <ul>
-                                <li>WebSite + Person + Organization (site-wide)</li>
-                                <li>FAQPage (homepage)</li>
-                                <li>Service (services page)</li>
-                                <li>AboutPage + ProfilePage (entity pages)</li>
-                                <li>Blog + CollectionPage (content pages)</li>
-                                <li>ContactPage (contact page)</li>
-                                <li>Cross-referenced via @id (Person ↔ Organization ↔ WebSite)</li>
+                                <li data-i18n="cs-6-b1-1">WebSite + Person + Organization (site-wide)</li>
+                                <li data-i18n="cs-6-b1-2">FAQPage (homepage)</li>
+                                <li data-i18n="cs-6-b1-3">Service (services page)</li>
+                                <li data-i18n="cs-6-b1-4">AboutPage + ProfilePage (entity pages)</li>
+                                <li data-i18n="cs-6-b1-5">Blog + CollectionPage (content pages)</li>
+                                <li data-i18n="cs-6-b1-6">ContactPage (contact page)</li>
+                                <li data-i18n="cs-6-b1-7">Cross-referenced via @id (Person ↔ Organization ↔ WebSite)</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>Technical Foundations</h4>
+                            <h4 data-i18n="cs-6-b2-title">Technical Foundations</h4>
                             <ul>
-                                <li>Canonical URLs on every page</li>
-                                <li>Clean URL architecture (no .html in URLs)</li>
-                                <li>_redirects file with 301 rules (15+ redirects)</li>
-                                <li>Sitemap.xml with proper priorities</li>
-                                <li>Robots.txt with sitemap reference</li>
-                                <li>Open Graph + Twitter Card meta on all pages</li>
+                                <li data-i18n="cs-6-b2-1">Canonical URLs on every page</li>
+                                <li data-i18n="cs-6-b2-2">Clean URL architecture (no .html in URLs)</li>
+                                <li data-i18n="cs-6-b2-3">_redirects file with 301 rules (15+ redirects)</li>
+                                <li data-i18n="cs-6-b2-4">Sitemap.xml with proper priorities</li>
+                                <li data-i18n="cs-6-b2-5">Robots.txt with sitemap reference</li>
+                                <li data-i18n="cs-6-b2-6">Open Graph + Twitter Card meta on all pages</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Verify Live:</span>
+                        <span class="cs-tools-label" data-i18n="cs-verify-label">Verify Live:</span>
                         <span class="cs-tool-tag">Rich Results Test</span>
                         <span class="cs-tool-tag">Schema Validator</span>
                         <span class="cs-tool-tag">Google Search Console</span>
                     </div>
                 </article>
 
-                <!-- CASE STUDY 7: ANALYTICS STACK -->
+                <!-- CASE 7: ANALYTICS STACK -->
                 <article class="cs-full-card" id="analytics-stack">
                     <div class="cs-meta">
-                        <span class="cs-category">Analytics</span>
+                        <span class="cs-category" data-i18n="cs-7-cat">Analytics</span>
                         <span class="cs-date">2026 · GTM + GA4 + Zaraz</span>
                     </div>
-                    <h2>Complete Analytics Stack — GTM + GA4 + Cloudflare Zaraz</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-7-title">Complete Analytics Stack — GTM + GA4 + Cloudflare Zaraz</h2>
+                    <p class="cs-summary" data-i18n="cs-7-summary">
                         Built end-to-end server-side analytics on a custom static site. Used Cloudflare Zaraz for server-side event execution, bypassing CSP restrictions and browser cookie limits. Includes custom CTA and form tracking.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>Stack Components</h4>
+                            <h4 data-i18n="cs-7-b1-title">Stack Components</h4>
                             <ul>
-                                <li>Cloudflare Zaraz (server-side tag management)</li>
-                                <li>Google Tag Manager (v4 published)</li>
-                                <li>GA4 property with Web data stream</li>
-                                <li>Custom event tracking (cta_click, form_submit, tool_used)</li>
-                                <li>Server-side event execution — no client JS required</li>
+                                <li data-i18n="cs-7-b1-1">Cloudflare Zaraz (server-side tag management)</li>
+                                <li data-i18n="cs-7-b1-2">Google Tag Manager (v4 published)</li>
+                                <li data-i18n="cs-7-b1-3">GA4 property with Web data stream</li>
+                                <li data-i18n="cs-7-b1-4">Custom event tracking (cta_click, form_submit, tool_used)</li>
+                                <li data-i18n="cs-7-b1-5">Server-side event execution — no client JS required</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>Problems Solved</h4>
+                            <h4 data-i18n="cs-7-b2-title">Problems Solved</h4>
                             <ul>
-                                <li>CSP syntax errors blocking GTM loading</li>
-                                <li>Missing GA4 Event tag (Config alone doesn't track)</li>
-                                <li>Client-side tracking blocked by browsers</li>
-                                <li>Cookie consent + tracking conflicts</li>
-                                <li>Server-side bypass of CSP restrictions</li>
+                                <li data-i18n="cs-7-b2-1">CSP syntax errors blocking GTM loading</li>
+                                <li data-i18n="cs-7-b2-2">Missing GA4 Event tag (Config alone doesn't track)</li>
+                                <li data-i18n="cs-7-b2-3">Client-side tracking blocked by browsers</li>
+                                <li data-i18n="cs-7-b2-4">Cookie consent + tracking conflicts</li>
+                                <li data-i18n="cs-7-b2-5">Server-side bypass of CSP restrictions</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Tools:</span>
+                        <span class="cs-tools-label" data-i18n="cs-tools-label">Tools:</span>
                         <span class="cs-tool-tag">Cloudflare Zaraz</span>
                         <span class="cs-tool-tag">Google Tag Manager</span>
                         <span class="cs-tool-tag">GA4</span>
                     </div>
                 </article>
 
-                <!-- CASE STUDY 8: MARKETING TOOLS -->
+                <!-- CASE 8: MARKETING TOOLS -->
                 <article class="cs-full-card" id="marketing-tools">
                     <div class="cs-meta">
-                        <span class="cs-category">Tools Built</span>
+                        <span class="cs-category" data-i18n="cs-8-cat">Tools Built</span>
                         <span class="cs-date">2026 · JavaScript</span>
                     </div>
-                    <h2>4 Custom Marketing Tools — Free Client-Side Utilities</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-8-title">4 Custom Marketing Tools — Free Client-Side Utilities</h2>
+                    <p class="cs-summary" data-i18n="cs-8-summary">
                         Built 4 marketing utilities used live on mizanulislam.com — all client-side, no signup, no tracking. Each tool solves a specific marketing problem (link building, tracking, testing, ROI).
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>Tools Built</h4>
+                            <h4 data-i18n="cs-8-b1-title">Tools Built</h4>
                             <ul>
-                                <li>WhatsApp Link Generator with pre-filled messages</li>
-                                <li>UTM Builder with parameter validation</li>
-                                <li>A/B Test Significance Evaluator (Z-score + Normal CDF)</li>
-                                <li>Ad Budget ROI Calculator (ROAS + profit estimation)</li>
+                                <li data-i18n="cs-8-b1-1">WhatsApp Link Generator with pre-filled messages</li>
+                                <li data-i18n="cs-8-b1-2">UTM Builder with parameter validation</li>
+                                <li data-i18n="cs-8-b1-3">A/B Test Significance Evaluator (Z-score + Normal CDF)</li>
+                                <li data-i18n="cs-8-b1-4">Ad Budget ROI Calculator (ROAS + profit estimation)</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>Technical Features</h4>
+                            <h4 data-i18n="cs-8-b2-title">Technical Features</h4>
                             <ul>
-                                <li>100% client-side — no server, no data sent anywhere</li>
-                                <li>Clipboard API for one-click copy</li>
-                                <li>Statistical formulas for A/B test significance</li>
-                                <li>GA4 event tracking via Zaraz (tool_used)</li>
-                                <li>Mobile-responsive design</li>
+                                <li data-i18n="cs-8-b2-1">100% client-side — no server, no data sent anywhere</li>
+                                <li data-i18n="cs-8-b2-2">Clipboard API for one-click copy</li>
+                                <li data-i18n="cs-8-b2-3">Statistical formulas for A/B test significance</li>
+                                <li data-i18n="cs-8-b2-4">GA4 event tracking via Zaraz (tool_used)</li>
+                                <li data-i18n="cs-8-b2-5">Mobile-responsive design</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Try Live:</span>
+                        <span class="cs-tools-label" data-i18n="cs-try-label">Try Live:</span>
                         <span class="cs-tool-tag">WA Generator</span>
                         <span class="cs-tool-tag">UTM Builder</span>
                         <span class="cs-tool-tag">A/B Evaluator</span>
@@ -839,187 +856,187 @@
                     </div>
                 </article>
 
-                <!-- CASE STUDY 9: MIGRATION -->
+                <!-- CASE 9: MIGRATION -->
                 <article class="cs-full-card" id="migration">
                     <div class="cs-meta">
-                        <span class="cs-category">Infrastructure</span>
+                        <span class="cs-category" data-i18n="cs-9-cat">Infrastructure</span>
                         <span class="cs-date">2026 · Migration</span>
                     </div>
-                    <h2>Blogspot → Cloudflare Pages Migration</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-9-title">Blogspot → Cloudflare Pages Migration</h2>
+                    <p class="cs-summary" data-i18n="cs-9-summary">
                         Migrated from an older Blogspot site to a fully custom-coded static site on Cloudflare Pages. Preserved SEO value through canonical URLs, 301 redirects, and clean URL architecture. Hardened security with proper CSP.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>Migration Challenges</h4>
+                            <h4 data-i18n="cs-9-b1-title">Migration Challenges</h4>
                             <ul>
-                                <li>Old Blogspot URLs still in Google's index</li>
-                                <li>Handling duplicate content issues</li>
-                                <li>Preserving SEO equity across migration</li>
-                                <li>Rebuilding all tracking from scratch</li>
-                                <li>Hardening security headers</li>
+                                <li data-i18n="cs-9-b1-1">Old Blogspot URLs still in Google's index</li>
+                                <li data-i18n="cs-9-b1-2">Handling duplicate content issues</li>
+                                <li data-i18n="cs-9-b1-3">Preserving SEO equity across migration</li>
+                                <li data-i18n="cs-9-b1-4">Rebuilding all tracking from scratch</li>
+                                <li data-i18n="cs-9-b1-5">Hardening security headers</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>What Was Implemented</h4>
+                            <h4 data-i18n="cs-9-b2-title">What Was Implemented</h4>
                             <ul>
-                                <li>_redirects file with 301 rules for old URLs</li>
-                                <li>Canonical tags on every page</li>
-                                <li>Hardened Content Security Policy (CSP)</li>
-                                <li>Clean URL architecture (no .html extensions)</li>
-                                <li>Free global hosting via Cloudflare Pages</li>
+                                <li data-i18n="cs-9-b2-1">_redirects file with 301 rules for old URLs</li>
+                                <li data-i18n="cs-9-b2-2">Canonical tags on every page</li>
+                                <li data-i18n="cs-9-b2-3">Hardened Content Security Policy (CSP)</li>
+                                <li data-i18n="cs-9-b2-4">Clean URL architecture (no .html extensions)</li>
+                                <li data-i18n="cs-9-b2-5">Free global hosting via Cloudflare Pages</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Stack:</span>
+                        <span class="cs-tools-label" data-i18n="cs-stack-label">Stack:</span>
                         <span class="cs-tool-tag">Cloudflare Pages</span>
                         <span class="cs-tool-tag">GitHub</span>
                         <span class="cs-tool-tag">CSP Headers</span>
                     </div>
                 </article>
 
-                <!-- CASE STUDY 10: CONTENT WRITING -->
+                <!-- CASE 10: CONTENT WRITING -->
                 <article class="cs-full-card" id="content-writing">
                     <div class="cs-meta">
-                        <span class="cs-category">Content</span>
+                        <span class="cs-category" data-i18n="cs-10-cat">Content</span>
                         <span class="cs-date">2026 · Full Site + Blog</span>
                     </div>
-                    <h2>Content Writing — Full Website + Blog Articles</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-10-title">Content Writing — Full Website + Blog Articles</h2>
+                    <p class="cs-summary" data-i18n="cs-10-summary">
                         Wrote all content for mizanulislam.com — homepage, services, about, case studies, blog articles, and all legal pages. Every word on this site is original and written for SEO + clarity.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>Content Covered</h4>
+                            <h4 data-i18n="cs-10-b1-title">Content Covered</h4>
                             <ul>
-                                <li>Homepage copy (hero, services, FAQ)</li>
-                                <li>Services page (6 service descriptions)</li>
-                                <li>About page (journey, credentials)</li>
-                                <li>Case Studies (framework explanations)</li>
-                                <li>Blog articles (10+ long-form posts)</li>
-                                <li>Legal pages (Terms, Privacy, Disclaimer, Refund)</li>
+                                <li data-i18n="cs-10-b1-1">Homepage copy (hero, services, FAQ)</li>
+                                <li data-i18n="cs-10-b1-2">Services page (6 service descriptions)</li>
+                                <li data-i18n="cs-10-b1-3">About page (journey, credentials)</li>
+                                <li data-i18n="cs-10-b1-4">Case Studies (framework explanations)</li>
+                                <li data-i18n="cs-10-b1-5">Blog articles (10+ long-form posts)</li>
+                                <li data-i18n="cs-10-b1-6">Legal pages (Terms, Privacy, Disclaimer, Refund)</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>Writing Approach</h4>
+                            <h4 data-i18n="cs-10-b2-title">Writing Approach</h4>
                             <ul>
-                                <li>SEO-optimized structure (H1 → H2 → H3)</li>
-                                <li>Schema-friendly content format</li>
-                                <li>Honest, non-hype tone</li>
-                                <li>Technical accuracy prioritized</li>
-                                <li>Clear CTAs and internal linking</li>
+                                <li data-i18n="cs-10-b2-1">SEO-optimized structure (H1 → H2 → H3)</li>
+                                <li data-i18n="cs-10-b2-2">Schema-friendly content format</li>
+                                <li data-i18n="cs-10-b2-3">Honest, non-hype tone</li>
+                                <li data-i18n="cs-10-b2-4">Technical accuracy prioritized</li>
+                                <li data-i18n="cs-10-b2-5">Clear CTAs and internal linking</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Read Live:</span>
+                        <span class="cs-tools-label" data-i18n="cs-read-label">Read Live:</span>
                         <span class="cs-tool-tag">Homepage</span>
                         <span class="cs-tool-tag">Blog</span>
                         <span class="cs-tool-tag">Legal Pages</span>
                     </div>
                 </article>
 
-                <!-- ========== SECTION 3: CONFIDENTIAL WORK ========== -->
+                <!-- SECTION 3: CONFIDENTIAL -->
                 <div class="section-heading">
-                    <span class="badge">Confidential</span>
-                    <h2>Anonymized Client Work</h2>
-                    <p>Additional client work under NDA — details available in a discovery call.</p>
+                    <span class="badge" data-i18n="cs-conf-badge">Confidential</span>
+                    <h2 data-i18n="cs-conf-title">Anonymized Client Work</h2>
+                    <p data-i18n="cs-conf-desc">Additional client work under NDA — details available in a discovery call.</p>
                 </div>
 
-                <!-- CASE STUDY 11: AUTOMATION -->
+                <!-- CASE 11: AUTOMATION -->
                 <article class="cs-full-card confidential" id="automation">
                     <div class="cs-meta">
-                        <span class="cs-category confidential-tag">Confidential</span>
+                        <span class="cs-category confidential-tag" data-i18n="cs-conf-tag">Confidential</span>
                         <span class="cs-date">2025 · Automation</span>
                     </div>
-                    <h2>Marketing Automation — Client Project</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-11-title">Marketing Automation — Client Project</h2>
+                    <p class="cs-summary" data-i18n="cs-11-summary">
                         Set up marketing automation workflows for client businesses. Workflow logic, integrations, and specific platforms are confidential per client agreement.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>Project Scope</h4>
+                            <h4 data-i18n="cs-11-b1-title">Project Scope</h4>
                             <ul>
-                                <li>Automation workflow design</li>
-                                <li>Platform integration setup</li>
-                                <li>Lead nurture sequence configuration</li>
-                                <li>Trigger-based automation rules</li>
+                                <li data-i18n="cs-11-b1-1">Automation workflow design</li>
+                                <li data-i18n="cs-11-b1-2">Platform integration setup</li>
+                                <li data-i18n="cs-11-b1-3">Lead nurture sequence configuration</li>
+                                <li data-i18n="cs-11-b1-4">Trigger-based automation rules</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>Confidentiality</h4>
+                            <h4 data-i18n="cs-11-b2-title">Confidentiality</h4>
                             <ul>
-                                <li>Client name withheld by agreement</li>
-                                <li>Platform details available on call</li>
-                                <li>Workflow screenshots not published</li>
-                                <li>Available for discussion in discovery call</li>
+                                <li data-i18n="cs-11-b2-1">Client name withheld by agreement</li>
+                                <li data-i18n="cs-11-b2-2">Platform details available on call</li>
+                                <li data-i18n="cs-11-b2-3">Workflow screenshots not published</li>
+                                <li data-i18n="cs-11-b2-4">Available for discussion in discovery call</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Status:</span>
+                        <span class="cs-tools-label" data-i18n="cs-status-label">Status:</span>
                         <span class="cs-tool-tag">Confidential</span>
                         <span class="cs-tool-tag">Available on call</span>
                     </div>
                 </article>
 
-                <!-- CASE STUDY 12: CRM -->
+                <!-- CASE 12: CRM -->
                 <article class="cs-full-card confidential" id="crm">
                     <div class="cs-meta">
-                        <span class="cs-category confidential-tag">Confidential</span>
+                        <span class="cs-category confidential-tag" data-i18n="cs-conf-tag">Confidential</span>
                         <span class="cs-date">2025 · CRM Setup</span>
                     </div>
-                    <h2>CRM Setup — Client Project</h2>
-                    <p class="cs-summary">
+                    <h2 data-i18n="cs-12-title">CRM Setup — Client Project</h2>
+                    <p class="cs-summary" data-i18n="cs-12-summary">
                         Configured CRM systems for client businesses. Specific CRM platform and client details are confidential per agreement.
                     </p>
                     
                     <div class="cs-details">
                         <div class="cs-block">
-                            <h4>Project Scope</h4>
+                            <h4 data-i18n="cs-12-b1-title">Project Scope</h4>
                             <ul>
-                                <li>CRM platform setup and configuration</li>
-                                <li>Pipeline and deal stage creation</li>
-                                <li>Contact management structure</li>
-                                <li>Email integration and templates</li>
+                                <li data-i18n="cs-12-b1-1">CRM platform setup and configuration</li>
+                                <li data-i18n="cs-12-b1-2">Pipeline and deal stage creation</li>
+                                <li data-i18n="cs-12-b1-3">Contact management structure</li>
+                                <li data-i18n="cs-12-b1-4">Email integration and templates</li>
                             </ul>
                         </div>
                         <div class="cs-block">
-                            <h4>Confidentiality</h4>
+                            <h4 data-i18n="cs-12-b2-title">Confidentiality</h4>
                             <ul>
-                                <li>Client name withheld by agreement</li>
-                                <li>Platform details on request</li>
-                                <li>Setup walkthrough available on call</li>
+                                <li data-i18n="cs-12-b2-1">Client name withheld by agreement</li>
+                                <li data-i18n="cs-12-b2-2">Platform details on request</li>
+                                <li data-i18n="cs-12-b2-3">Setup walkthrough available on call</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="cs-tools">
-                        <span class="cs-tools-label">Status:</span>
+                        <span class="cs-tools-label" data-i18n="cs-status-label">Status:</span>
                         <span class="cs-tool-tag">Confidential</span>
                         <span class="cs-tool-tag">Available on call</span>
                     </div>
                 </article>
 
-                <!-- ========== FRAMEWORKS SECTION ========== -->
+                <!-- FRAMEWORKS -->
                 <div class="frameworks-divider">
-                    <span class="badge">Method Frameworks</span>
-                    <h2>Frameworks I Apply</h2>
-                    <p>Structured approaches I've studied and use in projects — from foundational tracking to advanced scaling systems.</p>
+                    <span class="badge" data-i18n="cs-fw-badge">Method Frameworks</span>
+                    <h2 data-i18n="cs-fw-title">Frameworks I Apply</h2>
+                    <p data-i18n="cs-fw-desc">Structured approaches I've studied and use in projects — from foundational tracking to advanced scaling systems.</p>
                 </div>
 
                 <div class="fw-grid">
                     <article class="fw-card">
                         <span class="level-label level-basic">Basic</span>
-                        <h3>Pixel + Event Map Before First Ad</h3>
-                        <p>Map all conversion events before opening the ad account. Most wasted spend starts with broken tracking.</p>
+                        <h3 data-i18n="cs-fw-1-title">Pixel + Event Map Before First Ad</h3>
+                        <p data-i18n="cs-fw-1-desc">Map all conversion events before opening the ad account. Most wasted spend starts with broken tracking.</p>
                         <div class="fw-tags">
                             <span class="fw-tag">Meta Pixel</span>
                             <span class="fw-tag">Events Manager</span>
@@ -1029,8 +1046,8 @@
                     
                     <article class="fw-card">
                         <span class="level-label level-basic">Basic</span>
-                        <h3>UTM Hygiene for Every Campaign</h3>
-                        <p>Standardize utm_source, utm_medium, and utm_campaign naming from day one. Never improvise in Ads Manager.</p>
+                        <h3 data-i18n="cs-fw-2-title">UTM Hygiene for Every Campaign</h3>
+                        <p data-i18n="cs-fw-2-desc">Standardize utm_source, utm_medium, and utm_campaign naming from day one. Never improvise in Ads Manager.</p>
                         <div class="fw-tags">
                             <span class="fw-tag">UTM Builder</span>
                             <span class="fw-tag">GA4</span>
@@ -1040,8 +1057,8 @@
                     
                     <article class="fw-card">
                         <span class="level-label level-basic">Basic</span>
-                        <h3>Landing Page–Ad Message Match</h3>
-                        <p>If the ad promises X and the page talks about Y, conversion drops. Align headline, offer, and CTA with the creative.</p>
+                        <h3 data-i18n="cs-fw-3-title">Landing Page–Ad Message Match</h3>
+                        <p data-i18n="cs-fw-3-desc">If the ad promises X and the page talks about Y, conversion drops. Align headline, offer, and CTA with the creative.</p>
                         <div class="fw-tags">
                             <span class="fw-tag">CRO</span>
                             <span class="fw-tag">Copy Alignment</span>
@@ -1051,8 +1068,8 @@
                     
                     <article class="fw-card">
                         <span class="level-label level-intermediate">Intermediate</span>
-                        <h3>Meta ABO Creative Test System</h3>
-                        <p>Isolate variables. Test hooks and angles in ABO with equal budgets, then promote winners to CBO.</p>
+                        <h3 data-i18n="cs-fw-4-title">Meta ABO Creative Test System</h3>
+                        <p data-i18n="cs-fw-4-desc">Isolate variables. Test hooks and angles in ABO with equal budgets, then promote winners to CBO.</p>
                         <div class="fw-tags">
                             <span class="fw-tag">ABO</span>
                             <span class="fw-tag">CBO</span>
@@ -1062,8 +1079,8 @@
                     
                     <article class="fw-card">
                         <span class="level-label level-intermediate">Intermediate</span>
-                        <h3>CRO Five-Point Page Audit</h3>
-                        <p>Before new creatives, fix the page. Five checks often move conversion without a full redesign.</p>
+                        <h3 data-i18n="cs-fw-5-title">CRO Five-Point Page Audit</h3>
+                        <p data-i18n="cs-fw-5-desc">Before new creatives, fix the page. Five checks often move conversion without a full redesign.</p>
                         <div class="fw-tags">
                             <span class="fw-tag">Clarity</span>
                             <span class="fw-tag">Proof</span>
@@ -1073,8 +1090,8 @@
                     
                     <article class="fw-card">
                         <span class="level-label level-advanced">Advanced</span>
-                        <h3>Meta CAPI + Pixel Deduplication</h3>
-                        <p>Browser pixel alone loses signal (iOS, blockers). Server events + shared event_id recover quality.</p>
+                        <h3 data-i18n="cs-fw-6-title">Meta CAPI + Pixel Deduplication</h3>
+                        <p data-i18n="cs-fw-6-desc">Browser pixel alone loses signal (iOS, blockers). Server events + shared event_id recover quality.</p>
                         <div class="fw-tags">
                             <span class="fw-tag">CAPI</span>
                             <span class="fw-tag">event_id</span>
@@ -1084,8 +1101,8 @@
                     
                     <article class="fw-card">
                         <span class="level-label level-advanced">Advanced</span>
-                        <h3>ABO → CBO Scale Path</h3>
-                        <p>Test in ABO for control. Move proven creatives into CBO and raise budget in steps — not sudden 5× jumps.</p>
+                        <h3 data-i18n="cs-fw-7-title">ABO → CBO Scale Path</h3>
+                        <p data-i18n="cs-fw-7-desc">Test in ABO for control. Move proven creatives into CBO and raise budget in steps — not sudden 5× jumps.</p>
                         <div class="fw-tags">
                             <span class="fw-tag">ROAS</span>
                             <span class="fw-tag">MER</span>
@@ -1095,8 +1112,8 @@
                     
                     <article class="fw-card">
                         <span class="level-label level-advanced">Advanced</span>
-                        <h3>Server-Side Path (When Needed)</h3>
-                        <p>Server-side GTM or a lightweight server endpoint improves first-party control vs client-only tags.</p>
+                        <h3 data-i18n="cs-fw-8-title">Server-Side Path (When Needed)</h3>
+                        <p data-i18n="cs-fw-8-desc">Server-side GTM or a lightweight server endpoint improves first-party control vs client-only tags.</p>
                         <div class="fw-tags">
                             <span class="fw-tag">sGTM</span>
                             <span class="fw-tag">Zaraz</span>
@@ -1106,13 +1123,13 @@
                 </div>
 
                 <div class="cs-cta">
-                    <h2>Want to discuss any of these projects?</h2>
-                    <p>Book a free 15-minute discovery call. I'll walk you through the setup, tools, and process behind any case study above.</p>
-                    <a href="/consultation" class="btn btn-primary" style="padding: 14px 28px;">Book Free Discovery Call</a>
+                    <h2 data-i18n="cs-final-title">Want to discuss any of these projects?</h2>
+                    <p data-i18n="cs-final-desc">Book a free 15-minute discovery call. I'll walk you through the setup, tools, and process behind any case study above.</p>
+                    <a href="/consultation" class="btn btn-primary" style="padding: 14px 28px;" data-i18n="cs-final-btn">Book Free Discovery Call</a>
                     <p style="margin-top: 16px; font-size: 0.88rem;">
-                        <a href="/pm" style="color: var(--primary);">← Portfolio</a>
+                        <a href="/pm" style="color: var(--primary);" data-i18n="cs-back-pm">← Portfolio</a>
                         &nbsp;·&nbsp;
-                        <a href="/blog" style="color: var(--primary);">Blog</a>
+                        <a href="/blog" style="color: var(--primary);" data-i18n="cs-back-blog">Blog</a>
                     </p>
                 </div>
             </div>
@@ -1171,6 +1188,7 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
-</html>
+    </html>

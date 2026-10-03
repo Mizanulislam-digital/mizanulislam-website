@@ -19,29 +19,29 @@
     
     <title>About Mizanul Islam | Meta Ads Practitioner & Growth Systems Builder</title>
     <meta name="title" content="About Mizanul Islam | Meta Ads Practitioner & Growth Systems Builder">
-    <meta name="description" content="About Mizanul Islam — Meta Ads practitioner learning and building growth systems. Completed Stanford Code in Place (Python). Based in Dhaka, Bangladesh.">
+    <meta name="description" content="About Mizanul Islam — Meta Ads practitioner building growth systems. Completed Stanford Code in Place (Python). Based in Dhaka, Bangladesh.">
     <meta name="author" content="Mizanul Islam">
 
     <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.mizanulislam.com/about">
-<meta property="og:title" content="About Mizanul Islam | Meta Ads Practitioner">
-<meta property="og:description" content="About Mizanul Islam — Meta Ads practitioner learning and building growth systems. Completed Stanford Code in Place (Python).">
-<meta property="og:image" content="https://www.mizanulislam.com/og-image.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Mizanul Islam — Meta Ads Practitioner">
-<meta property="og:site_name" content="Mizanul Islam">
-<meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mizanulislam.com/about">
+    <meta property="og:title" content="About Mizanul Islam | Meta Ads Practitioner">
+    <meta property="og:description" content="About Mizanul Islam — Meta Ads practitioner building growth systems. Completed Stanford Code in Place (Python).">
+    <meta property="og:image" content="https://www.mizanulislam.com/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Mizanul Islam — Meta Ads Practitioner">
+    <meta property="og:site_name" content="Mizanul Islam">
+    <meta property="og:locale" content="en_US">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://www.mizanulislam.com/about">
-<meta name="twitter:title" content="About Mizanul Islam | Meta Ads Practitioner">
-<meta name="twitter:description" content="Learning and building growth systems with precision and honesty.">
-<meta name="twitter:image" content="https://www.mizanulislam.com/og-image.jpg">
-<meta name="twitter:image:alt" content="Mizanul Islam — Meta Ads Practitioner">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.mizanulislam.com/about">
+    <meta name="twitter:title" content="About Mizanul Islam | Meta Ads Practitioner">
+    <meta name="twitter:description" content="Building growth systems with precision and honesty.">
+    <meta name="twitter:image" content="https://www.mizanulislam.com/og-image.jpg">
+    <meta name="twitter:image:alt" content="Mizanul Islam — Meta Ads Practitioner">
 
     <link rel="stylesheet" href="style.css">
     
@@ -53,7 +53,7 @@
       "@id": "https://www.mizanulislam.com/about#aboutpage",
       "url": "https://www.mizanulislam.com/about",
       "name": "About Mizanul Islam",
-      "description": "About Mizanul Islam — Meta Ads practitioner learning and building growth systems. Completed Stanford Code in Place (Python). Based in Dhaka, Bangladesh.",
+      "description": "About Mizanul Islam — Meta Ads practitioner building growth systems. Completed Stanford Code in Place (Python). Based in Dhaka, Bangladesh.",
       
       "mainEntity": {
         "@type": "Person",
@@ -61,7 +61,7 @@
         "name": "Mizanul Islam",
         "alternateName": "Mizan",
         "jobTitle": "Meta Ads Practitioner & Growth Systems Builder",
-        "description": "Meta Ads practitioner learning and building CAPI tracking, conversion frameworks, and growth systems. Based in Dhaka, Bangladesh.",
+        "description": "Meta Ads practitioner building CAPI tracking, conversion frameworks, and growth systems. Based in Dhaka, Bangladesh.",
         "url": "https://www.mizanulislam.com",
         "image": "https://www.mizanulislam.com/mizanul-islam-digital-growth-strategist.webp",
         "email": "mail.mizanulislam@gmail.com",
@@ -166,6 +166,10 @@
             backdrop-filter: blur(12px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
+        html.theme-light .brand-overview-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, #ffffff 100%);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
         .brand-overview-card::before {
             content: '';
             position: absolute;
@@ -235,54 +239,6 @@
             margin: 0;
         }
 
-        .capability-section {
-            margin: 70px 0;
-            text-align: center;
-        }
-        .capability-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 35px;
-        }
-        .capability-item {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 22px 18px;
-            text-align: left;
-            transition: var(--transition);
-        }
-        .capability-item:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: var(--primary);
-        }
-        .capability-item h4 {
-            font-size: 1rem;
-            color: var(--text-main);
-            margin: 0 0 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .capability-item h4::before {
-            content: '';
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            display: inline-block;
-        }
-        .capability-item p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        .pillars-wrapper {
-            margin-top: 80px;
-        }
         .pillar-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -309,7 +265,6 @@
             margin: 0;
         }
 
-        /* NEW: Learning list */
         .learning-list {
             list-style: none;
             padding: 0;
@@ -342,15 +297,24 @@
             
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link active">About</a></li>
-                    <li><a href="/pm" class="nav-link">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link active" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
 
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
@@ -368,13 +332,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -382,9 +346,9 @@
     <main id="main-content" role="main">
         <section class="about-hero">
             <div class="container">
-                <span class="badge">Learning in Public</span>
-                <h1>Building Growth Systems <br><span class="highlight">With Precision &amp; Honesty</span></h1>
-                <p>I'm a Meta Ads practitioner based in Dhaka, Bangladesh — learning and building CAPI tracking, growth systems, and conversion frameworks as I grow into a well-rounded performance marketer.</p>
+                <span class="badge" data-i18n="about-hero-badge">Building Real Systems</span>
+                <h1 data-i18n="about-hero-title">Building Growth Systems <br><span class="highlight">With Precision &amp; Honesty</span></h1>
+                <p data-i18n="about-hero-desc">I'm a Meta Ads practitioner based in Dhaka, Bangladesh — building CAPI tracking, growth systems, and conversion frameworks as a performance marketer.</p>
             </div>
         </section>
 
@@ -393,49 +357,49 @@
                 
                 <!-- My Journey -->
                 <div class="brand-overview-card">
-                    <span class="badge" style="margin-bottom: 12px;">My Journey</span>
-                    <h2 style="font-size: 1.8rem; margin-bottom: 15px; color: var(--text-main);">How I Got Here</h2>
-                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1rem; margin: 0 0 14px 0;">
+                    <span class="badge" style="margin-bottom: 12px;" data-i18n="about-journey-badge">My Journey</span>
+                    <h2 style="font-size: 1.8rem; margin-bottom: 15px; color: var(--text-main);" data-i18n="about-journey-title">How I Got Here</h2>
+                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1rem; margin: 0 0 14px 0;" data-i18n="about-journey-p1">
                         I'm a self-taught digital marketer based in Dhaka, Bangladesh. My journey started with curiosity about how online businesses actually grow — and it led me to study Meta Ads, Google Ads, tracking, and conversion systems deeply.
                     </p>
-                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1rem; margin: 0 0 14px 0;">
+                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1rem; margin: 0 0 14px 0;" data-i18n="about-journey-p2">
                         I've completed <strong style="color: var(--text-main);">Stanford University's Code in Place program</strong> (Python fundamentals) and multiple paid and free digital marketing courses. This website itself is my training ground — I've implemented 9 types of Schema markup, CAPI tracking concepts, clean URL architecture, and 4 custom marketing tools.
                     </p>
-                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1rem; margin: 0;">
-                        I'm currently looking for my first few client collaborations — where I can apply what I've learned, learn from real projects, and deliver honest value.
+                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1rem; margin: 0;" data-i18n="about-journey-p3">
+                        I'm currently working with clients like Rizq Fashion and opening up to new collaborations — where I can apply real tracking, honest reporting, and deliver measurable value.
                     </p>
                 </div>
 
                 <!-- Learning & Credentials -->
                 <div class="brand-overview-card">
-                    <span class="badge" style="margin-bottom: 12px;">Learning &amp; Credentials</span>
-                    <h2 style="font-size: 1.6rem; margin-bottom: 15px; color: var(--text-main);">What I've Studied</h2>
+                    <span class="badge" style="margin-bottom: 12px;" data-i18n="about-cred-badge">Learning &amp; Credentials</span>
+                    <h2 style="font-size: 1.6rem; margin-bottom: 15px; color: var(--text-main);" data-i18n="about-cred-title">What I've Studied</h2>
                     <ul class="learning-list">
-                        <li>🎓 <strong>Stanford University — Code in Place</strong> (Python fundamentals)</li>
-                        <li>📚 Meta Ads &amp; CAPI tracking — self-study + paid courses</li>
-                        <li>📊 Google Analytics 4 &amp; GTM — self-study</li>
-                        <li>🛠️ Technical SEO, Schema Markup, Cloudflare Pages — practiced on this website</li>
-                        <li>📈 Conversion Rate Optimization frameworks — self-study</li>
+                        <li data-i18n="about-cred-1">🎓 <strong>Stanford University — Code in Place</strong> (Python fundamentals)</li>
+                        <li data-i18n="about-cred-2">📚 Meta Ads &amp; CAPI tracking — self-study + paid courses</li>
+                        <li data-i18n="about-cred-3">📊 Google Analytics 4 &amp; GTM — self-study</li>
+                        <li data-i18n="about-cred-4">🛠️ Technical SEO, Schema Markup, Cloudflare Pages — practiced on this website</li>
+                        <li data-i18n="about-cred-5">📈 Conversion Rate Optimization frameworks — self-study</li>
                     </ul>
                 </div>
 
-                <!-- Currently Learning -->
+                <!-- Currently Working On -->
                 <div class="brand-overview-card">
-                    <span class="badge" style="margin-bottom: 12px;">Currently Learning</span>
-                    <h2 style="font-size: 1.6rem; margin-bottom: 15px; color: var(--text-main);">What I'm Working On</h2>
+                    <span class="badge" style="margin-bottom: 12px;" data-i18n="about-working-badge">Currently Working On</span>
+                    <h2 style="font-size: 1.6rem; margin-bottom: 15px; color: var(--text-main);" data-i18n="about-working-title">What I'm Building</h2>
                     <ul class="learning-list">
-                        <li>• Advanced CAPI tracking setups for e-commerce</li>
-                        <li>• Conversion rate optimization frameworks</li>
-                        <li>• WhatsApp Cloud API automation</li>
-                        <li>• Marketing systems architecture (Python + APIs)</li>
-                        <li>• Meta Ads campaign structure and creative testing</li>
+                        <li data-i18n="about-working-1">• Advanced CAPI tracking setups for e-commerce</li>
+                        <li data-i18n="about-working-2">• Conversion rate optimization frameworks</li>
+                        <li data-i18n="about-working-3">• WhatsApp Cloud API automation</li>
+                        <li data-i18n="about-working-4">• Marketing systems architecture (Python + APIs)</li>
+                        <li data-i18n="about-working-5">• Meta Ads campaign structure and creative testing</li>
                     </ul>
                 </div>
 
-                <!-- What I Focus On -->
+                <!-- Focus Areas -->
                 <div style="text-align: center; margin-top: 70px;">
-                    <span class="badge">Focus Areas</span>
-                    <h2 style="font-size: 2rem; margin-top: 10px;">What I'm Building Skills In</h2>
+                    <span class="badge" data-i18n="about-focus-badge">Focus Areas</span>
+                    <h2 style="font-size: 2rem; margin-top: 10px;" data-i18n="about-focus-title">What I'm Building Skills In</h2>
                 </div>
 
                 <div class="story-grid" style="margin-top: 40px;">
@@ -443,9 +407,9 @@
                         <div>
                             <div class="pro-card-header">
                                 <div class="pro-card-icon">&#128640;</div>
-                                <h3>Meta Ads &amp; Media Buying</h3>
+                                <h3 data-i18n="about-focus-1-title">Meta Ads &amp; Media Buying</h3>
                             </div>
-                            <p>Campaign structure, creative testing, ABO → CBO scaling, audience strategy, and ROAS-focused optimization for e-commerce and service brands.</p>
+                            <p data-i18n="about-focus-1-desc">Campaign structure, creative testing, ABO → CBO scaling, audience strategy, and ROAS-focused optimization for e-commerce and service brands.</p>
                         </div>
                     </div>
 
@@ -453,9 +417,9 @@
                         <div>
                             <div class="pro-card-header">
                                 <div class="pro-card-icon">&#9889;</div>
-                                <h3>CAPI &amp; Tracking</h3>
+                                <h3 data-i18n="about-focus-2-title">CAPI &amp; Tracking</h3>
                             </div>
-                            <p>Server-side Conversions API, server-side GTM containers, event deduplication, and iOS signal recovery for cleaner attribution.</p>
+                            <p data-i18n="about-focus-2-desc">Server-side Conversions API, server-side GTM containers, event deduplication, and iOS signal recovery for cleaner attribution.</p>
                         </div>
                     </div>
 
@@ -463,9 +427,9 @@
                         <div>
                             <div class="pro-card-header">
                                 <div class="pro-card-icon">&#128200;</div>
-                                <h3>Funnels &amp; CRO</h3>
+                                <h3 data-i18n="about-focus-3-title">Funnels &amp; CRO</h3>
                             </div>
-                            <p>Landing page clarity, offer framing, form friction reduction, mobile speed optimization, and A/B testing frameworks.</p>
+                            <p data-i18n="about-focus-3-desc">Landing page clarity, offer framing, form friction reduction, mobile speed optimization, and A/B testing frameworks.</p>
                         </div>
                     </div>
 
@@ -473,37 +437,37 @@
                         <div>
                             <div class="pro-card-header">
                                 <div class="pro-card-icon">&#128241;</div>
-                                <h3>WhatsApp &amp; Automation</h3>
+                                <h3 data-i18n="about-focus-4-title">WhatsApp &amp; Automation</h3>
                             </div>
-                            <p>WhatsApp Cloud API flows, UTM-tracked links, post-click messaging, and automated nurture campaigns for lead follow-up.</p>
+                            <p data-i18n="about-focus-4-desc">WhatsApp Cloud API flows, UTM-tracked links, post-click messaging, and automated nurture campaigns for lead follow-up.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- How I Work -->
                 <div style="text-align: center; margin-top: 80px;">
-                    <span class="badge">How I Work</span>
-                    <h2 style="font-size: 2rem; margin-top: 10px;">Principles I Follow</h2>
+                    <span class="badge" data-i18n="about-pillar-badge">How I Work</span>
+                    <h2 style="font-size: 2rem; margin-top: 10px;" data-i18n="about-pillar-title">Principles I Follow</h2>
                 </div>
 
                 <div class="pillar-row" style="margin-top: 40px;">
                     <div class="pillar-box">
-                        <h4>Honest Communication</h4>
-                        <p>I'm upfront about what I know and what I'm still learning. No overselling — just clear expectations and real work.</p>
+                        <h4 data-i18n="about-pillar-1-title">Honest Communication</h4>
+                        <p data-i18n="about-pillar-1-desc">I'm upfront about what I know and what I'm still learning. No overselling — just clear expectations and real work.</p>
                     </div>
                     <div class="pillar-box">
-                        <h4>Foundation First</h4>
-                        <p>Tracking, attribution, and offer clarity come before scaling. Without clean data, budget gets wasted.</p>
+                        <h4 data-i18n="about-pillar-2-title">Foundation First</h4>
+                        <p data-i18n="about-pillar-2-desc">Tracking, attribution, and offer clarity come before scaling. Without clean data, budget gets wasted.</p>
                     </div>
                     <div class="pillar-box">
-                        <h4>Learning in Public</h4>
-                        <p>I document what I learn and share progress openly. Long-term trust matters more than short-term wins.</p>
+                        <h4 data-i18n="about-pillar-3-title">Learning in Public</h4>
+                        <p data-i18n="about-pillar-3-desc">I document what I learn and share progress openly. Long-term trust matters more than short-term wins.</p>
                     </div>
                 </div>
 
                 <!-- CTA -->
                 <div style="text-align: center; margin-top: 70px;">
-                    <a href="/consultation" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;">
+                    <a href="/consultation" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;" data-i18n="about-cta">
                         Book a Free Discovery Call
                     </a>
                 </div>
@@ -583,6 +547,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
 </html>

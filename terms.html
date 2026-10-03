@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Clean & Compatible Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://static.cloudflareinsights.com; frame-src https://www.googletagmanager.com;">
     
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -61,6 +60,9 @@
             border-radius: 16px;
             padding: 40px 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        html.theme-light .legal-container {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
         }
         @media (min-width: 768px) {
             .legal-container {
@@ -127,21 +129,32 @@
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
     <header class="site-header" id="siteHeader" role="banner">
         <div class="container nav-container">
             <a href="/" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
             
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="/pm" class="nav-link">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
 
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
@@ -159,13 +172,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -174,9 +187,9 @@
         
         <section class="legal-hero">
             <div class="container">
-                <span class="badge">Legal Agreements</span>
-                <h1>Terms of <span class="highlight">Service</span></h1>
-                <p>Terms governing Meta Ads services, tracking setups, and strategy consultations provided by Mizanul Islam and Grow Up.</p>
+                <span class="badge" data-i18n="terms-hero-badge">Legal Agreements</span>
+                <h1 data-i18n="terms-hero-title">Terms of <span class="highlight">Service</span></h1>
+                <p data-i18n="terms-hero-desc">Terms governing Meta Ads services, tracking setups, and strategy consultations provided by Mizanul Islam and Grow Up.</p>
             </div>
         </section>
 
@@ -185,64 +198,64 @@
                 <div class="legal-container">
                     
                     <div class="legal-meta-info">
-                        <div>Effective Date: <strong>August 22, 2026</strong></div>
-                        <div>Operated By: <strong>Mizanul Islam (Grow Up)</strong></div>
+                        <div><span data-i18n="legal-effective">Effective Date:</span> <strong>August 22, 2026</strong></div>
+                        <div><span data-i18n="legal-operated-by">Operated By:</span> <strong>Mizanul Islam (Grow Up)</strong></div>
                     </div>
 
                     <div class="legal-body">
                         
-                        <h2>1. Acceptance of Terms</h2>
-                        <p>By accessing or using services provided by <strong>Mizanul Islam</strong> under the practice <strong>Grow Up</strong> ("I", "me", "my"), including this website, Meta Ads management, CAPI tracking setup, WhatsApp API tools, and strategy consultations, you agree to be bound by these Terms of Service.</p>
-                        <p>If you do not agree with these terms, please do not use these tools, book consultations, or engage my services.</p>
+                        <h2 data-i18n="terms-h1">1. Acceptance of Terms</h2>
+                        <p data-i18n="terms-p1">By accessing or using services provided by <strong>Mizanul Islam</strong> under the practice <strong>Grow Up</strong> ("I", "me", "my"), including this website, Meta Ads management, CAPI tracking setup, WhatsApp API tools, and strategy consultations, you agree to be bound by these Terms of Service.</p>
+                        <p data-i18n="terms-p2">If you do not agree with these terms, please do not use these tools, book consultations, or engage my services.</p>
 
-                        <h2>2. Scope of Services</h2>
-                        <p>Grow Up provides growth systems services, including but not limited to:</p>
+                        <h2 data-i18n="terms-h2">2. Scope of Services</h2>
+                        <p data-i18n="terms-p3">Grow Up provides growth systems services, including but not limited to:</p>
                         <ul>
-                            <li>Meta Ads, TikTok Ads, and Google Ads management.</li>
-                            <li>Server-side Conversions API (CAPI) setup and Cloudflare Workers architecture.</li>
-                            <li>Funnel Conversion Rate Optimization (CRO) and direct response copywriting.</li>
-                            <li>WhatsApp Cloud API automation and messaging integration.</li>
-                            <li>Private 1-on-1 strategy consultations and growth audits.</li>
+                            <li data-i18n="terms-l1">Meta Ads, TikTok Ads, and Google Ads management.</li>
+                            <li data-i18n="terms-l2">Server-side Conversions API (CAPI) setup and Cloudflare Workers architecture.</li>
+                            <li data-i18n="terms-l3">Funnel Conversion Rate Optimization (CRO) and direct response copywriting.</li>
+                            <li data-i18n="terms-l4">WhatsApp Cloud API automation and messaging integration.</li>
+                            <li data-i18n="terms-l5">Private 1-on-1 strategy consultations and growth audits.</li>
                         </ul>
 
                         <div class="legal-highlight-box">
-                            <strong>Notice on Ad Performance &amp; Guarantees:</strong> Ad performance (ROAS, CAC, conversions) depends on many external factors — product-market fit, offer quality, budget, creative, tracking quality, and platform policy changes. Past framework examples are educational, not a guarantee of future revenue.
+                            <strong data-i18n="terms-notice-title">Notice on Ad Performance &amp; Guarantees:</strong> <span data-i18n="terms-notice-desc">Ad performance (ROAS, CAC, conversions) depends on many external factors — product-market fit, offer quality, budget, creative, tracking quality, and platform policy changes. Past framework examples are educational, not a guarantee of future revenue.</span>
                         </div>
 
-                        <h2>3. Client Responsibilities &amp; Ad Account Access</h2>
-                        <p>To deliver services, clients must provide the necessary administrative access to Meta Business Managers, Google Ads accounts, Google Tag Manager containers, and server environments (where applicable).</p>
+                        <h2 data-i18n="terms-h3">3. Client Responsibilities &amp; Ad Account Access</h2>
+                        <p data-i18n="terms-p4">To deliver services, clients must provide the necessary administrative access to Meta Business Managers, Google Ads accounts, Google Tag Manager containers, and server environments (where applicable).</p>
                         <ul>
-                            <li>Clients are solely responsible for all direct ad spend billed by third-party ad networks (Meta, Google, TikTok).</li>
-                            <li>Clients confirm that all products, services, or offers promoted comply with applicable advertising policies and international laws.</li>
-                            <li>Clients must ensure that their websites have legally compliant Privacy Policies regarding tracking and cookie usage.</li>
+                            <li data-i18n="terms-l6">Clients are solely responsible for all direct ad spend billed by third-party ad networks (Meta, Google, TikTok).</li>
+                            <li data-i18n="terms-l7">Clients confirm that all products, services, or offers promoted comply with applicable advertising policies and international laws.</li>
+                            <li data-i18n="terms-l8">Clients must ensure that their websites have legally compliant Privacy Policies regarding tracking and cookie usage.</li>
                         </ul>
 
-                        <h2>4. Intellectual Property Rights</h2>
-                        <p>All tools, custom tracking scripts, sGTM configurations, templates, and educational assets created by Mizanul Islam remain the intellectual property of Grow Up unless explicitly transferred through a written agreement.</p>
-                        <p>Clients receive a non-exclusive, non-transferable license to use configured server-side pipelines and custom funnels for their active business operations during the engagement period.</p>
+                        <h2 data-i18n="terms-h4">4. Intellectual Property Rights</h2>
+                        <p data-i18n="terms-p5">All tools, custom tracking scripts, sGTM configurations, templates, and educational assets created by Mizanul Islam remain the intellectual property of Grow Up unless explicitly transferred through a written agreement.</p>
+                        <p data-i18n="terms-p6">Clients receive a non-exclusive, non-transferable license to use configured server-side pipelines and custom funnels for their active business operations during the engagement period.</p>
 
-                        <h2>5. Payments, Billing &amp; Refunds</h2>
-                        <p>Consultation fees, monthly retainers, and tracking pipeline setup fees must be paid according to the agreed invoice schedule.</p>
+                        <h2 data-i18n="terms-h5">5. Payments, Billing &amp; Refunds</h2>
+                        <p data-i18n="terms-p7">Consultation fees, monthly retainers, and tracking pipeline setup fees must be paid according to the agreed invoice schedule.</p>
                         <ul>
-                            <li><strong>Consultation Calls:</strong> Strategy consultation fees are non-refundable once the session has been completed. Rescheduling is allowed up to 12 hours before the booked slot.</li>
-                            <li><strong>Retainers &amp; Setups:</strong> Service fees cover custom engineering and strategy time. Refunds are processed according to the <a href="/refund-policy" style="color: var(--primary);">Refund Policy</a>.</li>
+                            <li data-i18n="terms-l9"><strong>Consultation Calls:</strong> Strategy consultation fees are non-refundable once the session has been completed. Rescheduling is allowed up to 12 hours before the booked slot.</li>
+                            <li data-i18n="terms-l10"><strong>Retainers &amp; Setups:</strong> Service fees cover custom engineering and strategy time. Refunds are processed according to the <a href="/refund-policy" style="color: var(--primary);">Refund Policy</a>.</li>
                         </ul>
 
-                        <h2>6. Limitation of Liability</h2>
-                        <p>In no event shall Mizanul Islam or Grow Up be liable for any indirect, incidental, or consequential damages — including loss of ad account access, temporary site downtime, or platform policy suspensions executed by third-party providers (e.g., Meta, Google, WhatsApp) beyond my direct control.</p>
+                        <h2 data-i18n="terms-h6">6. Limitation of Liability</h2>
+                        <p data-i18n="terms-p8">In no event shall Mizanul Islam or Grow Up be liable for any indirect, incidental, or consequential damages — including loss of ad account access, temporary site downtime, or platform policy suspensions executed by third-party providers (e.g., Meta, Google, WhatsApp) beyond my direct control.</p>
 
-                        <h2>7. Governing Law &amp; Dispute Resolution</h2>
-                        <p>These Terms shall be governed by and construed in accordance with the laws of Bangladesh. Any disputes arising from these terms shall first be resolved through good-faith direct negotiation.</p>
+                        <h2 data-i18n="terms-h7">7. Governing Law &amp; Dispute Resolution</h2>
+                        <p data-i18n="terms-p9">These Terms shall be governed by and construed in accordance with the laws of Bangladesh. Any disputes arising from these terms shall first be resolved through good-faith direct negotiation.</p>
 
-                        <h2>8. Amendments to Terms</h2>
-                        <p>I reserve the right to modify or update these Terms of Service at any time. Changes take effect immediately upon publication on this page. Continued use of this website and services signifies acceptance of the updated terms.</p>
+                        <h2 data-i18n="terms-h8">8. Amendments to Terms</h2>
+                        <p data-i18n="terms-p10">I reserve the right to modify or update these Terms of Service at any time. Changes take effect immediately upon publication on this page. Continued use of this website and services signifies acceptance of the updated terms.</p>
 
-                        <h2>9. Contact Information</h2>
-                        <p>For legal inquiries or questions regarding these Terms of Service, please reach out directly:</p>
+                        <h2 data-i18n="terms-h9">9. Contact Information</h2>
+                        <p data-i18n="terms-p11">For legal inquiries or questions regarding these Terms of Service, please reach out directly:</p>
                         <ul>
-                            <li><strong>Brand:</strong> Grow Up / Mizanul Islam</li>
-                            <li><strong>Address:</strong> Behind Hazrat Shahjalal International Airport, Cybercity Square, Dhaka, Bangladesh - 1230</li>
-                            <li><strong>Contact Page:</strong> <a href="/contact" style="color: var(--primary);">Get in Touch</a></li>
+                            <li><strong data-i18n="terms-brand-label">Brand:</strong> Grow Up / Mizanul Islam</li>
+                            <li><strong data-i18n="terms-address-label">Address:</strong> Behind Hazrat Shahjalal International Airport, Cybercity Square, Dhaka, Bangladesh - 1230</li>
+                            <li><strong data-i18n="terms-contact-label">Contact Page:</strong> <a href="/contact" style="color: var(--primary);" data-i18n="terms-contact-link">Get in Touch</a></li>
                         </ul>
 
                     </div>
@@ -309,6 +322,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
 </html>

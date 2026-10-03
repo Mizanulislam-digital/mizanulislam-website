@@ -19,14 +19,14 @@
     
     <title>Mizanul Islam | Meta Ads Practitioner & Growth Systems Builder</title>
     <meta name="title" content="Mizanul Islam | Meta Ads Practitioner & Growth Systems Builder">
-    <meta name="description" content="Mizanul Islam — Meta Ads practitioner learning and building growth systems with CAPI tracking, conversion optimization, and analytics. Based in Dhaka, Bangladesh. Currently open to collaborations.">
+    <meta name="description" content="Mizanul Islam — Meta Ads practitioner building real growth systems with CAPI tracking, conversion optimization, and analytics. Based in Dhaka, Bangladesh. Working with clients globally.">
     <meta name="author" content="Mizanul Islam">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.mizanulislam.com/">
     <meta property="og:title" content="Mizanul Islam | Meta Ads Practitioner & Growth Systems Builder">
-    <meta property="og:description" content="Meta Ads practitioner learning and building CAPI tracking, growth systems, and conversion frameworks. Based in Dhaka, Bangladesh.">
+    <meta property="og:description" content="Meta Ads practitioner building CAPI tracking, growth systems, and conversion frameworks. Based in Dhaka, Bangladesh.">
     <meta property="og:image" content="https://www.mizanulislam.com/og-image.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
@@ -39,10 +39,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.mizanulislam.com/">
     <meta name="twitter:title" content="Mizanul Islam | Meta Ads Practitioner & Growth Systems Builder">
-    <meta name="twitter:description" content="Meta Ads practitioner learning and building CAPI tracking, growth systems, and conversion frameworks.">
+    <meta name="twitter:description" content="Meta Ads practitioner building CAPI tracking, growth systems, and conversion frameworks.">
     <meta name="twitter:image" content="https://www.mizanulislam.com/og-image.jpg">
     <meta name="twitter:image:alt" content="Mizanul Islam — Meta Ads Practitioner">
-
 
     <link rel="stylesheet" href="style.css">
 
@@ -55,7 +54,7 @@
           "url": "https://www.mizanulislam.com",
           "name": "Mizanul Islam — Meta Ads Practitioner",
           "alternateName": "Mizanul Islam",
-          "description": "Official website of Mizanul Islam, a Meta Ads practitioner learning and building growth systems under Grow Up.",
+          "description": "Official website of Mizanul Islam, a Meta Ads practitioner building growth systems under Grow Up.",
           "inLanguage": ["en", "bn"],
           "publisher": {
           "@type": "Organization",
@@ -87,7 +86,7 @@
       "name": "Mizanul Islam",
       "alternateName": "Mizan",
       "jobTitle": "Meta Ads Practitioner & Growth Systems Builder",
-      "description": "Meta Ads practitioner learning and building CAPI tracking, conversion frameworks, and growth systems. Based in Dhaka, Bangladesh.",
+      "description": "Meta Ads practitioner building CAPI tracking, conversion frameworks, and growth systems. Based in Dhaka, Bangladesh.",
       "url": "https://www.mizanulislam.com",
       "image": "https://www.mizanulislam.com/mizanul-islam-digital-growth-strategist.webp",
       "email": "mail.mizanulislam@gmail.com",
@@ -147,7 +146,7 @@
       "name": "What services does Mizanul Islam offer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Mizanul Islam offers Meta Ads management, Google Ads campaigns, Meta CAPI tracking setup, conversion rate optimization (CRO), and WhatsApp Cloud API automation. Currently open to his first few client collaborations — based in Dhaka, Bangladesh, working with clients globally."
+        "text": "Mizanul Islam offers Meta Ads management, Google Ads campaigns, Meta CAPI tracking setup, conversion rate optimization (CRO), and WhatsApp Cloud API automation. Currently open to new client collaborations — based in Dhaka, Bangladesh, working with clients globally."
       }
     },
     {
@@ -171,7 +170,7 @@
       "name": "Does Mizanul Islam work with international clients?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Mizanul works with clients in the United States, United Kingdom, Canada, Australia, UAE, Saudi Arabia, Singapore, Germany, Netherlands, Ireland, and Bangladesh. All communication is in English or Bengali."
+        "text": "Yes. Mizanul works with clients globally, including Bangladesh, UAE, and other markets. All communication is in English or Bengali."
       }
     },
     {
@@ -185,10 +184,14 @@
   ]
 }
 </script>
-    
+
+    <style>
+        /* ===== PREVENT FLASH OF WRONG THEME ===== */
+        html.theme-light { background: #f7f9fc; }
+        html.theme-dark { background: #06090e; }
+    </style>
 </head>
 <body>
-
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -202,15 +205,24 @@
             
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="/pm" class="nav-link">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
 
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
@@ -228,13 +240,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -243,12 +255,36 @@
         <section class="hero-section">
             <div class="container">
                 <div class="hero-content">
-                    <span class="badge">Learning in Public</span>
-                    <h1>Meta Ads and CAPI Tracking <br><span class="highlight">That Actually Converts</span></h1>
-                    <p>I help e-commerce brands scale with Meta Ads, server-side CAPI tracking, and conversion-focused funnels. Based in Dhaka — working with clients in the US, UK, UAE, and Bangladesh.</p>
+                    <span class="badge" data-i18n="hero-badge">Building Real Systems</span>
+                    <h1 data-i18n="hero-title-1">Meta Ads &amp; CAPI Tracking <br><span class="highlight">Built On Real Foundations</span></h1>
+                    <p data-i18n="hero-desc">I build performance marketing systems for e-commerce brands — Meta Ads, server-side CAPI tracking, and conversion-focused funnels. Based in Dhaka, Bangladesh. Working with clients globally.</p>
                     <div class="hero-actions">
-                        <a href="#booking" class="btn btn-primary">Work With Me</a>
-                        <a href="#tools" class="btn btn-secondary">Explore Free Tools</a>
+                        <a href="#booking" class="btn btn-primary" data-i18n="hero-cta-1">Work With Me</a>
+                        <a href="#tools" class="btn btn-secondary" data-i18n="hero-cta-2">Explore Free Tools</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-num">9</div>
+                        <div class="stat-label" data-i18n="stat-1">Schema Types</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">4</div>
+                        <div class="stat-label" data-i18n="stat-2">Marketing Tools</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">13+</div>
+                        <div class="stat-label" data-i18n="stat-3">Pages Built</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">2</div>
+                        <div class="stat-label" data-i18n="stat-4">Client Projects</div>
                     </div>
                 </div>
             </div>
@@ -257,25 +293,58 @@
         <section id="services" class="services-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Services I'm Building Expertise In</h2>
-                    <p>Learning and practicing end-to-end growth systems</p>
+                    <h2 data-i18n="services-title">Services &amp; Systems I've Built</h2>
+                    <p data-i18n="services-desc">Real implementations across paid media, tracking, and conversion</p>
                 </div>
                 <div class="services-grid">
                     <article class="service-card">
                         <div class="card-icon" aria-hidden="true">&#128640;</div>
-                        <h3>Meta &amp; Google Ads</h3>
-                        <p>Campaign structure, creative testing, ABO → CBO scaling, and ROAS-focused optimization.</p>
+                        <h3 data-i18n="service-1-title">Meta &amp; Google Ads</h3>
+                        <p data-i18n="service-1-desc">Campaign structure, creative testing, ABO → CBO scaling, and ROAS-focused optimization.</p>
                     </article>
                     <article class="service-card">
                         <div class="card-icon" aria-hidden="true">&#128200;</div>
-                        <h3>CAPI &amp; Tracking Setup</h3>
-                        <p>Server-side Conversions API, sGTM containers, event deduplication, and iOS signal recovery.</p>
+                        <h3 data-i18n="service-2-title">CAPI &amp; Tracking Setup</h3>
+                        <p data-i18n="service-2-desc">Server-side Conversions API, sGTM containers, event deduplication, and iOS signal recovery.</p>
                     </article>
                     <article class="service-card">
                         <div class="card-icon" aria-hidden="true">&#129504;</div>
-                        <h3>Funnels &amp; CRO</h3>
-                        <p>Landing page clarity, offer framing, form friction reduction, and mobile speed optimization.</p>
+                        <h3 data-i18n="service-3-title">Funnels &amp; CRO</h3>
+                        <p data-i18n="service-3-desc">Landing page clarity, offer framing, form friction reduction, and mobile speed optimization.</p>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Work Section -->
+        <section id="recent-work" class="recent-work-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="work-title">Recent Work &amp; Technical Builds</h2>
+                    <p data-i18n="work-desc">Real projects — client campaigns and self-built infrastructure</p>
+                </div>
+                <div class="work-grid">
+                    <article class="work-card">
+                        <span class="work-tag" data-i18n="work-1-tag">Client Work · Meta Ads</span>
+                        <h3 data-i18n="work-1-title">Meta Ads — Rizq Fashion</h3>
+                        <p data-i18n="work-1-desc">Set up and managed Meta Ads campaigns for a women's clothing brand — campaign structure, audience targeting, creative testing, and pixel tracking.</p>
+                        <a href="/case-studies#meta-ads" class="work-link" data-i18n="work-view">View Case Study →</a>
+                    </article>
+                    <article class="work-card">
+                        <span class="work-tag" data-i18n="work-2-tag">Client Work · Google Ads</span>
+                        <h3 data-i18n="work-2-title">Google Ads — Rizq Fashion</h3>
+                        <p data-i18n="work-2-desc">Built Search and Performance Max campaigns to complement Meta Ads, with keyword research and conversion tracking.</p>
+                        <a href="/case-studies#google-ads" class="work-link" data-i18n="work-view">View Case Study →</a>
+                    </article>
+                    <article class="work-card">
+                        <span class="work-tag" data-i18n="work-3-tag">Technical · This Website</span>
+                        <h3 data-i18n="work-3-title">Complete Analytics Stack</h3>
+                        <p data-i18n="work-3-desc">Server-side analytics setup with Cloudflare Zaraz + GTM v4 + GA4 — verified live on this site.</p>
+                        <a href="/case-studies#analytics-stack" class="work-link" data-i18n="work-view">View Case Study →</a>
+                    </article>
+                </div>
+                <div class="work-cta">
+                    <a href="/case-studies" class="btn btn-secondary" data-i18n="work-cta">View All Case Studies →</a>
                 </div>
             </div>
         </section>
@@ -284,53 +353,53 @@
         <section id="tools" class="tools-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Free Marketing Tools</h2>
-                    <p>Client-side tools I built — no signup, no tracking</p>
+                    <h2 data-i18n="tools-title">Free Marketing Tools</h2>
+                    <p data-i18n="tools-desc">Client-side tools I built — no signup, no tracking</p>
                 </div>
                 <div class="tools-grid">
                     <!-- WhatsApp Link Generator -->
                     <div class="tool-card">
-                        <h3>WhatsApp Link Builder</h3>
-                        <p>Generate instant direct WhatsApp chat links with customized pre-filled messages.</p>
+                        <h3 data-i18n="tool-1-title">WhatsApp Link Builder</h3>
+                        <p data-i18n="tool-1-desc">Generate instant direct WhatsApp chat links with customized pre-filled messages.</p>
                         <div class="tool-inputs">
                             <input type="tel" id="waPhone" placeholder="Phone (e.g. 8801700000000)" class="tool-field">
                             <textarea id="waMessage" placeholder="Pre-filled message..." class="tool-field" rows="2"></textarea>
-                            <button id="btnGenerateWA" class="btn btn-primary btn-block" type="button">Generate &amp; Copy Link</button>
+                            <button id="btnGenerateWA" class="btn btn-primary btn-block" type="button" data-i18n="tool-1-btn">Generate &amp; Copy Link</button>
                         </div>
                     </div>
 
                     <!-- UTM Generator -->
                     <div class="tool-card">
-                        <h3>UTM Link Generator</h3>
-                        <p>Create clean, trackable campaign links for analytics platforms.</p>
+                        <h3 data-i18n="tool-2-title">UTM Link Generator</h3>
+                        <p data-i18n="tool-2-desc">Create clean, trackable campaign links for analytics platforms.</p>
                         <div class="tool-inputs">
                             <input type="url" id="utmUrl" placeholder="Target URL (https://...)" class="tool-field">
                             <input type="text" id="utmSource" placeholder="Source (e.g. facebook)" class="tool-field">
                             <input type="text" id="utmMedium" placeholder="Medium (e.g. cpc)" class="tool-field">
                             <input type="text" id="utmCampaign" placeholder="Campaign (e.g. summer_sale)" class="tool-field">
-                            <button id="btnGenerateUTM" class="btn btn-primary btn-block" type="button">Generate UTM Link</button>
+                            <button id="btnGenerateUTM" class="btn btn-primary btn-block" type="button" data-i18n="tool-2-btn">Generate UTM Link</button>
                         </div>
                     </div>
                     
                     <!-- A/B Test Evaluator -->
                     <div class="tool-card" id="abEvaluatorCard">
-                        <h3>A/B Test Significance Evaluator</h3>
-                        <p>Calculate statistical significance, conversion rate lift, and confidence interval between two variants.</p>
+                        <h3 data-i18n="tool-3-title">A/B Test Significance Evaluator</h3>
+                        <p data-i18n="tool-3-desc">Calculate statistical significance, conversion rate lift, and confidence interval between two variants.</p>
                         
                         <div class="tool-inputs">
                             <div class="variant-group">
-                                <span class="variant-label">Variant A (Control)</span>
+                                <span class="variant-label" data-i18n="tool-3-varA">Variant A (Control)</span>
                                 <input type="number" id="abVisitorsA" placeholder="Visitors A (e.g. 5000)" class="tool-field" min="1">
                                 <input type="number" id="abConvA" placeholder="Conversions A (e.g. 250)" class="tool-field" min="0">
                             </div>
 
                             <div class="variant-group">
-                                <span class="variant-label">Variant B (Variation)</span>
+                                <span class="variant-label" data-i18n="tool-3-varB">Variant B (Variation)</span>
                                 <input type="number" id="abVisitorsB" placeholder="Visitors B (e.g. 5000)" class="tool-field" min="1">
                                 <input type="number" id="abConvB" placeholder="Conversions B (e.g. 320)" class="tool-field" min="0">
                             </div>
 
-                            <button id="btnCalcAB" class="btn btn-primary btn-block" type="button">Evaluate Significance</button>
+                            <button id="btnCalcAB" class="btn btn-primary btn-block" type="button" data-i18n="tool-3-btn">Evaluate Significance</button>
                         </div>
 
                         <div id="abResult" class="calc-result" aria-live="polite"></div>
@@ -338,14 +407,14 @@
 
                     <!-- Ad ROI Calculator -->
                     <div class="tool-card">
-                        <h3>Ad Budget ROI Calculator</h3>
-                        <p>Calculate your expected Return on Ad Spend (ROAS) and revenue instantly.</p>
+                        <h3 data-i18n="tool-4-title">Ad Budget ROI Calculator</h3>
+                        <p data-i18n="tool-4-desc">Calculate your expected Return on Ad Spend (ROAS) and revenue instantly.</p>
                         <div class="tool-inputs">
                             <input type="number" id="roiBudget" placeholder="Ad Budget ($)" class="tool-field" min="0">
                             <input type="number" id="roiCpc" placeholder="Avg. Cost Per Click ($)" class="tool-field" min="0.01" step="0.01">
                             <input type="number" id="roiConvRate" placeholder="Conv. Rate (%)" class="tool-field" min="0" max="100" step="0.1">
                             <input type="number" id="roiAov" placeholder="Avg. Order Value ($)" class="tool-field" min="0">
-                            <button id="btnCalcROI" class="btn btn-primary btn-block" type="button">Calculate ROI</button>
+                            <button id="btnCalcROI" class="btn btn-primary btn-block" type="button" data-i18n="tool-4-btn">Calculate ROI</button>
                         </div>
                         <div id="roiResult" class="calc-result" aria-live="polite"></div>
                     </div>
@@ -358,43 +427,43 @@
             <div class="container">
                 <div class="booking-wrapper">
                     <div class="booking-info">
-                        <h2>📅 Book Your Free 15-Min Discovery Call</h2>
-                        <p>Fill out the form below to schedule a discovery call about your Meta Ads, tracking, or funnel challenges.</p>
+                        <h2 data-i18n="booking-title">📅 Book Your Free 15-Min Discovery Call</h2>
+                        <p data-i18n="booking-desc">Fill out the form below to schedule a discovery call about your Meta Ads, tracking, or funnel challenges.</p>
                         <ul class="benefit-list">
-                            <li><span aria-hidden="true">&#10003;</span> 15-Minute Free Discovery Call</li>
-                            <li><span aria-hidden="true">&#10003;</span> Ad Account &amp; Funnel Review</li>
-                            <li><span aria-hidden="true">&#10003;</span> Honest Feedback — Not Sales Pitch</li>
+                            <li><span aria-hidden="true">&#10003;</span> <span data-i18n="booking-benefit-1">15-Minute Free Discovery Call</span></li>
+                            <li><span aria-hidden="true">&#10003;</span> <span data-i18n="booking-benefit-2">Ad Account &amp; Funnel Review</span></li>
+                            <li><span aria-hidden="true">&#10003;</span> <span data-i18n="booking-benefit-3">Honest Feedback — Not Sales Pitch</span></li>
                         </ul>
                     </div>
                     
                     <form id="homeConsultationForm" class="booking-form" novalidate>
                         <div class="form-group">
-                            <label for="fullName">Full Name *</label>
+                            <label for="fullName" data-i18n="form-name">Full Name *</label>
                             <input type="text" id="fullName" name="fullName" required autocomplete="name" placeholder="John Doe">
                             <span class="error-msg" id="err-fullName"></span>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="email">Email Address *</label>
+                                <label for="email" data-i18n="form-email">Email Address *</label>
                                 <input type="email" id="email" name="email" required autocomplete="email" placeholder="john@example.com">
                                 <span class="error-msg" id="err-email"></span>
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone Number *</label>
+                                <label for="phone" data-i18n="form-phone">Phone Number *</label>
                                 <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="+8801700000000">
                                 <span class="error-msg" id="err-phone"></span>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="businessWebsite">Website / Page Link</label>
+                                <label for="businessWebsite" data-i18n="form-website">Website / Page Link</label>
                                 <input type="url" id="businessWebsite" name="businessWebsite" autocomplete="url" placeholder="https://yourbusiness.com">
                                 <span class="error-msg" id="err-businessWebsite"></span>
                             </div>
                             <div class="form-group">
-                                <label for="monthlyBudget">Monthly Ad Budget *</label>
+                                <label for="monthlyBudget" data-i18n="form-budget">Monthly Ad Budget *</label>
                                 <select id="monthlyBudget" name="monthlyBudget" required>
-                                    <option value="" disabled selected>Select Budget Range</option>
+                                    <option value="" disabled selected data-i18n="form-budget-placeholder">Select Budget Range</option>
                                     <option value="below_100">Below $100</option>
                                     <option value="100_500">$100 - $500</option>
                                     <option value="500_1000">$500 - $1,000</option>
@@ -405,14 +474,14 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="preferredDate">Preferred Date *</label>
+                                <label for="preferredDate" data-i18n="form-date">Preferred Date *</label>
                                 <input type="date" id="preferredDate" name="preferredDate" required>
                                 <span class="error-msg" id="err-preferredDate"></span>
                             </div>
                             <div class="form-group">
-                                <label for="preferredTime">Preferred Time Slot *</label>
+                                <label for="preferredTime" data-i18n="form-time">Preferred Time Slot *</label>
                                 <select id="preferredTime" name="preferredTime" required>
-                                    <option value="" disabled selected>Select Time Slot</option>
+                                    <option value="" disabled selected data-i18n="form-time-placeholder">Select Time Slot</option>
                                     <option value="11:00 AM">11:00 AM</option>
                                     <option value="04:00 PM">04:00 PM</option>
                                     <option value="08:00 PM">08:00 PM</option>
@@ -421,11 +490,11 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="notes">Briefly Describe Your Goal</label>
+                            <label for="notes" data-i18n="form-notes">Briefly Describe Your Goal</label>
                             <textarea id="notes" name="notes" rows="4" placeholder="Share your primary challenge or objective..."></textarea>
                         </div>
                         <button type="submit" id="btnSubmit" class="btn btn-primary btn-block">
-                            <span class="btn-text">Request Discovery Call</span>
+                            <span class="btn-text" data-i18n="form-submit">Request Discovery Call</span>
                             <span class="btn-spinner hidden" aria-hidden="true"></span>
                         </button>
                     </form>
@@ -437,29 +506,29 @@
 <section class="faq-section" id="faq">
     <div class="container">
         <div class="section-header">
-            <h2>Frequently Asked Questions</h2>
-            <p>Quick answers about services, pricing, and how I work</p>
+            <h2 data-i18n="faq-title">Frequently Asked Questions</h2>
+            <p data-i18n="faq-desc">Quick answers about services, pricing, and how I work</p>
         </div>
         <div class="faq-list">
             <details class="faq-item">
-                <summary>What services does Mizanul Islam offer?</summary>
-                <p>Mizanul Islam offers Meta Ads management, Google Ads campaigns, Meta CAPI tracking setup, conversion rate optimization (CRO), and WhatsApp Cloud API automation. Currently open to his first few client collaborations — based in Dhaka, Bangladesh, working with clients globally.</p>
+                <summary data-i18n="faq-q1">What services does Mizanul Islam offer?</summary>
+                <p data-i18n="faq-a1">Mizanul Islam offers Meta Ads management, Google Ads campaigns, Meta CAPI tracking setup, conversion rate optimization (CRO), and WhatsApp Cloud API automation. Currently open to new client collaborations — based in Dhaka, Bangladesh, working with clients globally.</p>
             </details>
             <details class="faq-item">
-                <summary>How much does a discovery call cost?</summary>
-                <p>The 15-minute discovery call is free. Intro strategy calls (45 minutes) are $49, and full system audits (90 minutes) are $149. Monthly retainers are custom-quoted after the audit based on scope and channels.</p>
+                <summary data-i18n="faq-q2">How much does a discovery call cost?</summary>
+                <p data-i18n="faq-a2">The 15-minute discovery call is free. Intro strategy calls (45 minutes) are $49, and full system audits (90 minutes) are $149. Monthly retainers are custom-quoted after the audit based on scope and channels.</p>
             </details>
             <details class="faq-item">
-                <summary>How long does a Meta CAPI tracking setup take?</summary>
-                <p>A standard Meta CAPI + server-side tracking setup takes 5-10 business days. Meta Ads management runs monthly with weekly optimization. Funnel and CRO projects typically take 2-4 weeks depending on scope.</p>
+                <summary data-i18n="faq-q3">How long does a Meta CAPI tracking setup take?</summary>
+                <p data-i18n="faq-a3">A standard Meta CAPI + server-side tracking setup takes 5-10 business days. Meta Ads management runs monthly with weekly optimization. Funnel and CRO projects typically take 2-4 weeks depending on scope.</p>
             </details>
             <details class="faq-item">
-                <summary>Does Mizanul Islam work with international clients?</summary>
-                <p>Yes. Mizanul works with clients in the United States, United Kingdom, Canada, Australia, UAE, Saudi Arabia, Singapore, Germany, Netherlands, Ireland, and Bangladesh. All communication is in English or Bengali.</p>
+                <summary data-i18n="faq-q4">Does Mizanul Islam work with international clients?</summary>
+                <p data-i18n="faq-a4">Yes. Mizanul works with clients globally, including Bangladesh, UAE, and other markets. All communication is in English or Bengali.</p>
             </details>
             <details class="faq-item">
-                <summary>What tools and platforms does Mizanul Islam use?</summary>
-                <p>Meta Ads Manager, Google Ads, GA4, Google Tag Manager, Meta CAPI, Cloudflare Zaraz, Looker Studio, WhatsApp Cloud API, Microsoft Clarity, and custom tracking infrastructure built on Cloudflare Pages.</p>
+                <summary data-i18n="faq-q5">What tools and platforms does Mizanul Islam use?</summary>
+                <p data-i18n="faq-a5">Meta Ads Manager, Google Ads, GA4, Google Tag Manager, Meta CAPI, Cloudflare Zaraz, Looker Studio, WhatsApp Cloud API, Microsoft Clarity, and custom tracking infrastructure built on Cloudflare Pages.</p>
             </details>
         </div>
     </div>
@@ -538,6 +607,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
                 </html>

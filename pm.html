@@ -6,29 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="index, follow">
 
-    <!-- Clean & Compatible Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://static.cloudflareinsights.com; frame-src https://www.googletagmanager.com;">
     
-
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://www.mizanulislam.com/pm" />
     
     <title>Portfolio | Mizanul Islam — Meta Ads Practitioner</title>
     <meta name="title" content="Portfolio | Mizanul Islam — Meta Ads Practitioner">
-    <meta name="description" content="Portfolio of Mizanul Islam — a Meta Ads practitioner learning and building CAPI tracking, growth systems, and conversion frameworks. Practice projects and technical work.">
+    <meta name="description" content="Portfolio of Mizanul Islam — Meta Ads practitioner building CAPI tracking, growth systems, and conversion frameworks. Real client work and technical builds.">
     <meta name="author" content="Mizanul Islam">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://www.mizanulislam.com/pm">
     <meta property="og:title" content="Portfolio | Mizanul Islam — Meta Ads Practitioner">
-    <meta property="og:description" content="Portfolio of Mizanul Islam — Meta Ads practitioner learning and building CAPI tracking, growth systems, and conversion frameworks.">
+    <meta property="og:description" content="Portfolio of Mizanul Islam — Meta Ads practitioner building CAPI tracking, growth systems, and conversion frameworks.">
     <meta property="og:image" content="https://www.mizanulislam.com/og-image.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
@@ -37,17 +33,15 @@
     <meta property="og:site_name" content="Mizanul Islam">
     <meta property="og:locale" content="en_US">
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.mizanulislam.com/pm">
     <meta name="twitter:title" content="Portfolio | Mizanul Islam">
-    <meta name="twitter:description" content="Practice projects and technical work by Mizanul Islam.">
+    <meta name="twitter:description" content="Real client work and technical builds by Mizanul Islam.">
     <meta name="twitter:image" content="https://www.mizanulislam.com/og-image.jpg">
     <meta name="twitter:image:alt" content="Portfolio — Mizanul Islam">
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- ProfilePage + Person Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -55,7 +49,7 @@
       "@id": "https://www.mizanulislam.com/pm#profilepage",
       "url": "https://www.mizanulislam.com/pm",
       "name": "Mizanul Islam — Portfolio",
-      "description": "Portfolio of Mizanul Islam — a Meta Ads practitioner learning and building CAPI tracking, growth systems, and conversion frameworks.",
+      "description": "Portfolio of Mizanul Islam — Meta Ads practitioner building CAPI tracking, growth systems, and conversion frameworks.",
       "inLanguage": "en",
       
       "mainEntity": {
@@ -64,7 +58,7 @@
         "name": "Mizanul Islam",
         "alternateName": "Mizan",
         "jobTitle": "Meta Ads Practitioner & Growth Systems Builder",
-        "description": "Meta Ads practitioner learning and building CAPI tracking, conversion frameworks, and growth systems. Based in Dhaka, Bangladesh.",
+        "description": "Meta Ads practitioner building CAPI tracking, conversion frameworks, and growth systems. Based in Dhaka, Bangladesh.",
         "url": "https://www.mizanulislam.com",
         "image": "https://www.mizanulislam.com/mizanul-islam-digital-growth-strategist.webp",
         "email": "mail.mizanulislam@gmail.com",
@@ -272,6 +266,9 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        html.theme-light .pm-about-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, #ffffff 100%);
+        }
         .pm-about-card p {
             color: var(--text-muted);
             line-height: 1.8;
@@ -455,15 +452,25 @@
             <a href="/" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="/pm" class="nav-link active">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link active" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
+
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
@@ -480,13 +487,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -495,7 +502,7 @@
 
         <section class="pm-hero">
             <div class="container">
-                <a href="/" class="back-link">← Back to main site</a>
+                <a href="/" class="back-link" data-i18n="pm-back">← Back to main site</a>
 
                 <div class="pm-hero-grid">
                     <div class="pm-photo-wrap">
@@ -510,34 +517,34 @@
                             <span class="pm-chip">Funnels &amp; CRO</span>
                         </div>
                         <h1>Mizanul Islam</h1>
-                            <p class="role">Meta Ads Practitioner &amp; Growth Systems Builder</p>
-                            <p class="lead">
+                        <p class="role" data-i18n="pm-role">Meta Ads Practitioner &amp; Growth Systems Builder</p>
+                        <p class="lead" data-i18n="pm-lead">
                             I build performance marketing systems — Meta Ads, CAPI tracking,
                             and growth infrastructure — with real technical implementation and honest reporting.
-                            </p>
+                        </p>
                         <div class="pm-hero-actions">
-                            <a href="/consultation" class="btn btn-primary">Book Free Discovery Call</a>
-                            <a href="/contact" class="btn btn-outline">Get in Touch</a>
+                            <a href="/consultation" class="btn btn-primary" data-i18n="pm-cta-1">Book Free Discovery Call</a>
+                            <a href="/contact" class="btn btn-outline" data-i18n="pm-cta-2">Get in Touch</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="pm-stats">
                     <div class="pm-stat">
-                        <div class="num">Meta + Google</div>
-                        <div class="label">Focus Platforms</div>
+                        <div class="num" data-i18n="pm-stat-1-num">Meta + Google</div>
+                        <div class="label" data-i18n="pm-stat-1-label">Focus Platforms</div>
                     </div>
                     <div class="pm-stat">
-                        <div class="num">CAPI / sGTM</div>
-                        <div class="label">Learning Stack</div>
+                        <div class="num" data-i18n="pm-stat-2-num">CAPI / sGTM</div>
+                        <div class="label" data-i18n="pm-stat-2-label">Working Stack</div>
                     </div>
                     <div class="pm-stat">
-                        <div class="num">Foundation First</div>
-                        <div class="label">Approach</div>
+                        <div class="num" data-i18n="pm-stat-3-num">Foundation First</div>
+                        <div class="label" data-i18n="pm-stat-3-label">Approach</div>
                     </div>
                     <div class="pm-stat">
-                        <div class="num">Full Funnel</div>
-                        <div class="label">Ads → Conversion</div>
+                        <div class="num" data-i18n="pm-stat-4-num">Full Funnel</div>
+                        <div class="label" data-i18n="pm-stat-4-label">Ads → Conversion</div>
                     </div>
                 </div>
             </div>
@@ -546,120 +553,120 @@
         <section class="pm-section" style="padding-top: 20px;">
             <div class="container">
                 <div class="pm-section-title">
-                    <span class="badge">About</span>
-                    <h2>Who I Work With</h2>
+                    <span class="badge" data-i18n="pm-about-badge">About</span>
+                    <h2 data-i18n="pm-about-title">Who I Work With</h2>
                 </div>
                 <div class="pm-about-card">
-                    <p>
-                        I'm a self-taught digital marketer based in Dhaka, learning and building at the intersection of
+                    <p data-i18n="pm-about-p1">
+                        I'm a self-taught digital marketer based in Dhaka, working at the intersection of
                         <strong style="color: var(--text-main);">media buying</strong>,
                         <strong style="color: var(--text-main);">conversion tracking</strong>, and
                         <strong style="color: var(--text-main);">funnel clarity</strong>.
                     </p>
-                    <p>
+                    <p data-i18n="pm-about-p2">
                         Most campaigns fail not because of "bad creatives alone," but because of broken attribution,
-                        weak offers, or no testing framework. I'm learning to fix the foundation first — then scale what works.
+                        weak offers, or no testing framework. I fix the foundation first — then scale what works.
                     </p>
-                    <p>
+                    <p data-i18n="pm-about-p3">
                         Operating under <a href="/growup" style="color: var(--primary);">Grow Up</a> —
-                        a growth systems practice built for sustainable learning and honest work.
+                        a growth systems practice built for sustainable work and honest reporting.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- PRACTICE PROJECTS — NEW SECTION -->
+        <!-- TECHNICAL WORK -->
         <section class="pm-section" style="background: rgba(255,255,255,0.015);">
             <div class="container">
                 <div class="pm-section-title">
-                    <span class="badge">Technical Work</span>
-                        <h2>Real Projects I've Built</h2>
-                         <p>Hands-on technical projects demonstrating real skills — from custom analytics stacks to marketing automation systems.</p>
+                    <span class="badge" data-i18n="pm-tech-badge">Technical Work</span>
+                    <h2 data-i18n="pm-tech-title">Real Projects I've Built</h2>
+                    <p data-i18n="pm-tech-desc">Hands-on technical projects demonstrating real skills — from custom analytics stacks to marketing automation systems.</p>
                 </div>
                 <div class="case-grid">
                     <article class="case-card">
-                        <div class="case-tag">Technical SEO Build</div>
-                        <h3>Built This Website from Scratch</h3>
-                        <p class="case-desc">
+                        <div class="case-tag" data-i18n="pm-case-1-tag">Technical SEO Build</div>
+                        <h3 data-i18n="pm-case-1-title">Built This Website from Scratch</h3>
+                        <p class="case-desc" data-i18n="pm-case-1-desc">
                             Designed and coded the entire site using custom HTML/CSS/JavaScript — including 9 types of Schema markup, clean URL architecture, 301 redirects, and a Cloudflare Pages Function for form handling.
                         </p>
                         <div class="case-metrics">
                             <div class="case-metric">
                                 <div class="m-num">9 Schemas</div>
-                                <div class="m-label">Implemented</div>
+                                <div class="m-label" data-i18n="pm-case-1-m1">Implemented</div>
                             </div>
                             <div class="case-metric">
                                 <div class="m-num">13 Pages</div>
-                                <div class="m-label">Hand-coded</div>
+                                <div class="m-label" data-i18n="pm-case-1-m2">Hand-coded</div>
                             </div>
                         </div>
                     </article>
                     <article class="case-card">
-                        <div class="case-tag">Tracking Infrastructure</div>
-                        <h3>CAPI &amp; Schema Setup Practice</h3>
-                        <p class="case-desc">
+                        <div class="case-tag" data-i18n="pm-case-2-tag">Tracking Infrastructure</div>
+                        <h3 data-i18n="pm-case-2-title">CAPI &amp; Schema Setup</h3>
+                        <p class="case-desc" data-i18n="pm-case-2-desc">
                             Set up first-party tracking concepts, canonical URLs, and cross-referenced Schema entities (Person ↔ Organization ↔ Service) to understand growth infrastructure deeply.
                         </p>
                         <div class="case-metrics">
                             <div class="case-metric">
                                 <div class="m-num">Cross-Referenced</div>
-                                <div class="m-label">Schema</div>
+                                <div class="m-label" data-i18n="pm-case-2-m1">Schema</div>
                             </div>
                             <div class="case-metric">
                                 <div class="m-num">0 Errors</div>
-                                <div class="m-label">Validator</div>
+                                <div class="m-label" data-i18n="pm-case-2-m2">Validator</div>
                             </div>
                         </div>
                     </article>
                     <article class="case-card">
-                        <div class="case-tag">Marketing Tools</div>
-                        <h3>4 Custom Marketing Tools</h3>
-                        <p class="case-desc">
+                        <div class="case-tag" data-i18n="pm-case-3-tag">Marketing Tools</div>
+                        <h3 data-i18n="pm-case-3-title">4 Custom Marketing Tools</h3>
+                        <p class="case-desc" data-i18n="pm-case-3-desc">
                             Built WhatsApp Link Generator, UTM Builder, A/B Test Evaluator (statistical significance), and Ad Budget ROI Calculator — all as free client-side utilities.
                         </p>
                         <div class="case-metrics">
                             <div class="case-metric">
                                 <div class="m-num">4 Tools</div>
-                                <div class="m-label">Built</div>
+                                <div class="m-label" data-i18n="pm-case-3-m1">Built</div>
                             </div>
                             <div class="case-metric">
                                 <div class="m-num">100% Free</div>
-                                <div class="m-label">For Users</div>
+                                <div class="m-label" data-i18n="pm-case-3-m2">For Users</div>
                             </div>
                         </div>
                     </article>
                     <article class="case-card">
-                        <div class="case-tag">Certification</div>
-                        <h3>Stanford Code in Place</h3>
-                        <p class="case-desc">
+                        <div class="case-tag" data-i18n="pm-case-4-tag">Certification</div>
+                        <h3 data-i18n="pm-case-4-title">Stanford Code in Place</h3>
+                        <p class="case-desc" data-i18n="pm-case-4-desc">
                             Completed Stanford University's Code in Place program (Python fundamentals) — building a strong technical foundation for tracking scripts and marketing automation.
                         </p>
                         <div class="case-metrics">
                             <div class="case-metric">
                                 <div class="m-num">Stanford</div>
-                                <div class="m-label">Certified</div>
+                                <div class="m-label" data-i18n="pm-case-4-m1">Certified</div>
                             </div>
                             <div class="case-metric">
                                 <div class="m-num">Python</div>
-                                <div class="m-label">Learning</div>
+                                <div class="m-label" data-i18n="pm-case-4-m2">Learning</div>
                             </div>
                         </div>
                     </article>
 
                     <article class="case-card">
-                        <div class="case-tag">Analytics Stack</div>
-                        <h3>Complete Analytics Stack — GTM + GA4 + Zaraz</h3>
-                        <p class="case-desc">
+                        <div class="case-tag" data-i18n="pm-case-5-tag">Analytics Stack</div>
+                        <h3 data-i18n="pm-case-5-title">Complete Analytics Stack — GTM + GA4 + Zaraz</h3>
+                        <p class="case-desc" data-i18n="pm-case-5-desc">
                             Set up end-to-end analytics on a custom static site: Cloudflare Zaraz for server-side tracking, Google Tag Manager (4 versions published), GA4 event tracking, and CSP-hardened security. Debugged migration from Blogspot to Cloudflare Pages with cross-platform testing.
                         </p>
                         <div class="case-metrics">
                             <div class="case-metric">
                                 <div class="m-num">Server-Side</div>
-                                <div class="m-label">Zaraz Tracking</div>
+                                <div class="m-label" data-i18n="pm-case-5-m1">Zaraz Tracking</div>
                             </div>
-                        <div class="case-metric">
-                            <div class="m-num">GTM v4</div>
-                            <div class="m-label">Published</div>
+                            <div class="case-metric">
+                                <div class="m-num">GTM v4</div>
+                                <div class="m-label" data-i18n="pm-case-5-m2">Published</div>
                             </div>
                         </div>
                     </article>
@@ -667,43 +674,44 @@
             </div>
         </section>
 
+        <!-- CAPABILITIES -->
         <section class="pm-section">
             <div class="container">
                 <div class="pm-section-title">
-                    <span class="badge">Capabilities</span>
-                        <h2>What I Can Do For You</h2>
-                        <p>Specialized areas where I apply real, tested frameworks.</p>
+                    <span class="badge" data-i18n="pm-cap-badge">Capabilities</span>
+                    <h2 data-i18n="pm-cap-title">What I Can Do For You</h2>
+                    <p data-i18n="pm-cap-desc">Specialized areas where I apply real, tested frameworks.</p>
                 </div>
                 <div class="skills-grid">
                     <div class="skill-card">
                         <div class="skill-icon">M</div>
-                        <h3>Meta Ads Buying</h3>
-                        <p>Campaign structure, creative testing, audience strategy, and scaling with controlled ROAS.</p>
+                        <h3 data-i18n="pm-cap-1-title">Meta Ads Buying</h3>
+                        <p data-i18n="pm-cap-1-desc">Campaign structure, creative testing, audience strategy, and scaling with controlled ROAS.</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">G</div>
-                        <h3>Google Ads</h3>
-                        <p>Search, Performance Max, and Shopping setups focused on intent and efficient CPA.</p>
+                        <h3 data-i18n="pm-cap-2-title">Google Ads</h3>
+                        <p data-i18n="pm-cap-2-desc">Search, Performance Max, and Shopping setups focused on intent and efficient CPA.</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">C</div>
-                        <h3>CAPI &amp; Tracking</h3>
-                        <p>Meta Conversions API, server-side GTM, Event Match Quality, and iOS signal recovery.</p>
+                        <h3 data-i18n="pm-cap-3-title">CAPI &amp; Tracking</h3>
+                        <p data-i18n="pm-cap-3-desc">Meta Conversions API, server-side GTM, Event Match Quality, and iOS signal recovery.</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">F</div>
-                        <h3>Funnel &amp; CRO</h3>
-                        <p>Landing page clarity, offer framing, and friction reduction for higher conversion rates.</p>
+                        <h3 data-i18n="pm-cap-4-title">Funnel &amp; CRO</h3>
+                        <p data-i18n="pm-cap-4-desc">Landing page clarity, offer framing, and friction reduction for higher conversion rates.</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">W</div>
-                        <h3>WhatsApp Automation</h3>
-                        <p>Cloud API flows, UTM-tracked links, and post-click messaging for lead nurture.</p>
+                        <h3 data-i18n="pm-cap-5-title">WhatsApp Automation</h3>
+                        <p data-i18n="pm-cap-5-desc">Cloud API flows, UTM-tracked links, and post-click messaging for lead nurture.</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon">A</div>
-                        <h3>Analytics &amp; Reporting</h3>
-                        <p>GA4, Looker-ready reporting, MER/ROAS views that match business reality.</p>
+                        <h3 data-i18n="pm-cap-6-title">Analytics &amp; Reporting</h3>
+                        <p data-i18n="pm-cap-6-desc">GA4, Looker-ready reporting, MER/ROAS views that match business reality.</p>
                     </div>
                 </div>
                 <div class="tools-strip" style="margin-top: 36px;">
@@ -720,67 +728,96 @@
             </div>
         </section>
 
-                <!-- CLIENT WORK SECTION — Ready for future projects -->
+        <!-- CLIENT WORK -->
         <section class="pm-section" style="background: rgba(255,255,255,0.015);">
             <div class="container">
                 <div class="pm-section-title">
-                    <span class="badge">Client Work</span>
-                    <h2>Collaborations Coming Soon</h2>
-                    <p>I'm currently opening up to my first few client collaborations. Real project results with permission will appear here as work completes.</p>
+                    <span class="badge" data-i18n="pm-client-badge">Client Work</span>
+                    <h2 data-i18n="pm-client-title">Recent Collaborations</h2>
+                    <p data-i18n="pm-client-desc">Real client projects with brand permission — focusing on process, tools, and implementation.</p>
                 </div>
-                <div class="pm-about-card" style="text-align: center;">
-                    <p style="margin-bottom: 20px;">
-                        <strong style="color: var(--text-main);">Want to be my first case study?</strong>
-                    </p>
-                    <p>
-                        I'm offering honest, foundation-first work with real tracking setup, transparent reporting, and no inflated promises.
-                        If you're an e-commerce or service brand looking for a Meta Ads + CAPI partner, let's talk.
-                    </p>
-                    <div style="margin-top: 25px;">
-                        <a href="/consultation" class="btn btn-primary" style="padding: 12px 28px;">Book Free Discovery Call</a>
-                    </div>
+                <div class="case-grid">
+                    <article class="case-card">
+                        <div class="case-tag" data-i18n="pm-client-1-tag">Client · Meta Ads</div>
+                        <h3 data-i18n="pm-client-1-title">Meta Ads — Rizq Fashion</h3>
+                        <p class="case-desc" data-i18n="pm-client-1-desc">
+                            Set up and managed Meta Ads campaigns for a women's clothing brand — campaign structure, audience targeting, creative testing, and pixel tracking.
+                        </p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <div class="m-num">Meta Ads</div>
+                                <div class="m-label" data-i18n="pm-client-1-m1">Platform</div>
+                            </div>
+                            <div class="case-metric">
+                                <div class="m-num">Fashion</div>
+                                <div class="m-label" data-i18n="pm-client-1-m2">Niche</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="case-card">
+                        <div class="case-tag" data-i18n="pm-client-2-tag">Client · Google Ads</div>
+                        <h3 data-i18n="pm-client-2-title">Google Ads — Rizq Fashion</h3>
+                        <p class="case-desc" data-i18n="pm-client-2-desc">
+                            Built Search and Performance Max campaigns to complement Meta Ads, with keyword research, negative keyword optimization, and conversion tracking.
+                        </p>
+                        <div class="case-metrics">
+                            <div class="case-metric">
+                                <div class="m-num">Search + PMax</div>
+                                <div class="m-label" data-i18n="pm-client-2-m1">Campaigns</div>
+                            </div>
+                            <div class="case-metric">
+                                <div class="m-num">Fashion</div>
+                                <div class="m-label" data-i18n="pm-client-2-m2">Niche</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div style="text-align: center; margin-top: 35px;">
+                    <a href="/case-studies" class="btn btn-secondary" data-i18n="pm-client-cta">View Full Case Studies →</a>
                 </div>
             </div>
         </section>
 
-        <section class="pm-section" style="background: rgba(255,255,255,0.015);">
+        <!-- APPROACH -->
+        <section class="pm-section">
             <div class="container">
                 <div class="pm-section-title">
-                    <span class="badge">Approach</span>
-                    <h2>How I Think About Growth</h2>
-                    <p>Framework I use for thinking through projects.</p>
+                    <span class="badge" data-i18n="pm-approach-badge">Approach</span>
+                    <h2 data-i18n="pm-approach-title">How I Think About Growth</h2>
+                    <p data-i18n="pm-approach-desc">Framework I use for thinking through projects.</p>
                 </div>
                 <div class="process-steps">
                     <div class="process-step">
                         <div class="process-num">1</div>
-                        <h3>Audit</h3>
-                        <p>Review ads, tracking, funnel, and offer. Find leaks and quick wins.</p>
+                        <h3 data-i18n="pm-step-1-title">Audit</h3>
+                        <p data-i18n="pm-step-1-desc">Review ads, tracking, funnel, and offer. Find leaks and quick wins.</p>
                     </div>
                     <div class="process-step">
                         <div class="process-num">2</div>
-                        <h3>Foundation</h3>
-                        <p>Fix CAPI/pixel, structure campaigns, align landing pages.</p>
+                        <h3 data-i18n="pm-step-2-title">Foundation</h3>
+                        <p data-i18n="pm-step-2-desc">Fix CAPI/pixel, structure campaigns, align landing pages.</p>
                     </div>
                     <div class="process-step">
                         <div class="process-num">3</div>
-                        <h3>Test</h3>
-                        <p>Run controlled creative and audience tests. Kill losers fast.</p>
+                        <h3 data-i18n="pm-step-3-title">Test</h3>
+                        <p data-i18n="pm-step-3-desc">Run controlled creative and audience tests. Kill losers fast.</p>
                     </div>
                     <div class="process-step">
                         <div class="process-num">4</div>
-                        <h3>Scale</h3>
-                        <p>Scale winners with budget rules. Report on ROAS, CPA, MER.</p>
+                        <h3 data-i18n="pm-step-4-title">Scale</h3>
+                        <p data-i18n="pm-step-4-desc">Scale winners with budget rules. Report on ROAS, CPA, MER.</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- CTA -->
         <section class="pm-section" style="padding-top: 40px; padding-bottom: 40px;">
             <div class="container">
                 <div class="pm-cta-band">
-                    <h2>Interested in collaborating?</h2>
-                    <p>Book a free 15-minute discovery call. We'll talk through your business, challenges, and whether I can help.</p>
-                    <a href="/consultation" class="btn btn-primary" style="padding: 14px 28px;">Book Free Discovery Call</a>
+                    <h2 data-i18n="pm-final-cta-title">Interested in collaborating?</h2>
+                    <p data-i18n="pm-final-cta-desc">Book a free 15-minute discovery call. We'll talk through your business, challenges, and whether I can help.</p>
+                    <a href="/consultation" class="btn btn-primary" style="padding: 14px 28px;" data-i18n="pm-final-cta-btn">Book Free Discovery Call</a>
                 </div>
             </div>
         </section>
@@ -840,6 +877,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
-    </html>
+</html>

@@ -19,14 +19,14 @@
     
     <title>Services | Meta Ads, CAPI &amp; Growth Systems — Mizanul Islam</title>
     <meta name="title" content="Services | Meta Ads, CAPI &amp; Growth Systems — Mizanul Islam">
-    <meta name="description" content="Services I'm learning and practicing: Meta Ads, Google Ads, CAPI tracking, CRO, WhatsApp automation, and growth analytics. Based in Dhaka, Bangladesh.">
+    <meta name="description" content="Services I've built and practiced: Meta Ads, Google Ads, CAPI tracking, CRO, WhatsApp automation, and growth analytics. Based in Dhaka, Bangladesh.">
     <meta name="author" content="Mizanul Islam">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.mizanulislam.com/services">
     <meta property="og:title" content="Services | Meta Ads, CAPI & Growth Systems — Mizanul Islam">
-    <meta property="og:description" content="Services I'm learning and practicing: Meta Ads, Google Ads, CAPI tracking, CRO, WhatsApp automation, and growth analytics.">
+    <meta property="og:description" content="Services I've built: Meta Ads, Google Ads, CAPI tracking, CRO, WhatsApp automation, and growth analytics.">
     <meta property="og:image" content="https://www.mizanulislam.com/og-image.jpg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
@@ -39,7 +39,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.mizanulislam.com/services">
     <meta name="twitter:title" content="Services | Meta Ads, CAPI & Growth Systems">
-    <meta name="twitter:description" content="Services I'm learning and practicing: Meta Ads, CAPI, CRO, and growth analytics.">
+    <meta name="twitter:description" content="Services I've built: Meta Ads, CAPI, CRO, and growth analytics.">
     <meta name="twitter:image" content="https://www.mizanulislam.com/og-image.jpg">
     <meta name="twitter:image:alt" content="Services — Mizanul Islam">
 
@@ -53,7 +53,7 @@
       "@id": "https://www.mizanulislam.com/services#service",
       "serviceType": "Meta Ads, Tracking, and Growth Systems",
       "name": "Services by Grow Up — Meta Ads Practitioner",
-      "description": "Meta Ads management, Google Ads, CAPI tracking setup, conversion rate optimization, and growth analytics — learning and practicing under Grow Up.",
+      "description": "Meta Ads management, Google Ads, CAPI tracking setup, conversion rate optimization, and growth analytics — built and practiced under Grow Up.",
       "url": "https://www.mizanulislam.com/services",
       
       "provider": {
@@ -168,6 +168,9 @@
             margin: 30px 0 50px 0;
             background: rgba(0, 0, 0, 0.3);
         }
+        html.theme-light .marketing-stats {
+            background: rgba(0, 0, 0, 0.03);
+        }
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -271,6 +274,9 @@
             font-size: 0.78rem;
             font-family: monospace;
         }
+        html.theme-light .tech-tag {
+            background: rgba(0, 0, 0, 0.04);
+        }
 
         .cta-section {
             padding: 60px 0 90px 0;
@@ -308,15 +314,24 @@
             
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link active">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="/pm" class="nav-link">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link active" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
 
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
@@ -334,13 +349,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -349,9 +364,9 @@
         
         <section class="services-hero">
             <div class="container">
-                <span class="badge">Learning in Public</span>
-                <h1>Services I'm Learning &amp; <span class="highlight">Practicing</span></h1>
-                <p>Studying and building Meta Ads, CAPI tracking, CRO, and growth frameworks — currently opening up to my first few collaborations.</p>
+                <span class="badge" data-i18n="services-hero-badge">Services &amp; Systems</span>
+                <h1 data-i18n="services-hero-title">Services I've <span class="highlight">Built &amp; Practiced</span></h1>
+                <p data-i18n="services-hero-desc">Real implementations across Meta Ads, CAPI tracking, CRO, and growth frameworks — currently opening up to new collaborations.</p>
             </div>
         </section>
 
@@ -360,19 +375,19 @@
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-num">Meta + Google</div>
-                        <div class="stat-label">Focus Platforms</div>
+                        <div class="stat-label" data-i18n="svc-stat-1">Focus Platforms</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-num">CAPI / sGTM</div>
-                        <div class="stat-label">Learning Stack</div>
+                        <div class="stat-label" data-i18n="svc-stat-2">Working Stack</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-num">ROAS / CPA</div>
-                        <div class="stat-label">Primary KPIs</div>
+                        <div class="stat-label" data-i18n="svc-stat-3">Primary KPIs</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-num">Full Funnel</div>
-                        <div class="stat-label">Ads → Conversion</div>
+                        <div class="stat-label" data-i18n="svc-stat-4">Ads → Conversion</div>
                     </div>
                 </div>
             </div>
@@ -385,12 +400,12 @@
                     <div class="service-card">
                         <div>
                             <div class="service-icon">&#128200;</div>
-                            <h3>Meta &amp; Google Ads</h3>
-                            <p>Campaign structure, creative testing, ABO → CBO scaling, and audience strategy focused on ROAS and efficient CPA.</p>
+                            <h3 data-i18n="svc-1-title">Meta &amp; Google Ads</h3>
+                            <p data-i18n="svc-1-desc">Campaign structure, creative testing, ABO → CBO scaling, and audience strategy focused on ROAS and efficient CPA.</p>
                             <ul class="service-features">
-                                <li>ABO / CBO Scaling &amp; Bid Optimization</li>
-                                <li>Dynamic Creative Testing</li>
-                                <li>Retargeting &amp; Lookalike Audiences</li>
+                                <li data-i18n="svc-1-f1">ABO / CBO Scaling &amp; Bid Optimization</li>
+                                <li data-i18n="svc-1-f2">Dynamic Creative Testing</li>
+                                <li data-i18n="svc-1-f3">Retargeting &amp; Lookalike Audiences</li>
                             </ul>
                         </div>
                         <div class="tech-tags">
@@ -403,12 +418,12 @@
                     <div class="service-card">
                         <div>
                             <div class="service-icon">&#9889;</div>
-                            <h3>CAPI &amp; Server-Side Tracking</h3>
-                            <p>Server-side Conversions API, custom sGTM containers, and event deduplication to recover iOS and ad-blocker signal loss.</p>
+                            <h3 data-i18n="svc-2-title">CAPI &amp; Server-Side Tracking</h3>
+                            <p data-i18n="svc-2-desc">Server-side Conversions API, custom sGTM containers, and event deduplication to recover iOS and ad-blocker signal loss.</p>
                             <ul class="service-features">
-                                <li>Meta Conversions API (CAPI) Setup</li>
-                                <li>GA4 Server Stream Integration</li>
-                                <li>Event Match Quality Optimization</li>
+                                <li data-i18n="svc-2-f1">Meta Conversions API (CAPI) Setup</li>
+                                <li data-i18n="svc-2-f2">GA4 Server Stream Integration</li>
+                                <li data-i18n="svc-2-f3">Event Match Quality Optimization</li>
                             </ul>
                         </div>
                         <div class="tech-tags">
@@ -421,12 +436,12 @@
                     <div class="service-card">
                         <div>
                             <div class="service-icon">&#128179;</div>
-                            <h3>Funnel &amp; Conversion Rate Optimization</h3>
-                            <p>Landing page clarity, offer framing, form friction reduction, and mobile speed optimization — using heatmaps and session recordings.</p>
+                            <h3 data-i18n="svc-3-title">Funnel &amp; Conversion Rate Optimization</h3>
+                            <p data-i18n="svc-3-desc">Landing page clarity, offer framing, form friction reduction, and mobile speed optimization — using heatmaps and session recordings.</p>
                             <ul class="service-features">
-                                <li>A/B Testing &amp; Heatmaps</li>
-                                <li>Form Friction Reduction</li>
-                                <li>Mobile Speed Optimization</li>
+                                <li data-i18n="svc-3-f1">A/B Testing &amp; Heatmaps</li>
+                                <li data-i18n="svc-3-f2">Form Friction Reduction</li>
+                                <li data-i18n="svc-3-f3">Mobile Speed Optimization</li>
                             </ul>
                         </div>
                         <div class="tech-tags">
@@ -439,12 +454,12 @@
                     <div class="service-card">
                         <div>
                             <div class="service-icon">&#128221;</div>
-                            <h3>Direct Response Copywriting</h3>
-                            <p>Ad copy and sales pages focused on clear hooks, tested angles, and immediate purchase intent.</p>
+                            <h3 data-i18n="svc-4-title">Direct Response Copywriting</h3>
+                            <p data-i18n="svc-4-desc">Ad copy and sales pages focused on clear hooks, tested angles, and immediate purchase intent.</p>
                             <ul class="service-features">
-                                <li>Meta Ad Hook Scripts</li>
-                                <li>Landing Page Copy</li>
-                                <li>Angle Iteration Framework</li>
+                                <li data-i18n="svc-4-f1">Meta Ad Hook Scripts</li>
+                                <li data-i18n="svc-4-f2">Landing Page Copy</li>
+                                <li data-i18n="svc-4-f3">Angle Iteration Framework</li>
                             </ul>
                         </div>
                         <div class="tech-tags">
@@ -457,12 +472,12 @@
                     <div class="service-card">
                         <div>
                             <div class="service-icon">&#128241;</div>
-                            <h3>WhatsApp Cloud API Automation</h3>
-                            <p>Cloud API flows, UTM-tracked links, and post-click messaging for lead nurture and abandoned cart recovery.</p>
+                            <h3 data-i18n="svc-5-title">WhatsApp Cloud API Automation</h3>
+                            <p data-i18n="svc-5-desc">Cloud API flows, UTM-tracked links, and post-click messaging for lead nurture and abandoned cart recovery.</p>
                             <ul class="service-features">
-                                <li>Cloud API Setup &amp; Templates</li>
-                                <li>Broadcasting &amp; Segmentation</li>
-                                <li>Automated Nurture Sequences</li>
+                                <li data-i18n="svc-5-f1">Cloud API Setup &amp; Templates</li>
+                                <li data-i18n="svc-5-f2">Broadcasting &amp; Segmentation</li>
+                                <li data-i18n="svc-5-f3">Automated Nurture Sequences</li>
                             </ul>
                         </div>
                         <div class="tech-tags">
@@ -475,12 +490,12 @@
                     <div class="service-card">
                         <div>
                             <div class="service-icon">&#128202;</div>
-                            <h3>Growth Analytics &amp; Reporting</h3>
-                            <p>GA4 tracking, Looker Studio reports, and Marketing Efficiency Ratio (MER) views that match business reality — not vanity metrics.</p>
+                            <h3 data-i18n="svc-6-title">Growth Analytics &amp; Reporting</h3>
+                            <p data-i18n="svc-6-desc">GA4 tracking, Looker Studio reports, and Marketing Efficiency Ratio (MER) views that match business reality — not vanity metrics.</p>
                             <ul class="service-features">
-                                <li>GA4 &amp; GTM Setup</li>
-                                <li>MER / LTV Reporting</li>
-                                <li>Ad Spend Allocation Analysis</li>
+                                <li data-i18n="svc-6-f1">GA4 &amp; GTM Setup</li>
+                                <li data-i18n="svc-6-f2">MER / LTV Reporting</li>
+                                <li data-i18n="svc-6-f3">Ad Spend Allocation Analysis</li>
                             </ul>
                         </div>
                         <div class="tech-tags">
@@ -497,9 +512,9 @@
         <section class="cta-section">
             <div class="container">
                 <div class="cta-box">
-                    <h2>Want to Work Together?</h2>
-                    <p>Book a free 15-minute discovery call. We'll talk through your business, challenges, and whether I can help.</p>
-                    <a href="/consultation" class="btn btn-primary">Book Free Discovery Call <span>&rarr;</span></a>
+                    <h2 data-i18n="svc-cta-title">Want to Work Together?</h2>
+                    <p data-i18n="svc-cta-desc">Book a free 15-minute discovery call. We'll talk through your business, challenges, and whether I can help.</p>
+                    <a href="/consultation" class="btn btn-primary" data-i18n="svc-cta-btn">Book Free Discovery Call →</a>
                 </div>
             </div>
         </section>
@@ -562,6 +577,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
 </html>

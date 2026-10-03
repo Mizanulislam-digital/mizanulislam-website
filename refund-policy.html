@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Clean & Compatible Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://static.cloudflareinsights.com; frame-src https://www.googletagmanager.com;">
     
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -61,6 +60,9 @@
             border-radius: 16px;
             padding: 40px 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        html.theme-light .legal-container {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
         }
         @media (min-width: 768px) {
             .legal-container {
@@ -127,21 +129,32 @@
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
     <header class="site-header" id="siteHeader" role="banner">
         <div class="container nav-container">
             <a href="/" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
             
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="/pm" class="nav-link">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
 
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
@@ -159,13 +172,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -174,9 +187,9 @@
         
         <section class="legal-hero">
             <div class="container">
-                <span class="badge">Billing &amp; Guarantee</span>
-                <h1>Refund &amp; <span class="highlight">Cancellation</span> Policy</h1>
-                <p>Terms outlining refund eligibility, cancellation conditions, and payment processing for Grow Up services.</p>
+                <span class="badge" data-i18n="rp-hero-badge">Billing &amp; Guarantee</span>
+                <h1 data-i18n="rp-hero-title">Refund &amp; <span class="highlight">Cancellation</span> Policy</h1>
+                <p data-i18n="rp-hero-desc">Terms outlining refund eligibility, cancellation conditions, and payment processing for Grow Up services.</p>
             </div>
         </section>
 
@@ -185,52 +198,52 @@
                 <div class="legal-container">
                     
                     <div class="legal-meta-info">
-                        <div>Effective Date: <strong>August 22, 2026</strong></div>
-                        <div>Operated By: <strong>Mizanul Islam (Grow Up)</strong></div>
+                        <div><span data-i18n="legal-effective">Effective Date:</span> <strong>August 22, 2026</strong></div>
+                        <div><span data-i18n="legal-operated-by">Operated By:</span> <strong>Mizanul Islam (Grow Up)</strong></div>
                     </div>
 
                     <div class="legal-body">
                         
-                        <h2>1. General Billing Principles</h2>
-                        <p>At <strong>Mizanul Islam</strong> and <strong>Grow Up</strong>, I provide growth systems services — Meta Ads management, server-side tracking (CAPI) setup, and performance media buying. Because these services involve upfront technical setup, strategy time, and cloud provisioning, refunds are handled strictly according to the categories below.</p>
+                        <h2 data-i18n="rp-h1">1. General Billing Principles</h2>
+                        <p data-i18n="rp-p1">At <strong>Mizanul Islam</strong> and <strong>Grow Up</strong>, I provide growth systems services — Meta Ads management, server-side tracking (CAPI) setup, and performance media buying. Because these services involve upfront technical setup, strategy time, and cloud provisioning, refunds are handled strictly according to the categories below.</p>
 
-                        <h2>2. 1-on-1 Strategy Consultations</h2>
-                        <p>Strategy consultation sessions reserve dedicated time and custom account pre-audits.</p>
+                        <h2 data-i18n="rp-h2">2. 1-on-1 Strategy Consultations</h2>
+                        <p data-i18n="rp-p2">Strategy consultation sessions reserve dedicated time and custom account pre-audits.</p>
                         <ul>
-                            <li><strong>Cancellation &amp; Rescheduling:</strong> You may reschedule your consultation at no additional cost up to 12 hours before the scheduled call. Cancellations made at least 24 hours before the session are eligible for a 100% full refund.</li>
-                            <li><strong>Completed Calls:</strong> Once a 1-on-1 strategy consultation session has been conducted, the fee becomes non-refundable.</li>
-                            <li><strong>No-Shows:</strong> Failure to attend a scheduled session without prior notice results in forfeiture of the consultation booking fee.</li>
+                            <li data-i18n="rp-l1"><strong>Cancellation &amp; Rescheduling:</strong> You may reschedule your consultation at no additional cost up to 12 hours before the scheduled call. Cancellations made at least 24 hours before the session are eligible for a 100% full refund.</li>
+                            <li data-i18n="rp-l2"><strong>Completed Calls:</strong> Once a 1-on-1 strategy consultation session has been conducted, the fee becomes non-refundable.</li>
+                            <li data-i18n="rp-l3"><strong>No-Shows:</strong> Failure to attend a scheduled session without prior notice results in forfeiture of the consultation booking fee.</li>
                         </ul>
 
                         <div class="legal-highlight-box">
-                            <strong>Notice on Technical Setup Services:</strong> One-off technical setup projects (e.g., Server-Side GTM, Cloudflare Worker pipelines, Meta CAPI setup, WhatsApp API integration) require immediate engineering bandwidth and script configuration. Setup fees are non-refundable once technical work has commenced on your infrastructure.
+                            <strong data-i18n="rp-notice-title">Notice on Technical Setup Services:</strong> <span data-i18n="rp-notice-desc">One-off technical setup projects (e.g., Server-Side GTM, Cloudflare Worker pipelines, Meta CAPI setup, WhatsApp API integration) require immediate engineering bandwidth and script configuration. Setup fees are non-refundable once technical work has commenced on your infrastructure.</span>
                         </div>
 
-                        <h2>3. Monthly Performance Retainers</h2>
-                        <p>For ongoing growth management and ad agency retainers:</p>
+                        <h2 data-i18n="rp-h3">3. Monthly Performance Retainers</h2>
+                        <p data-i18n="rp-p3">For ongoing growth management and ad agency retainers:</p>
                         <ul>
-                            <li><strong>Cancellation Notice:</strong> Clients may cancel monthly retainer agreements by providing a 14-day written notice before the start of the next billing cycle.</li>
-                            <li><strong>In-Cycle Retainers:</strong> Monthly retainer fees paid for an active billing cycle are non-refundable once ad management, campaign optimization, or creative testing work has begun.</li>
-                            <li><strong>Ad Spend:</strong> Direct ad spend payments made to ad networks (Meta, Google, TikTok) are billed directly by those platforms and are outside the scope of Grow Up refunds.</li>
+                            <li data-i18n="rp-l4"><strong>Cancellation Notice:</strong> Clients may cancel monthly retainer agreements by providing a 14-day written notice before the start of the next billing cycle.</li>
+                            <li data-i18n="rp-l5"><strong>In-Cycle Retainers:</strong> Monthly retainer fees paid for an active billing cycle are non-refundable once ad management, campaign optimization, or creative testing work has begun.</li>
+                            <li data-i18n="rp-l6"><strong>Ad Spend:</strong> Direct ad spend payments made to ad networks (Meta, Google, TikTok) are billed directly by those platforms and are outside the scope of Grow Up refunds.</li>
                         </ul>
 
-                        <h2>4. Service Discrepancies &amp; Remediation</h2>
-                        <p>If a technical tracking pipeline or custom script fails to function as specified in the agreed project scope due to an internal engineering error, I will provide prompt remediation and debugging within 7 business days at no additional charge.</p>
+                        <h2 data-i18n="rp-h4">4. Service Discrepancies &amp; Remediation</h2>
+                        <p data-i18n="rp-p4">If a technical tracking pipeline or custom script fails to function as specified in the agreed project scope due to an internal engineering error, I will provide prompt remediation and debugging within 7 business days at no additional charge.</p>
 
-                        <h2>5. Refund Request Process</h2>
-                        <p>To submit a formal refund or cancellation request, please follow these steps:</p>
+                        <h2 data-i18n="rp-h5">5. Refund Request Process</h2>
+                        <p data-i18n="rp-p5">To submit a formal refund or cancellation request, please follow these steps:</p>
                         <ul>
-                            <li>Send an email or submit a message via the <a href="/contact" style="color: var(--primary);">Contact Page</a> with the subject line <code>"Refund Request - [Invoice Number]"</code>.</li>
-                            <li>Provide transaction details, booking references, and the specific reason for your request.</li>
-                            <li>Approved refunds are processed back to the original payment method (bKash, Nagad, Direct Bank Wire, or Card) within 5 to 10 business days.</li>
+                            <li data-i18n="rp-l7">Send an email or submit a message via the <a href="/contact" style="color: var(--primary);">Contact Page</a> with the subject line <code>"Refund Request - [Invoice Number]"</code>.</li>
+                            <li data-i18n="rp-l8">Provide transaction details, booking references, and the specific reason for your request.</li>
+                            <li data-i18n="rp-l9">Approved refunds are processed back to the original payment method (bKash, Nagad, Direct Bank Wire, or Card) within 5 to 10 business days.</li>
                         </ul>
 
-                        <h2>6. Contact Information</h2>
-                        <p>For billing inquiries or questions about this Refund &amp; Cancellation Policy, please contact me directly:</p>
+                        <h2 data-i18n="rp-h6">6. Contact Information</h2>
+                        <p data-i18n="rp-p6">For billing inquiries or questions about this Refund &amp; Cancellation Policy, please contact me directly:</p>
                         <ul>
-                            <li><strong>Brand:</strong> Grow Up / Mizanul Islam</li>
-                            <li><strong>Address:</strong> Behind Hazrat Shahjalal International Airport, Cybercity Square, Dhaka, Bangladesh - 1230</li>
-                            <li><strong>Support Form:</strong> <a href="/contact" style="color: var(--primary);">Get in Touch</a></li>
+                            <li><strong data-i18n="rp-brand-label">Brand:</strong> Grow Up / Mizanul Islam</li>
+                            <li><strong data-i18n="rp-address-label">Address:</strong> Behind Hazrat Shahjalal International Airport, Cybercity Square, Dhaka, Bangladesh - 1230</li>
+                            <li><strong data-i18n="rp-contact-label">Support Form:</strong> <a href="/contact" style="color: var(--primary);" data-i18n="rp-contact-link">Get in Touch</a></li>
                         </ul>
 
                     </div>
@@ -297,6 +310,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
 </html>

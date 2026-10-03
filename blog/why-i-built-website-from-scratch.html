@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://static.cloudflareinsights.com; frame-src https://www.googletagmanager.com;">
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <link rel="canonical" href="https://www.mizanulislam.com/blog/why-i-built-website-from-scratch" />
+
+    <title>Why I Built This Website from Scratch (Instead of Using WordPress) | Mizanul Islam</title>
+    <meta name="title" content="Why I Built This Website from Scratch (Instead of Using WordPress) | Mizanul Islam">
+    <meta name="description" content="Building this site from scratch taught me more about technical SEO, schema markup, and growth infrastructure than any course could. Here is what I learned.">
+    <meta name="author" content="Mizanul Islam">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.mizanulislam.com/blog/why-i-built-website-from-scratch">
+    <meta property="og:title" content="Why I Built This Website from Scratch (Instead of Using WordPress)">
+    <meta property="og:description" content="Building this site from scratch taught me more about technical SEO, schema markup, and growth infrastructure than any course could.">
+    <meta property="og:image" content="https://www.mizanulislam.com/images/blog/website-from-scratch-thumb.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Custom website built from scratch — code editor screenshot">
+    <meta property="og:site_name" content="Mizanul Islam">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2026-09-28T10:00:00+06:00">
+    <meta property="article:author" content="Mizanul Islam">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.mizanulislam.com/blog/why-i-built-website-from-scratch">
+    <meta name="twitter:title" content="Why I Built This Website from Scratch (Instead of Using WordPress)">
+    <meta name="twitter:description" content="Building this site from scratch taught me more than any course could. Here is what I learned.">
+    <meta name="twitter:image" content="https://www.mizanulislam.com/images/blog/website-from-scratch-thumb.jpg">
+    <meta name="twitter:image:alt" content="Custom website built from scratch">
+
+    <link rel="stylesheet" href="/style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://www.mizanulislam.com/blog/why-i-built-website-from-scratch#article",
+      "url": "https://www.mizanulislam.com/blog/why-i-built-website-from-scratch",
+      "headline": "Why I Built This Website from Scratch (Instead of Using WordPress)",
+      "description": "Building this site from scratch taught me more about technical SEO, schema markup, and growth infrastructure than any course could. Here is what I learned.",
+      "image": "https://www.mizanulislam.com/images/blog/website-from-scratch-thumb.jpg",
+      "datePublished": "2026-09-28",
+      "dateModified": "2026-09-28",
+      "inLanguage": "en",
+      
+      "author": {
+        "@type": "Person",
+        "@id": "https://www.mizanulislam.com/#person",
+        "name": "Mizanul Islam",
+        "url": "https://www.mizanulislam.com",
+        "jobTitle": "Meta Ads Practitioner & Growth Systems Builder"
+      },
+      
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.mizanulislam.com/#organization",
+        "name": "Grow Up",
+        "url": "https://www.mizanulislam.com/growup",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.mizanulislam.com/favicon-96x96.png",
+          "width": 96,
+          "height": 96
+        }
+      },
+      
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.mizanulislam.com/blog/why-i-built-website-from-scratch"
+      },
+      
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": "https://www.mizanulislam.com/blog#blog",
+        "name": "Growth Blog — Mizanul Islam",
+        "url": "https://www.mizanulislam.com/blog"
+      },
+      
+      "keywords": "custom website, technical SEO, schema markup, Cloudflare Pages, HTML CSS JavaScript",
+      "articleSection": "Learning Journal"
+    }
+    </script>
+
+    <style>
+        .post-hero {
+            padding-top: 120px;
+            padding-bottom: 30px;
+            background: radial-gradient(circle at top center, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+        }
+        .post-hero .container {
+            max-width: 800px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-bottom: 24px;
+            transition: var(--transition);
+        }
+        .back-link:hover {
+            color: var(--primary);
+        }
+        .post-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            padding: 5px 12px;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .post-hero h1 {
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin: 0 0 20px;
+            color: var(--text-main);
+        }
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+        .post-meta .dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--text-muted);
+        }
+
+        .post-hero-image {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 20px;
+        }
+        .post-hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            display: block;
+        }
+        .post-hero-image .image-placeholder {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(16, 185, 129, 0.02) 100%);
+            border: 1px dashed var(--border-color);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            padding: 20px;
+            text-align: center;
+        }
+        .post-hero-image .image-placeholder .emoji {
+            font-size: 3rem;
+        }
+
+        .article-wrapper {
+            padding: 20px 0 80px;
+        }
+        .article-body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            color: var(--text-muted);
+            font-size: 1.02rem;
+            line-height: 1.85;
+        }
+        .article-body p {
+            margin: 0 0 22px;
+        }
+        .article-body h2 {
+            color: var(--text-main);
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            margin: 45px 0 18px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        .article-body h3 {
+            color: var(--text-main);
+            font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+            margin: 35px 0 14px;
+            line-height: 1.35;
+            font-weight: 700;
+        }
+        .article-body ul, .article-body ol {
+            margin: 0 0 22px;
+            padding-left: 24px;
+        }
+        .article-body li {
+            margin-bottom: 10px;
+        }
+        .article-body strong {
+            color: var(--text-main);
+            font-weight: 700;
+        }
+        .article-body a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+        .article-body a:hover {
+            border-bottom-color: var(--primary);
+        }
+        .article-body code {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: var(--text-main);
+        }
+
+        .highlight-box {
+            background: rgba(16, 185, 129, 0.06);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 12px;
+            padding: 22px 26px;
+            margin: 30px 0;
+            color: var(--text-main);
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+        .highlight-box strong {
+            color: var(--primary);
+        }
+
+        .post-cta {
+            max-width: 800px;
+            margin: 60px auto 0;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, var(--bg-card) 60%);
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 18px;
+            text-align: center;
+        }
+        .post-cta h3 {
+            color: var(--text-main);
+            font-size: 1.4rem;
+            margin: 0 0 12px;
+        }
+        .post-cta p {
+            color: var(--text-muted);
+            max-width: 480px;
+            margin: 0 auto 24px;
+            line-height: 1.65;
+        }
+
+        .related-section {
+            padding: 60px 0 80px;
+            border-top: 1px solid var(--border-color);
+        }
+        .related-section h3 {
+            text-align: center;
+            font-size: 1.4rem;
+            margin: 0 0 30px;
+            color: var(--text-main);
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .related-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 22px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .related-card:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+            transform: translateY(-3px);
+        }
+        .related-card .tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .related-card h4 {
+            color: var(--text-main);
+            font-size: 1.02rem;
+            margin: 0 0 8px;
+            line-height: 1.4;
+        }
+        .related-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0;
+            line-height: 1.55;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="site-header" id="siteHeader" role="banner">
+        <div class="container nav-container">
+            <a href="/" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
+            
+            <nav class="main-nav desktop-only" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link active" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
+
+            <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation Drawer">
+        <div class="drawer-header">
+            <a href="/" class="brand-logo">Mizanul<span> Islam</span></a>
+            <button class="drawer-close" id="drawerClose" aria-label="Close navigation menu">&times;</button>
+        </div>
+        <nav class="drawer-nav" id="drawerNav">
+            <ul>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main id="main-content" role="main">
+        
+        <!-- POST HERO -->
+        <section class="post-hero">
+            <div class="container">
+                <a href="/blog" class="back-link">← Back to Blog</a>
+                <span class="post-tag">Learning Journal</span>
+                <h1>Why I Built This Website from Scratch (Instead of Using WordPress)</h1>
+                <div class="post-meta">
+                    <span>Mizanul Islam</span>
+                    <span class="dot"></span>
+                    <span>Sep 28, 2026</span>
+                    <span class="dot"></span>
+                    <span>7 min read</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- HERO IMAGE -->
+        <div class="post-hero-image">
+            <div class="image-placeholder">
+                <div class="emoji">📸</div>
+                <div><strong>Screenshot placeholder</strong></div>
+                <div>Take a screenshot of your VS Code editor with the HTML file open</div>
+                <div style="font-size: 0.85rem; opacity: 0.7;">Save as: /images/blog/website-from-scratch-thumb.jpg</div>
+            </div>
+            <!-- ছবি যোগ করার পর উপরের placeholder মুছে এই img ব্যবহার করবেন:
+            <img src="/images/blog/website-from-scratch-thumb.jpg" alt="VS Code editor showing custom HTML code" width="1200" height="630" loading="eager">
+            -->
+        </div>
+
+        <!-- ARTICLE BODY -->
+        <section class="article-wrapper">
+            <div class="article-body">
+
+                <p>When I decided to start learning digital marketing seriously, I had a choice: spin up a WordPress site in an hour, or build everything from scratch. I chose scratch — and it turned out to be the best decision of my learning journey.</p>
+
+                <p>This post walks through <strong>why</strong> I made that choice, <strong>what</strong> I actually built, and <strong>what I learned</strong> along the way — with real screenshots from the work.</p>
+
+                <h2>Why Not WordPress?</h2>
+
+                <p>WordPress is a great tool. Millions of businesses run on it. But for my specific situation, it had three problems:</p>
+
+                <ul>
+                    <li><strong>Too much abstraction.</strong> I wanted to understand what was actually happening under the hood — not just click buttons in a page builder.</li>
+                    <li><strong>Learning gap.</strong> If something broke on a WordPress site, I would have to Google the fix instead of understanding the root cause.</li>
+                    <li><strong>SEO control.</strong> I wanted full control over schema markup, canonical tags, redirects, and meta tags. WordPress plugins give you 80% of this — but not 100%.</li>
+                </ul>
+
+                <p>So I decided to build everything by hand. HTML, CSS, JavaScript. From scratch.</p>
+
+                <h2>What "From Scratch" Actually Means</h2>
+
+                <p>I did not use React, Next.js, or any framework. I wrote every line of HTML, CSS, and JavaScript myself. The setup:</p>
+
+                <ul>
+                    <li><strong>Code editor:</strong> VS Code</li>
+                    <li><strong>Hosting:</strong> Cloudflare Pages (free, global CDN)</li>
+                    <li><strong>Version control:</strong> GitHub</li>
+                    <li><strong>Domain:</strong> mizanulislam.com</li>
+                    <li><strong>Forms:</strong> Cloudflare Pages Function + Resend API</li>
+                </ul>
+
+                <p>No page builders. No plugins. No bloat.</p>
+
+                <h2>What I Built</h2>
+
+                <p>The site itself is the case study. Here is what is actually running:</p>
+
+                <h3>1. Nine Types of Schema Markup</h3>
+
+                <p>Every page has structured data that tells Google exactly what the content means:</p>
+
+                <ul>
+                    <li><strong>WebSite</strong> — site-wide identity</li>
+                    <li><strong>Person</strong> — my entity as a practitioner</li>
+                    <li><strong>Organization</strong> — Grow Up as a brand</li>
+                    <li><strong>FAQPage</strong> — homepage questions</li>
+                    <li><strong>Service</strong> — services catalog</li>
+                    <li><strong>AboutPage</strong> — about section</li>
+                    <li><strong>ProfilePage</strong> — portfolio page</li>
+                    <li><strong>Blog + BlogPosting</strong> — content pages</li>
+                    <li><strong>ContactPage</strong> — contact information</li>
+                </ul>
+
+                <p>All cross-referenced using <code>@id</code> so Google understands the entity relationships: Person ↔ Organization ↔ WebSite.</p>
+
+                <h3>2. Clean URL Architecture</h3>
+
+                <p>Every URL is clean — no <code>.html</code> extensions, no query parameters, no trailing slashes. This is handled by Cloudflare Pages automatically, plus a <code>_redirects</code> file that catches any old URLs from the Blogspot migration.</p>
+
+                <h3>3. Serverless Form Handling</h3>
+
+                <p>The consultation form on the homepage does not go through a third-party service. Instead, it hits a Cloudflare Function that:</p>
+
+                <ul>
+                    <li>Validates the input</li>
+                    <li>Sends an email via Resend API</li>
+                    <li>Returns a success response</li>
+                </ul>
+
+                <p>No dependencies, no rate limits from a third party, no tracking pixels embedded in the form.</p>
+
+                <h2>What I Would Do Differently</h2>
+
+                <p>Two things:</p>
+
+                <ol>
+                    <li><strong>Add analytics from day one.</strong> I set up GA4 and GTM a few weeks after launch, and I lost some early data because of it.</li>
+                    <li><strong>Test mobile earlier.</strong> I built desktop-first, then retrofitted responsiveness. It worked, but it would have been cleaner to design mobile-first from the start.</li>
+                </ol>
+
+                <h2>The Real Lesson</h2>
+
+                <div class="highlight-box">
+                    <strong>Building teaches faster than consuming.</strong> You can watch a hundred tutorials on technical SEO — but until you actually implement schema markup, fix a broken CSP, or debug a sitemap, you do not really understand it.
+                </div>
+
+                <p>If you are learning marketing, try building something small. A landing page. A tracker. A simple tool. You will learn more in a week than in a month of tutorials.</p>
+
+                <p>The goal is not to become a developer. The goal is to become a marketer who understands what is actually happening under the hood — and can make better decisions because of it.</p>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="post-cta">
+                <h3>Want to work through this together?</h3>
+                <p>Book a free 15-minute discovery call. I'll walk you through the setup, tools, and process behind this build.</p>
+                <a href="/consultation" class="btn btn-primary" style="padding: 14px 28px;">Book Free Discovery Call</a>
+            </div>
+        </section>
+
+        <!-- RELATED POSTS -->
+        <section class="related-section">
+            <div class="container">
+                <h3>Related Reading</h3>
+                <div class="related-grid">
+
+                    <a href="/blog/complete-analytics-stack-zaraz" class="related-card">
+                        <span class="tag">Tracking</span>
+                        <h4>How I Set Up Complete Analytics on a Custom Static Site</h4>
+                        <p>GTM + GA4 + Cloudflare Zaraz — after 2 days of debugging.</p>
+                    </a>
+
+                    <a href="/blog/meta-capi-ios-tracking" class="related-card">
+                        <span class="tag">Tracking</span>
+                        <h4>Meta CAPI Setup: Stop Losing iOS Conversions</h4>
+                        <p>Server-side Conversions API recovers lost signals.</p>
+                    </a>
+
+                    <a href="/blog/cro-checklist-landing-pages" class="related-card">
+                        <span class="tag">CRO</span>
+                        <h4>A Simple CRO Checklist for Landing Pages</h4>
+                        <p>Five checks that lift conversion rate without a redesign.</p>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-container">
+            <div class="footer-tagline-heading">
+                <h2>building growth infrastructure.</h2>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>SERVICES</h3>
+                    <ul>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/consultation">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>TOOLS</h3>
+                    <ul>
+                        <li><a href="/#tools">WA Link Generator</a></li>
+                        <li><a href="/#tools">UTM Builder</a></li>
+                        <li><a href="/#tools">A/B Test Evaluator</a></li>
+                        <li><a href="/#tools">Budget Allocator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>COMPANY</h3>
+                    <ul>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/pm">Portfolio</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>LEGAL</h3>
+                    <ul>
+                        <li><a href="/terms">Terms</a></li>
+                        <li><a href="/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="/disclaimer">Disclaimer</a></li>
+                        <li><a href="/refund-policy">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-address-section">
+                <p>Behind, Hazrat Shahjalal International Airport, Cybercity, Square,<br>Dhaka, Bangladesh - 1230</p>
+            </div>
+
+            <div class="footer-social-wrapper">
+                <a href="https://youtube.com/@mizanulislam.digital?si=9VNnHbl-19vAww41" class="social-circle" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/mizanulislam.digital?igsh=Ymcxa3d5enhxajlk" class="social-circle" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/mizanulislam-digital" class="social-circle" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="mailto:mail.mizanulislam@gmail.com" class="social-circle" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l1.324 1.07 2.5 2.025 2.5-2.025 1.324-1.07 4.566 5.642h-16.78l4.566-5.642zm11.201 1.453l4.623-3.746v9.458l-4.623-5.712z"/></svg>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mizanul Islam. All rights reserved.</p>
+                <p class="brand-owner">A brand by <a href="/growup">Grow Up</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+    <script src="/theme-lang.js"></script>
+    <script src="/chat-widget.js"></script>
+</body>
+  </html>

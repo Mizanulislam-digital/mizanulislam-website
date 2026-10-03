@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Clean & Compatible Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://static.cloudflareinsights.com; frame-src https://www.googletagmanager.com;">
     
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -21,7 +20,6 @@
     <meta name="description" content="Book a free 15-minute discovery call about Meta Ads, CAPI tracking, or funnel optimization. No sales pitch — just honest feedback.">
     <meta name="author" content="Mizanul Islam">
 
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.mizanulislam.com/consultation">
     <meta property="og:title" content="Book a Free Discovery Call | Mizanul Islam">
@@ -34,7 +32,6 @@
     <meta property="og:site_name" content="Mizanul Islam">
     <meta property="og:locale" content="en_US">
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://www.mizanulislam.com/consultation">
     <meta name="twitter:title" content="Book a Free Discovery Call | Mizanul Islam">
@@ -202,6 +199,9 @@
             margin: 20px 0;
             font-size: 0.9rem;
         }
+        html.theme-light .summary-box {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
         .summary-row {
             display: flex;
             justify-content: space-between;
@@ -229,15 +229,24 @@
             
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="/pm" class="nav-link">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav active">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav active" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
 
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
@@ -255,13 +264,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -269,9 +278,9 @@
     <main id="main-content" role="main">
         <section class="consultation-hero">
             <div class="container">
-                <span class="badge">Free Discovery Call</span>
-                <h1>Let's Talk About Your <span class="highlight">Meta Ads &amp; Growth</span></h1>
-                <p>Book a free 15-minute call to discuss your Meta Ads, CAPI tracking, or funnel challenges. No sales pitch — just honest feedback.</p>
+                <span class="badge" data-i18n="cons-hero-badge">Free Discovery Call</span>
+                <h1 data-i18n="cons-hero-title">Let's Talk About Your <span class="highlight">Meta Ads &amp; Growth</span></h1>
+                <p data-i18n="cons-hero-desc">Book a free 15-minute call to discuss your Meta Ads, CAPI tracking, or funnel challenges. No sales pitch — just honest feedback.</p>
             </div>
         </section>
 
@@ -280,92 +289,92 @@
                 <div class="consultation-grid">
                     
                     <div class="info-card">
-                        <h3>What I Can Help With</h3>
+                        <h3 data-i18n="cons-info-title">What I Can Help With</h3>
                         
                         <ul class="step-list">
                             <li class="step-item">
                                 <div class="step-number">1</div>
                                 <div class="step-details">
-                                    <h4>Ad Account Review</h4>
-                                    <p>Looking at your Meta or Google Ads structure to spot obvious issues — budget burn, weak creative testing, or audience overlap.</p>
+                                    <h4 data-i18n="cons-step-1-title">Ad Account Review</h4>
+                                    <p data-i18n="cons-step-1-desc">Looking at your Meta or Google Ads structure to spot obvious issues — budget burn, weak creative testing, or audience overlap.</p>
                                 </div>
                             </li>
                             <li class="step-item">
                                 <div class="step-number">2</div>
                                 <div class="step-details">
-                                    <h4>CAPI &amp; Tracking Check</h4>
-                                    <p>Looking at your pixel and CAPI setup — checking for iOS signal loss, duplicate events, and Event Match Quality.</p>
+                                    <h4 data-i18n="cons-step-2-title">CAPI &amp; Tracking Check</h4>
+                                    <p data-i18n="cons-step-2-desc">Looking at your pixel and CAPI setup — checking for iOS signal loss, duplicate events, and Event Match Quality.</p>
                                 </div>
                             </li>
                             <li class="step-item">
                                 <div class="step-number">3</div>
                                 <div class="step-details">
-                                    <h4>Funnel &amp; Landing Page Review</h4>
-                                    <p>Checking your landing page for clarity, offer framing, form friction, and mobile speed issues.</p>
+                                    <h4 data-i18n="cons-step-3-title">Funnel &amp; Landing Page Review</h4>
+                                    <p data-i18n="cons-step-3-desc">Checking your landing page for clarity, offer framing, form friction, and mobile speed issues.</p>
                                 </div>
                             </li>
                             <li class="step-item">
                                 <div class="step-number">4</div>
                                 <div class="step-details">
-                                    <h4>Basic Action Plan</h4>
-                                    <p>You'll leave with a short list of next steps — honest feedback, not overpromises.</p>
+                                    <h4 data-i18n="cons-step-4-title">Basic Action Plan</h4>
+                                    <p data-i18n="cons-step-4-desc">You'll leave with a short list of next steps — honest feedback, not overpromises.</p>
                                 </div>
                             </li>
                         </ul>
 
                         <div class="guarantee-box">
-                            <h4>&#10003; What to Expect</h4>
-                            <p>This is a free call. If I can't help you, I'll tell you honestly. No wasted time, no pressure to buy anything.</p>
+                            <h4 data-i18n="cons-guarantee-title">✓ What to Expect</h4>
+                            <p data-i18n="cons-guarantee-desc">This is a free call. If I can't help you, I'll tell you honestly. No wasted time, no pressure to buy anything.</p>
                         </div>
                     </div>
 
                     <div class="booking-card">
-                        <h3>Reserve Your Free Call</h3>
+                        <h3 data-i18n="cons-booking-title">Reserve Your Free Call</h3>
                         
                         <form id="consultationForm" class="booking-form" novalidate>
                             
                             <div class="form-group">
-                                <label>Select Session Type *</label>
+                                <label data-i18n="cons-session-label">Select Session Type *</label>
                                 <div class="session-type-grid">
                                     <div class="session-option active" data-price="0" data-duration="15 Mins">
                                         <input type="radio" name="sessionType" value="Free Discovery Call" class="radio-hidden" checked>
-                                        <h5>Free Discovery</h5>
-                                        <p>15 Mins • Free</p>
+                                        <h5 data-i18n="cons-session-1-title">Free Discovery</h5>
+                                        <p data-i18n="cons-session-1-desc">15 Mins • Free</p>
                                     </div>
                                     <div class="session-option" data-price="49" data-duration="45 Mins">
                                         <input type="radio" name="sessionType" value="Intro Strategy Call" class="radio-hidden">
-                                        <h5>Intro Strategy</h5>
-                                        <p>45 Mins • $49</p>
+                                        <h5 data-i18n="cons-session-2-title">Intro Strategy</h5>
+                                        <p data-i18n="cons-session-2-desc">45 Mins • $49</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="clientName">Full Name *</label>
+                                <label for="clientName" data-i18n="cons-form-name">Full Name *</label>
                                 <input type="text" id="clientName" name="clientName" required autocomplete="name" placeholder="John Doe">
                                 <span class="error-msg" id="err-clientName"></span>
                             </div>
 
                             <div class="form-group">
-                                <label for="clientEmail">Business Email *</label>
+                                <label for="clientEmail" data-i18n="cons-form-email">Business Email *</label>
                                 <input type="email" id="clientEmail" name="clientEmail" required autocomplete="email" placeholder="john@company.com">
                                 <span class="error-msg" id="err-clientEmail"></span>
                             </div>
 
                             <div class="form-group">
-                                <label for="websiteUrl">Website / Store URL *</label>
+                                <label for="websiteUrl" data-i18n="cons-form-website">Website / Store URL *</label>
                                 <input type="url" id="websiteUrl" name="websiteUrl" required placeholder="https://yourbrand.com">
                                 <span class="error-msg" id="err-websiteUrl"></span>
                             </div>
 
                             <div class="form-group">
-                                <label for="preferredDate">Preferred Date *</label>
+                                <label for="preferredDate" data-i18n="cons-form-date">Preferred Date *</label>
                                 <input type="date" id="preferredDate" name="preferredDate" required>
                                 <span class="error-msg" id="err-preferredDate"></span>
                             </div>
 
                             <div class="form-group">
-                                <label>Select Time Slot (UTC / GMT+6) *</label>
+                                <label data-i18n="cons-form-time-label">Select Time Slot (UTC / GMT+6) *</label>
                                 <div class="time-slots" id="timeSlotsGroup">
                                     <button type="button" class="time-slot-btn active" data-time="10:00 AM">10:00 AM</button>
                                     <button type="button" class="time-slot-btn" data-time="02:00 PM">02:00 PM</button>
@@ -379,28 +388,28 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="businessChallenge">What's Your Main Challenge? *</label>
+                                <label for="businessChallenge" data-i18n="cons-form-challenge">What's Your Main Challenge? *</label>
                                 <textarea id="businessChallenge" name="businessChallenge" rows="3" required placeholder="e.g., Meta Ads not profitable, CAPI tracking issues, low landing page conversion..."></textarea>
                                 <span class="error-msg" id="err-businessChallenge"></span>
                             </div>
 
                             <div class="summary-box">
                                 <div class="summary-row">
-                                    <span>Selected Plan:</span>
+                                    <span data-i18n="cons-summary-plan">Selected Plan:</span>
                                     <span id="summaryPlan">Free Discovery (15 Mins)</span>
                                 </div>
                                 <div class="summary-row">
-                                    <span>Topics:</span>
+                                    <span data-i18n="cons-summary-topics">Topics:</span>
                                     <span>Meta Ads / CAPI / Funnel</span>
                                 </div>
                                 <div class="summary-row total">
-                                    <span>Total Cost:</span>
+                                    <span data-i18n="cons-summary-total">Total Cost:</span>
                                     <span id="summaryPrice" class="highlight">Free</span>
                                 </div>
                             </div>
 
                             <button type="submit" id="btnBookCall" class="btn btn-primary btn-block">
-                                <span class="btn-text">Request Discovery Call</span>
+                                <span class="btn-text" data-i18n="cons-form-btn">Request Discovery Call</span>
                                 <span class="btn-spinner hidden" aria-hidden="true"></span>
                             </button>
                         </form>
@@ -482,6 +491,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
-    </html>
+</html>

@@ -719,7 +719,11 @@
             "rp-brand-label": "Brand:",
             "rp-address-label": "Address:",
             "rp-contact-label": "Support Form:",
-            "rp-contact-link": "Get in Touch"
+            "rp-contact-link": "Get in Touch",
+            
+            "bp-back": "← Back to Blog",
+            "bp-related-title": "Related Reading",
+            "bp-read-more": "Read article →"
         },
         bn: {
             // ===== NAVIGATION (all pages) =====
@@ -1431,7 +1435,11 @@
             "rp-brand-label": "ব্র্যান্ড:",
             "rp-address-label": "ঠিকানা:",
             "rp-contact-label": "Support ফর্ম:",
-            "rp-contact-link": "যোগাযোগ করুন"
+            "rp-contact-link": "যোগাযোগ করুন",
+            
+            "bp-back": "← ব্লগে ফিরুন",
+            "bp-related-title": "সম্পর্কিত পোস্ট",
+            "bp-read-more": "আর্টিকেল পড়ুন →"
         }
     };
 

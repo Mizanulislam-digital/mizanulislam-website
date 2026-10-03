@@ -639,6 +639,14 @@ html.theme-light .recent-work-section {
     letter-spacing: 0.05em;
 }
 
+/* ==========================================================================
+   BLOG ARTICLE — GREEN BOLD TEXT
+   ========================================================================== */
+.article-body strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
 /* Spinner & Toast Utilities */
 .btn-spinner { width: 16px; height: 16px; border: 2px solid rgba(0,0,0,0.3); border-top-color: #000; border-radius: 50%; animation: spin 0.8s linear infinite; }
 .hidden { display: none !important; }

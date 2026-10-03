@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Clean & Compatible Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://static.cloudflareinsights.com; frame-src https://www.googletagmanager.com;">
     
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -61,6 +60,9 @@
             border-radius: 16px;
             padding: 40px 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        html.theme-light .legal-container {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
         }
         @media (min-width: 768px) {
             .legal-container {
@@ -127,21 +129,32 @@
 
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
     <header class="site-header" id="siteHeader" role="banner">
         <div class="container nav-container">
             <a href="/" class="brand-logo" aria-label="Mizanul Islam Home">Mizanul<span> Islam</span></a>
             
             <nav class="main-nav desktop-only" aria-label="Main Navigation">
                 <ul>
-                    <li><a href="/services" class="nav-link">Services</a></li>
-                    <li><a href="/#tools" class="nav-link">Tools</a></li>
-                    <li><a href="/about" class="nav-link">About</a></li>
-                    <li><a href="/pm" class="nav-link">Portfolio</a></li>
-                    <li><a href="/case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="/blog" class="nav-link">Blog</a></li>
-                    <li><a href="/consultation" class="btn-nav">Book Strategy Call</a></li>
+                    <li><a href="/services" class="nav-link" data-i18n="nav-services">Services</a></li>
+                    <li><a href="/#tools" class="nav-link" data-i18n="nav-tools">Tools</a></li>
+                    <li><a href="/about" class="nav-link" data-i18n="nav-about">About</a></li>
+                    <li><a href="/pm" class="nav-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                    <li><a href="/case-studies" class="nav-link" data-i18n="nav-cases">Case Studies</a></li>
+                    <li><a href="/blog" class="nav-link" data-i18n="nav-blog">Blog</a></li>
+                    <li><a href="/consultation" class="btn-nav" data-i18n="nav-book">Book Strategy Call</a></li>
                 </ul>
             </nav>
+
+            <div class="header-controls">
+                <button class="control-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+                    <span class="theme-icon" id="themeIcon">🌙</span>
+                </button>
+                <button class="control-btn lang-btn" id="langToggle" aria-label="Toggle language" title="Switch language">
+                    <span id="langLabel">বাং</span>
+                </button>
+            </div>
 
             <button class="menu-toggle mobile-only" id="menuToggle" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle navigation menu">
                 <span class="hamburger-bar"></span>
@@ -159,13 +172,13 @@
         </div>
         <nav class="drawer-nav" id="drawerNav">
             <ul>
-                <li><a href="/services" class="drawer-link">Services</a></li>
-                <li><a href="/#tools" class="drawer-link">Tools</a></li>
-                <li><a href="/about" class="drawer-link">About</a></li>
-                <li><a href="/pm" class="drawer-link">Portfolio</a></li>
-                <li><a href="/case-studies" class="drawer-link">Case Studies</a></li>
-                <li><a href="/blog" class="drawer-link">Blog</a></li>
-                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link">Book Strategy Call</a></li>
+                <li><a href="/services" class="drawer-link" data-i18n="nav-services">Services</a></li>
+                <li><a href="/#tools" class="drawer-link" data-i18n="nav-tools">Tools</a></li>
+                <li><a href="/about" class="drawer-link" data-i18n="nav-about">About</a></li>
+                <li><a href="/pm" class="drawer-link" data-i18n="nav-portfolio">Portfolio</a></li>
+                <li><a href="/case-studies" class="drawer-link" data-i18n="nav-cases">Case Studies</a></li>
+                <li><a href="/blog" class="drawer-link" data-i18n="nav-blog">Blog</a></li>
+                <li><a href="/consultation" class="btn btn-primary btn-block drawer-link" data-i18n="nav-book">Book Strategy Call</a></li>
             </ul>
         </nav>
     </aside>
@@ -174,9 +187,9 @@
         
         <section class="legal-hero">
             <div class="container">
-                <span class="badge">Legal Disclosures</span>
-                <h1>General <span class="highlight">Disclaimer</span></h1>
-                <p>Important legal notices regarding performance expectations, earnings disclosures, and third-party affiliations.</p>
+                <span class="badge" data-i18n="disc-hero-badge">Legal Disclosures</span>
+                <h1 data-i18n="disc-hero-title">General <span class="highlight">Disclaimer</span></h1>
+                <p data-i18n="disc-hero-desc">Important legal notices regarding performance expectations, earnings disclosures, and third-party affiliations.</p>
             </div>
         </section>
 
@@ -185,48 +198,48 @@
                 <div class="legal-container">
                     
                     <div class="legal-meta-info">
-                        <div>Effective Date: <strong>August 22, 2026</strong></div>
-                        <div>Operated By: <strong>Mizanul Islam (Grow Up)</strong></div>
+                        <div><span data-i18n="legal-effective">Effective Date:</span> <strong>August 22, 2026</strong></div>
+                        <div><span data-i18n="legal-operated-by">Operated By:</span> <strong>Mizanul Islam (Grow Up)</strong></div>
                     </div>
 
                     <div class="legal-body">
                         
-                        <h2>1. Website Information Disclaimer</h2>
-                        <p>The information on this website — including articles, growth frameworks, strategy notes, and embedded calculators (UTM Builder, WhatsApp Link Generator, A/B Evaluator) — is published by <strong>Mizanul Islam</strong> and <strong>Grow Up</strong> for general informational and educational purposes only.</p>
-                        <p>While I try to keep content current and technically accurate, I make no express or implied warranties about the completeness, accuracy, or suitability of any marketing advice, scripts, or tracking methods described here.</p>
+                        <h2 data-i18n="disc-h1">1. Website Information Disclaimer</h2>
+                        <p data-i18n="disc-p1">The information on this website — including articles, growth frameworks, strategy notes, and embedded calculators (UTM Builder, WhatsApp Link Generator, A/B Evaluator) — is published by <strong>Mizanul Islam</strong> and <strong>Grow Up</strong> for general informational and educational purposes only.</p>
+                        <p data-i18n="disc-p2">While I try to keep content current and technically accurate, I make no express or implied warranties about the completeness, accuracy, or suitability of any marketing advice, scripts, or tracking methods described here.</p>
 
-                        <h2>2. No Earnings or Performance Guarantees</h2>
-                        <p>Performance marketing, paid acquisition (Meta, Google, TikTok Ads), and conversion optimization carry inherent commercial risks. Any frameworks, sample strategies, or illustrative metrics on this site are educational examples — not guarantees of results for your business.</p>
+                        <h2 data-i18n="disc-h2">2. No Earnings or Performance Guarantees</h2>
+                        <p data-i18n="disc-p3">Performance marketing, paid acquisition (Meta, Google, TikTok Ads), and conversion optimization carry inherent commercial risks. Any frameworks, sample strategies, or illustrative metrics on this site are educational examples — not guarantees of results for your business.</p>
 
                         <div class="legal-highlight-box">
-                            <strong>Notice on Financial &amp; Business Results:</strong> I do not guarantee specific ROAS, conversion lifts, or revenue outcomes. Results depend on product-market fit, offer quality, budget, creative, tracking quality, and market conditions. Always treat frameworks and sample numbers as educational, not promises.
+                            <strong data-i18n="disc-notice-title">Notice on Financial &amp; Business Results:</strong> <span data-i18n="disc-notice-desc">I do not guarantee specific ROAS, conversion lifts, or revenue outcomes. Results depend on product-market fit, offer quality, budget, creative, tracking quality, and market conditions. Always treat frameworks and sample numbers as educational, not promises.</span>
                         </div>
 
-                        <h2>3. Non-Affiliation with Third-Party Platforms</h2>
-                        <p>This website and the services offered by Grow Up are not endorsed by, directly affiliated with, maintained, authorized, or sponsored by any of the following third-party platforms:</p>
+                        <h2 data-i18n="disc-h3">3. Non-Affiliation with Third-Party Platforms</h2>
+                        <p data-i18n="disc-p4">This website and the services offered by Grow Up are not endorsed by, directly affiliated with, maintained, authorized, or sponsored by any of the following third-party platforms:</p>
                         <ul>
-                            <li><strong>Meta Platforms, Inc.</strong> (Facebook, Instagram, WhatsApp)</li>
-                            <li><strong>Alphabet Inc.</strong> (Google Ads, YouTube)</li>
-                            <li><strong>ByteDance Ltd.</strong> (TikTok)</li>
+                            <li data-i18n="disc-l1"><strong>Meta Platforms, Inc.</strong> (Facebook, Instagram, WhatsApp)</li>
+                            <li data-i18n="disc-l2"><strong>Alphabet Inc.</strong> (Google Ads, YouTube)</li>
+                            <li data-i18n="disc-l3"><strong>ByteDance Ltd.</strong> (TikTok)</li>
                         </ul>
-                        <p>All product names, trademarks, logos, and registered brands referenced throughout this website belong exclusively to their respective owners.</p>
+                        <p data-i18n="disc-p5">All product names, trademarks, logos, and registered brands referenced throughout this website belong exclusively to their respective owners.</p>
 
-                        <h2>4. Technical Infrastructure &amp; Custom Scripts</h2>
-                        <p>Custom tracking scripts, Server-Side Google Tag Manager (sGTM) configurations, Cloudflare Worker code, and Webhook templates provided via services are offered on an "as-is" basis.</p>
-                        <p>I assume no liability for server misconfigurations, unexpected ad account restrictions, or data anomalies resulting from unauthorized manual modifications made to tracking pipelines after hand-off.</p>
+                        <h2 data-i18n="disc-h4">4. Technical Infrastructure &amp; Custom Scripts</h2>
+                        <p data-i18n="disc-p6">Custom tracking scripts, Server-Side Google Tag Manager (sGTM) configurations, Cloudflare Worker code, and Webhook templates provided via services are offered on an "as-is" basis.</p>
+                        <p data-i18n="disc-p7">I assume no liability for server misconfigurations, unexpected ad account restrictions, or data anomalies resulting from unauthorized manual modifications made to tracking pipelines after hand-off.</p>
 
-                        <h2>5. Professional &amp; Strategy Advice</h2>
-                        <p>Strategy consultation sessions and growth audits conducted by Mizanul Islam do not constitute formal legal, accounting, or tax advice. Clients are encouraged to consult certified legal and tax professionals regarding enterprise data compliance and corporate taxation obligations in their respective regions.</p>
+                        <h2 data-i18n="disc-h5">5. Professional &amp; Strategy Advice</h2>
+                        <p data-i18n="disc-p8">Strategy consultation sessions and growth audits conducted by Mizanul Islam do not constitute formal legal, accounting, or tax advice. Clients are encouraged to consult certified legal and tax professionals regarding enterprise data compliance and corporate taxation obligations in their respective regions.</p>
 
-                        <h2>6. External Links Disclaimer</h2>
-                        <p>This website may contain hyperlinks to external third-party domains. I do not verify, monitor, or guarantee the privacy practices, reliability, or content accuracy hosted on external websites.</p>
+                        <h2 data-i18n="disc-h6">6. External Links Disclaimer</h2>
+                        <p data-i18n="disc-p9">This website may contain hyperlinks to external third-party domains. I do not verify, monitor, or guarantee the privacy practices, reliability, or content accuracy hosted on external websites.</p>
 
-                        <h2>7. Contact Information</h2>
-                        <p>For questions or formal legal inquiries regarding this Disclaimer, please reach out directly:</p>
+                        <h2 data-i18n="disc-h7">7. Contact Information</h2>
+                        <p data-i18n="disc-p10">For questions or formal legal inquiries regarding this Disclaimer, please reach out directly:</p>
                         <ul>
-                            <li><strong>Brand:</strong> Grow Up / Mizanul Islam</li>
-                            <li><strong>Address:</strong> Behind Hazrat Shahjalal International Airport, Cybercity Square, Dhaka, Bangladesh - 1230</li>
-                            <li><strong>Contact Page:</strong> <a href="/contact" style="color: var(--primary);">Get in Touch</a></li>
+                            <li><strong data-i18n="disc-brand-label">Brand:</strong> Grow Up / Mizanul Islam</li>
+                            <li><strong data-i18n="disc-address-label">Address:</strong> Behind Hazrat Shahjalal International Airport, Cybercity Square, Dhaka, Bangladesh - 1230</li>
+                            <li><strong data-i18n="disc-contact-label">Contact Page:</strong> <a href="/contact" style="color: var(--primary);" data-i18n="disc-contact-link">Get in Touch</a></li>
                         </ul>
 
                     </div>
@@ -293,6 +306,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="theme-lang.js"></script>
     <script src="chat-widget.js"></script>
 </body>
-    </html>
+</html>

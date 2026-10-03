@@ -441,6 +441,204 @@ input.invalid, select.invalid, textarea.invalid { border-color: #ef4444; }
     }
 }
 
+/* ==========================================================================
+   LIGHT THEME OVERRIDES
+   ========================================================================== */
+html.theme-light {
+    --bg-main: #f7f9fc;
+    --bg-card: #ffffff;
+    --bg-input: #f1f5f9;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --primary: #059669;
+    --primary-hover: #047857;
+}
+
+html.theme-light .site-header {
+    background: rgba(247, 249, 252, 0.85);
+}
+
+html.theme-light .site-header.scrolled {
+    background: rgba(247, 249, 252, 0.98);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+html.theme-light .mobile-drawer {
+    background-color: #ffffff;
+}
+
+html.theme-light .btn-nav,
+html.theme-light .btn-primary {
+    color: #ffffff !important;
+}
+
+html.theme-light .footer {
+    background-color: #f1f5f9;
+}
+
+/* ==========================================================================
+   HEADER CONTROLS (Theme + Language Buttons)
+   ========================================================================== */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 16px;
+}
+
+.control-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: var(--transition);
+    font-weight: 700;
+    padding: 0;
+    font-family: inherit;
+}
+
+.control-btn:hover {
+    background: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.control-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+html.theme-light .control-btn {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.theme-icon {
+    font-size: 1.05rem;
+    line-height: 1;
+}
+
+.lang-btn {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* Hide controls on desktop-only nav on very small screens */
+@media (max-width: 767px) {
+    .header-controls {
+        margin-left: auto;
+        margin-right: 12px;
+    }
+}
+
+/* ==========================================================================
+   RECENT WORK SECTION
+   ========================================================================== */
+.recent-work-section {
+    padding: 70px 0;
+    border-top: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.01);
+}
+html.theme-light .recent-work-section {
+    background: rgba(0, 0, 0, 0.01);
+}
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-bottom: 35px;
+}
+.work-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 26px;
+    transition: var(--transition);
+}
+.work-card:hover {
+    border-color: rgba(16, 185, 129, 0.35);
+    transform: translateY(-3px);
+}
+.work-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--primary);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+.work-card h3 {
+    font-size: 1.15rem;
+    margin: 0 0 10px;
+    color: var(--text-main);
+}
+.work-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 14px;
+}
+.work-link {
+    color: var(--primary);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+.work-link:hover {
+    text-decoration: underline;
+}
+.work-cta {
+    text-align: center;
+}
+
+/* ==========================================================================
+   STATS SECTION
+   ========================================================================== */
+.stats-section {
+    padding: 50px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(16, 185, 129, 0.02);
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+@media (min-width: 700px) {
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.stat-item {
+    padding: 10px;
+}
+.stat-num {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 /* Spinner & Toast Utilities */
 .btn-spinner { width: 16px; height: 16px; border: 2px solid rgba(0,0,0,0.3); border-top-color: #000; border-radius: 50%; animation: spin 0.8s linear infinite; }
 .hidden { display: none !important; }

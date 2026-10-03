@@ -19,3 +19,12 @@
 # Portfolio migration
 /pm-index.html        /pm              301
 /pm-index             /pm              301
+
+# Blog Posts
+/blog/why-i-built-website-from-scratch.html    /blog/why-i-built-website-from-scratch    301
+/blog/complete-analytics-stack-zaraz.html      /blog/complete-analytics-stack-zaraz      301
+/blog/whatsapp-cloud-api-automation.html       /blog/whatsapp-cloud-api-automation       301
+/blog/stanford-code-in-place-python.html       /blog/stanford-code-in-place-python       301
+/blog/meta-capi-ios-tracking.html              /blog/meta-capi-ios-tracking              301
+/blog/cro-checklist-landing-pages.html         /blog/cro-checklist-landing-pages         301
+/blog/meta-ads-abo-cbo-roas.html               /blog/meta-ads-abo-cbo-roas               301
